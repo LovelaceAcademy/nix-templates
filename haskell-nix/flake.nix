@@ -11,7 +11,7 @@
       }
       ({ pkgs, system, ... }:
         let
-          hixProject = haskell-nix.hix.project {
+          hixProject = pkgs.haskell-nix.hix.project {
             src = ./.;
             evalSystem = "x86_64-linux";
           };
