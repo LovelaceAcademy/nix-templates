@@ -2,7 +2,11 @@ name: "Test"
 on:
   pull_request:
 jobs:
-  tests:
+  template_matrix:
+    strategy:
+      matrix:
+        template: [haskell-nix]
+  test:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -14,4 +18,17 @@ jobs:
       with:
         name: klarkc
         authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
-    - run: ./.github/workflows/test.sh
+    - run: nix flake check --show-trace
+  test-template:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: cachix/install-nix-action@v18
+      with:
+        extra_nix_config: |
+          access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
+    - uses: cachix/cachix-action@v12
+      with:
+        name: klarkc
+        authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+    - run: ./.github/workflows/test.sh ${{ matrix.template }}
