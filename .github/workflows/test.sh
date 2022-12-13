@@ -4,7 +4,7 @@ PWD=$(pwd)
 TEST_DIR=.test-project
 TMP_DIR=/tmp/nix-templates
 
-function check {
+function check () {
 	nix flake check --show-trace
 }
 
