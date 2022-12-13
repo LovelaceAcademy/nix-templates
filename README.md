@@ -2,7 +2,7 @@
 
 Minimal Nix flake templates
 
-How to use:
+## Usage
 
 ```bash
 nix flake init -t github:LovelaceAcademy/templates#template-name
