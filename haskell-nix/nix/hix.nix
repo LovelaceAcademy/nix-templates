@@ -1,6 +1,9 @@
 {pkgs, ...}: {
   # name = "project-name";
-  compiler-nix-name = "ghc8107"; # Version of GHC to use
+  
+  # We use the latest supported and cached version
+  # from github:input-output-hk/haskell.nix
+  compiler-nix-name = "ghc8107";
 
   # Enable for cross-platform build
   # crossPlatforms = p: pkgs.lib.optionals pkgs.stdenv.hostPlatform.isx86_64 ([
