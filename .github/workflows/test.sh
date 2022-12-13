@@ -1,10 +1,10 @@
-#!/bin/sh
+#!/bin/bash
 TMPL=$1
 PWD=$(pwd)
 TEST_DIR=.test-project
 TMP_DIR=/tmp/nix-templates
 
-function check () {
+check () {
 	nix flake check --show-trace
 }
 
