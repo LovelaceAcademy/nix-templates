@@ -10,6 +10,11 @@ Minimal reproducible nix flake templates
 nix flake init -t github:LovelaceAcademy/nix-templates#template-name
 ```
 
+### Templates
+
+- [haskell-nix](./haskell-nix)
+- [plutus](./plutus)
+
 ## FAQ
 
 ### Why the templates have `flake.lock` files?
