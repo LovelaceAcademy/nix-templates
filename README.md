@@ -1,5 +1,7 @@
 # nix-templates
 
+[![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/LovelaceAcademy/nix-templates/test.yml?branch=main&label=tests)]()
+
 Minimal reproducible nix flake templates
 
 ## Usage
