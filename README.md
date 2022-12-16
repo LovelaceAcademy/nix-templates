@@ -1,6 +1,6 @@
 # nix-templates
 
-[![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/LovelaceAcademy/nix-templates/test.yml?branch=main&label=tests)]()
+[![Test](https://github.com/LovelaceAcademy/nix-templates/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/LovelaceAcademy/nix-templates/actions/workflows/test.yml?query=branch%3Amain)
 
 Minimal reproducible nix flake templates
 
