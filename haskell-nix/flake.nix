@@ -1,13 +1,13 @@
 {
   # This is a template created by `hix init`
-  inputs.haskellNix.url = "github:input-output-hk/haskell.nix";
-  inputs.nixpkgs.follows = "haskellNix/nixpkgs-unstable";
+  inputs.haskell-nix.url = "github:input-output-hk/haskell.nix";
+  inputs.nixpkgs.follows = "haskell-nix/nixpkgs-unstable";
   inputs.utils.url = "github:ursi/flake-utils";
-  outputs = { self, utils, haskellNix, ... }@inputs:
+  outputs = { self, utils, haskell-nix, ... }@inputs:
     utils.apply-systems
       {
         inherit inputs;
-        overlays = [ haskellNix.overlay ];
+        overlays = [ haskell-nix.overlay ];
       }
       ({ pkgs, system, ... }:
         let
