@@ -101,13 +101,13 @@
     "devshell": {
       "inputs": {
         "flake-utils": [
-          "haskellNix",
+          "haskell-nix",
           "tullia",
           "std",
           "flake-utils"
         ],
         "nixpkgs": [
-          "haskellNix",
+          "haskell-nix",
           "tullia",
           "std",
           "nixpkgs"
@@ -130,13 +130,13 @@
     "dmerge": {
       "inputs": {
         "nixlib": [
-          "haskellNix",
+          "haskell-nix",
           "tullia",
           "std",
           "nixpkgs"
         ],
         "yants": [
-          "haskellNix",
+          "haskell-nix",
           "tullia",
           "std",
           "yants"
@@ -315,7 +315,7 @@
         "type": "github"
       }
     },
-    "haskellNix": {
+    "haskell-nix": {
       "inputs": {
         "HTTP": "HTTP",
         "cabal-32": "cabal-32",
@@ -330,7 +330,7 @@
         "hydra": "hydra",
         "iserv-proxy": "iserv-proxy",
         "nixpkgs": [
-          "haskellNix",
+          "haskell-nix",
           "nixpkgs-unstable"
         ],
         "nixpkgs-2003": "nixpkgs-2003",
@@ -377,7 +377,7 @@
       "inputs": {
         "nix": "nix",
         "nixpkgs": [
-          "haskellNix",
+          "haskell-nix",
           "hydra",
           "nix",
           "nixpkgs"
@@ -448,7 +448,7 @@
       "inputs": {
         "flake-utils": "flake-utils_4",
         "nixpkgs": [
-          "haskellNix",
+          "haskell-nix",
           "tullia",
           "std",
           "nixpkgs"
@@ -493,19 +493,19 @@
       "inputs": {
         "flake-compat": "flake-compat_2",
         "flake-utils": [
-          "haskellNix",
+          "haskell-nix",
           "tullia",
           "nix2container",
           "flake-utils"
         ],
         "gomod2nix": "gomod2nix",
         "nixpkgs": [
-          "haskellNix",
+          "haskell-nix",
           "tullia",
           "nixpkgs"
         ],
         "nixpkgs-lib": [
-          "haskellNix",
+          "haskell-nix",
           "tullia",
           "nixpkgs"
         ]
@@ -546,19 +546,19 @@
     "nixago": {
       "inputs": {
         "flake-utils": [
-          "haskellNix",
+          "haskell-nix",
           "tullia",
           "std",
           "flake-utils"
         ],
         "nixago-exts": [
-          "haskellNix",
+          "haskell-nix",
           "tullia",
           "std",
           "blank"
         ],
         "nixpkgs": [
-          "haskellNix",
+          "haskell-nix",
           "tullia",
           "std",
           "nixpkgs"
@@ -770,9 +770,9 @@
     },
     "root": {
       "inputs": {
-        "haskellNix": "haskellNix",
+        "haskell-nix": "haskell-nix",
         "nixpkgs": [
-          "haskellNix",
+          "haskell-nix",
           "nixpkgs-unstable"
         ],
         "utils": "utils_2"
@@ -801,14 +801,14 @@
         "dmerge": "dmerge",
         "flake-utils": "flake-utils_3",
         "makes": [
-          "haskellNix",
+          "haskell-nix",
           "tullia",
           "std",
           "blank"
         ],
         "mdbook-kroki-preprocessor": "mdbook-kroki-preprocessor",
         "microvm": [
-          "haskellNix",
+          "haskell-nix",
           "tullia",
           "std",
           "blank"
@@ -837,7 +837,7 @@
         "nix-nomad": "nix-nomad",
         "nix2container": "nix2container",
         "nixpkgs": [
-          "haskellNix",
+          "haskell-nix",
           "nixpkgs"
         ],
         "std": "std"
@@ -892,7 +892,7 @@
     "yants": {
       "inputs": {
         "nixpkgs": [
-          "haskellNix",
+          "haskell-nix",
           "tullia",
           "std",
           "nixpkgs"
