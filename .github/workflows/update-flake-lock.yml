@@ -24,12 +24,12 @@ jobs:
         with:
           name: klarkc
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
-      - name: Update flake.lock
+      - name: Update ${{ matrix.template }} flake.lock
         uses: DeterminateSystems/update-flake-lock@v15
         with:
           path-to-flake-dir: ${{ matrix.template }}
-          commit-msg: "build(deps): Bump flake.lock dependencies"
-          pr-title: "Update flake.lock" 
+          commit-msg: "build(deps): Bump ${{ matrix.template }} flake.lock dependencies"
+          pr-title: "Update ${{ matrix.template }} flake.lock" 
           pr-labels: |                  
             dependencies
             automated
