@@ -1,19 +1,27 @@
 {
-    # This is a template created by `hix init`
+  # This is a template created by `hix init`
   inputs.haskell-nix.url = "github:input-output-hk/haskell.nix";
   inputs.nixpkgs.follows = "haskell-nix/nixpkgs-unstable";
+  inputs.iohk-nix.url = "github:input-output-hk/iohk-nix";
+  inputs.CHaP.url = "github:input-output-hk/cardano-haskell-packages?ref=repo";
+  inputs.CHaP.flake = false;
   inputs.utils.url = "github:ursi/flake-utils";
   outputs = { self, utils, ... }@inputs:
     utils.apply-systems
       {
         inherit inputs;
-        overlays = [ inputs.haskell-nix.overlay ];
+        overlays = [
+          inputs.haskell-nix.overlay
+          # plutus runtime dependency
+          inputs.iohk-nix.overlays.crypto
+        ];
       }
       ({ pkgs, system, ... }:
         let
           hixProject = pkgs.haskell-nix.hix.project {
             src = ./.;
             evalSystem = "x86_64-linux";
+            inputMap = { "https://input-output-hk.github.io/cardano-haskell-packages" = inputs.CHaP; };
           };
           flake = hixProject.flake { };
         in
