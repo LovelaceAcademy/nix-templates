@@ -22,6 +22,15 @@
             src = ./.;
             evalSystem = "x86_64-linux";
             inputMap = { "https://input-output-hk.github.io/cardano-haskell-packages" = inputs.CHaP; };
+            modules = [
+              (_: {
+                # See input-output-hk/iohk-nix#488
+                packages.cardano-crypto-praos.components.library.pkgconfig =
+                  pkgs.lib.mkForce [ [ pkgs.libsodium-vrf ] ];
+                packages.cardano-crypto-class.components.library.pkgconfig =
+                  pkgs.lib.mkForce [ [ pkgs.libsodium-vrf pkgs.secp256k1 ] ];
+              })
+            ];
           };
           flake = hixProject.flake { };
         in

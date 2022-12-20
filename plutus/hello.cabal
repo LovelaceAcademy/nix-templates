@@ -15,5 +15,9 @@ executable hello
   main-is: hello.hs
   build-depends:
       base
+    , bytestring
+    , cardano-api
+    , plutus-ledger-api
     , plutus-tx
     , plutus-tx-plugin
+    , serialise
