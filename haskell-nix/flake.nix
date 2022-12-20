@@ -7,6 +7,9 @@
     utils.apply-systems
       {
         inherit inputs;
+        # TODO support additional systems
+        #  right now we can't afford to test every other system
+        systems = [ "x86_64-linux" "aarch64-linux" ];
         overlays = [ inputs.haskell-nix.overlay ];
       }
       ({ pkgs, system, ... }:
