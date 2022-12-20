@@ -1,32 +1,79 @@
 #!/bin/bash
-TMPL=$1
+SYSTEM=$1
+TMPL=$2
 PWD=$(pwd)
-TEST_DIR=.test-project
-TMP_DIR=/tmp/nix-templates
-
-check () {
-	nix flake check --show-trace
-}
+DIR=/tmp/nix-templates
+IFD_DIR=${DIR}/ifd
+SOURCE_DIR="${DIR}/source"
+TARGET_DIR=${DIR}/target
 
 # clean up any previous data
 set +ex
-rm -Rf $TMP_DIR
-rm -Rf $TEST_DIR
+rm -Rf $DIR
 set -ex
+
+check () {
+	nix flake check --show-trace --print-build-logs --verbose
+}
+
+git_init() {
+	git init
+}
+
+# wrap nix flake to fix IFD
+# see NixOS/nix#4265
+# see input-output-hg/haskell.nix#1711
+ifd_check () {
+	# we use a ifd-generated flake that filter the systems
+	# to avoid the linked IFD issue
+	cat <<EOF	>> flake.nix
+{
+	inputs = {
+		nixpkgs.url = github:NixOS/nixpkgs/nixpkgs-unstable;
+		target.url = path:$TARGET_DIR;
+		utils.url = github:ursi/flake-utils;
+	};
+
+
+	outputs = { utils, ... }@inputs:
+		utils.apply-systems
+			{
+				inherit inputs;
+				systems = [ "${SYSTEM}" ];
+			}
+			({ target, ... }: {
+				checks = target;
+			});
+}
+EOF
+	git_init
+	git add flake.nix
+	git diff --staged
+	nix flake lock --verbose
+	git diff
+	check
+}
 
 if [ "$TMPL" = "" ]; then
 	# test the project
 	check
 else
-	# test the template
-	cp -Rf . $TMP_DIR
-	FILE=$TMP_DIR/${TMPL}/flake.nix
-	sed -i "s|github:LovelaceAcademy/nix-templates|path:$PWD|g" $FILE
-	mkdir $TEST_DIR
+	mkdir -p $DIR
+	# prepare the source
+	cp -r $PWD $SOURCE_DIR
+	# any changes before the test must happen now
+	# prepare the target
 	(
-		cd $TEST_DIR
-		git init
-		nix flake init -t "${TMP_DIR}#${TMPL}"
-		check	
+		mkdir -p $TARGET_DIR
+		cd $TARGET_DIR
+		git_init
+		nix flake init -t "${SOURCE_DIR}#${TMPL}"
+	)
+	# test the target
+	# TODO Remove ifd_check workaround from test
+	(
+		mkdir $IFD_DIR
+		cd $IFD_DIR
+		ifd_check
 	)
 fi
