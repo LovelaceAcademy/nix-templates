@@ -23,7 +23,7 @@ While I agree that storing lock files in templates is not ideal, there is no way
 
 ### Will you support other systems?
 
-It depends on upstream is supporting it, and also our capacity to test in our CI. Right now only linux these systems are supported:
+It depends on upstream supporting it, and also our capacity to test in our CI. Right now only these systems are supported:
 
 - x86_64-linux
 - aarch64-linux
