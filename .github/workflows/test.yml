@@ -25,4 +25,4 @@ jobs:
         with:
           name: klarkc
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
-      - run: ./.github/workflows/test.sh ${{ system }} ${{ matrix.template }}
+      - run: ./.github/workflows/test.sh ${{ matrix.system }} ${{ matrix.template }}
