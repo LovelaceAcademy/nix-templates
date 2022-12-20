@@ -12,11 +12,9 @@
     utils.apply-systems
       {
         inherit inputs;
-        # limited by plutus 
+        # see our haskell-nix
         systems = [
-          "aarch64-darwin"
           "aarch64-linux"
-          "x86_64-darwin" 
           "x86_64-linux"
         ];
         overlays = [
