@@ -5,6 +5,8 @@
   inputs.iohk-nix.url = "github:input-output-hk/iohk-nix";
   inputs.CHaP.url = "github:input-output-hk/cardano-haskell-packages?ref=repo";
   inputs.CHaP.flake = false;
+  # to generate docs
+  inputs.plutus.url = "github:input-output-hk/plutus";
   inputs.utils.url = "github:ursi/flake-utils";
   outputs = { self, utils, ... }@inputs:
     utils.apply-systems
@@ -16,7 +18,7 @@
           inputs.iohk-nix.overlays.crypto
         ];
       }
-      ({ pkgs, system, ... }:
+      ({ pkgs, system, ... }@context:
         let
           hixProject = pkgs.haskell-nix.hix.project {
             src = ./.;
@@ -32,11 +34,32 @@
               })
             ];
           };
-          flake = hixProject.flake { };
+          hixFlake = hixProject.flake { };
+          serve-docs = import ./nix/serve-docs.nix inputs context {
+            inherit hixProject;
+            # TODO transform additionalPkgs in excludePkgs to reduce boilerplate
+            #  we could collect all entries from cabal build-depends
+            #  (maybe through hixProject.hsPkgs)
+            additionalPkgs = [ "cardano-api" ];
+          };
         in
         # Flake definition follows hello.cabal
-        flake // {
+        {
+          inherit (hixFlake) apps checks;
           legacyPackages = pkgs;
+
+          packages = hixFlake.packages // {
+            inherit serve-docs;
+          };
+
+          devShell = pkgs.mkShell {
+            inputsFrom = [
+              hixFlake.devShell
+            ];
+            buildInputs = [
+              self.packages.${system}.serve-docs
+            ];
+          };
         });
 
   # --- Flake Local Nix Configuration ----------------------------

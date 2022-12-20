@@ -115,9 +115,6 @@ package *
   -- Reduce build times, set True for production
   optimization: False
 
--- Fix no space left in device on ghc-8.6.5 compilation
---write-ghc-environment-files: never
-
 allow-newer:
   -- TODO remove allow-newer to avoid errors
   --  cardano-ledger packages need aeson >2, the following packages have a

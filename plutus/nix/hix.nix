@@ -3,6 +3,7 @@
   
   # We use the latest supported and cached version
   # from github:input-output-hk/haskell.nix
+  # TODO bump plutus GHC
   compiler-nix-name = "ghc8107";
 
   # Enable for cross-platform build

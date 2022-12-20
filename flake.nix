@@ -19,7 +19,10 @@
         plutus = {
           path = ./plutus;
           description = "A plutus template using haskell.nix";
-          welcomeText =  generalWelcomeText;
+          welcomeText = ''
+            ${generalWelcomeText}
+            Plutus docs available with `nix run .#serve-docs`
+          '';
         };
       };
     };
