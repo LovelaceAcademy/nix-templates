@@ -41,9 +41,13 @@ ifd_check () {
 				inherit inputs;
 				systems = [ "${SYSTEM}" ];
 			}
-			({ target, ... }: {
-				checks = target;
-			});
+			({ pkgs, target, system, ... }: {
+				checks = target // {
+					devShell = inputs.target.devShell.\${system};
+				};
+      });
+
+	# TODO import nixConfig from nix flakes
 	nixConfig = {
     extra-substituters = [
       "https://cache.nixos.org"
