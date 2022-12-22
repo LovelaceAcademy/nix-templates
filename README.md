@@ -40,3 +40,7 @@ It depends on the template:
 - You should hit IOG/our cache (given that you have allowed nix to). [Check here for more info](https://input-output-hk.github.io/haskell.nix/troubleshooting.html).
 - You should expect to download at least 10GB of data (from the caches)
 - If you hardware is constrained it will take more time building, using a SSD will potentially speed-up things. **Remember to close everything in the first build to not be OOM killed**.
+
+### I am getting `No such file or directory`
+
+This is a know issue (NixOS/nix#6642). Be sure to initialize a git repo before (`git init`).
