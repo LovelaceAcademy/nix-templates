@@ -14,6 +14,7 @@ nix flake init -t github:LovelaceAcademy/nix-templates#template-name
 
 - [haskell-nix](./haskell-nix)
 - [plutus](./plutus)
+- [ctl](./ctl)
 
 ## FAQ
 
