@@ -11,6 +11,7 @@ jobs:
           - ""
           - haskell-nix
           - plutus
+          - ctl
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository

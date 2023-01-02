@@ -12,6 +12,7 @@ jobs:
           - ""
           - haskell-nix
           - plutus
+          - ctl
         system:
           - "aarch64-linux"
           - "x86_64-linux"
