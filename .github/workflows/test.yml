@@ -12,10 +12,12 @@ jobs:
           - ""
           - haskell-nix
           - plutus
-          - ctl
         system:
-          - "aarch64-linux"
-          - "x86_64-linux"
+          - aarch64-linux
+          - x86_64-linux
+        include:
+          - template: ctl
+            system: x86_64-linux
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3

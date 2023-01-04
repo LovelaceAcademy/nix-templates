@@ -27,7 +27,13 @@
         ctl = {
           path = ./ctl;
           description = "A cardano-transaction-lib template using purs-nix";
-          welcomeText = "Build and run the project with `nix run`";
+          welcomeText = ''
+            You just created an cardano-transaction-lib project. Read more about it here:
+            https://github.com/Plutonomicon/cardano-transaction-lib
+
+            Development shell with `nix develop`
+            Build with `nix build`
+          '';
         };
       };
     };
