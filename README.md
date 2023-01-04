@@ -26,8 +26,8 @@ While I agree that storing lock files in templates is not ideal, there is no way
 
 It depends on upstream supporting it, and also our capacity to test in our CI. Right now only these systems are supported:
 
-- x86_64-linux
-- aarch64-linux
+- x86_64-linux (all templates)
+- aarch64-linux (haskell-nix and plutus)
 
 ### Minimal system requirements?
 
