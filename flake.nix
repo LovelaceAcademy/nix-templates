@@ -28,8 +28,8 @@
           path = ./ctl;
           description = "A cardano-transaction-lib template using purs-nix";
           welcomeText = ''
-            You just created an cardano-transaction-lib project. Read more about it here:
-            https://github.com/Plutonomicon/cardano-transaction-lib
+            You just created an cardano-transaction-lib project.
+            Read more about it here: https://github.com/Plutonomicon/cardano-transaction-lib
 
             Development shell with `nix develop`
             Build with `nix build`
