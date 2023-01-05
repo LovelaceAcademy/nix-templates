@@ -35,17 +35,27 @@ ifd_check () {
 	};
 
 
-	outputs = { utils, ... }@inputs:
+	outputs = { utils, target, ... }@inputs:
 		utils.apply-systems
 			{
 				inherit inputs;
 				systems = [ "${SYSTEM}" ];
 			}
-			({ pkgs, target, system, ... }: {
-				checks = target // {
-					devShell = inputs.target.devShell.\${system};
-				};
-      });
+      ({ pkgs, system, ... }:
+        let
+          b = builtins;
+          l = pkgs.lib;
+          flakeFields = [ "apps" "checks" "devShell" "devShells" "hydraJobs" "legacyPackages" "packages" "formatter" "overlays" ];
+        in
+        l.lists.foldl
+          (res: attrName:
+            if l.attrsets.hasAttrByPath [ attrName system ] target then res // {
+              \${attrName} = target.\${attrName}.\${system};
+            } else res)
+          { }
+          (l.lists.intersectLists flakeFields (b.attrNames target))
+      );
+
 
 	# TODO import nixConfig from nix flakes
 	nixConfig = {
