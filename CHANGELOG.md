@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.2.0](https://github.com/LovelaceAcademy/nix-templates/compare/v1.1.0...v1.2.0) (2023-01-05)
+
+
+### Features
+
+* **ctl:** lock inputs ([ae86fd6](https://github.com/LovelaceAcademy/nix-templates/commit/ae86fd6817df2b0e7470d5210d233af03fba2832))
+* **ctl:** update template with ctl-nix changes ([37cd079](https://github.com/LovelaceAcademy/nix-templates/commit/37cd079792c876054d87e79b51bb831fde7ac96f))
+* import ctl from ctl-nix ([a7626fc](https://github.com/LovelaceAcademy/nix-templates/commit/a7626fc31949d1a12e752fd2aee51bdd1e15180f))
+
+
+### Bug Fixes
+
+* add missing ctl on template lists ([0e0dd25](https://github.com/LovelaceAcademy/nix-templates/commit/0e0dd25665f8ab640e81aab1714bd36493b17eb7))
+
 ## [1.1.0](https://github.com/LovelaceAcademy/nix-templates/compare/v1.0.0...v1.1.0) (2022-12-21)
 
 
