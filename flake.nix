@@ -24,6 +24,17 @@
             Plutus docs available with `nix run .#serve-docs`
           '';
         };
+        purs-nix = {
+          path = ./purs-nix;
+          description = "A purs-nix template";
+          welcomeText = ''
+            You just created a purs-nix project.
+            Read more about it here: https://github.com/purs-nix/purs-nix
+
+            Development shell with `nix develop`
+            Build with `nix build`
+          '';
+        };
         ctl = {
           path = ./ctl;
           description = "A cardano-transaction-lib template using purs-nix";

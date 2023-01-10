@@ -16,6 +16,8 @@ jobs:
           - aarch64-linux
           - x86_64-linux
         include:
+          - template: purs-nix
+            system: x86_64-linux
           - template: ctl
             system: x86_64-linux
     runs-on: ubuntu-latest
