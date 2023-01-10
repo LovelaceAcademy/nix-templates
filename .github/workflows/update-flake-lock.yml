@@ -11,6 +11,7 @@ jobs:
           - ""
           - haskell-nix
           - plutus
+          - purs-nix
           - ctl
     runs-on: ubuntu-latest
     steps:

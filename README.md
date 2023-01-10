@@ -14,6 +14,7 @@ nix flake init -t github:LovelaceAcademy/nix-templates#template-name
 
 - [haskell-nix](./haskell-nix): A haskell.nix template using hix
 - [plutus](./plutus): A plutus template using haskell.nix
+- [purs-nix](./purs-nix): A purs-nix template
 - [ctl](./ctl): A cardano-transaction-lib template using purs-nix
 
 ## FAQ
@@ -33,8 +34,8 @@ It depends on upstream supporting it, and also our capacity to test in our CI. R
 
 It depends on the template:
 
-- haskell-nix: you'll need at least 8GB RAM and 10GB HDD
-- plutus: you'll need at least 16GB RAM (for HDD) or 12GB RAM (for SSD). At least 20GB of available space.
+- haskell-nix, purs-nix: you'll need at least 8GB RAM and 10GB HDD
+- plutus, ctl: you'll need at least 16GB RAM (for HDD) or 12GB RAM (for SSD). At least 20GB of available space.
 
 ### Why it take soo long to build?
 
