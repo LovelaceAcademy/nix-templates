@@ -36,3 +36,4 @@ jobs:
             dependencies
             automated
           token: ${{ secrets.PAT_TOKEN }}
+          branch: update_${{ matrix.template }}_flake_lock_action
