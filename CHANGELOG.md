@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/LovelaceAcademy/nix-templates/compare/v1.2.0...v1.3.0) (2023-01-10)
+
+
+### Features
+
+* **purs-nix:** add minimal template ([45ac8b5](https://github.com/LovelaceAcademy/nix-templates/commit/45ac8b5fb16125ee2b6f23ebce5ce54205e6c9c9))
+
 ## [1.2.0](https://github.com/LovelaceAcademy/nix-templates/compare/v1.1.0...v1.2.0) (2023-01-05)
 
 
