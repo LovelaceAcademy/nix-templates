@@ -3,6 +3,8 @@
     purs-nix.url = "github:purs-nix/purs-nix";
     nixpkgs.follows = "purs-nix/nixpkgs";
     utils.url = "github:ursi/flake-utils";
+    # optional
+    # ps-tools.follows = "purs-nix/ps-tools";
   };
 
   outputs = { self, utils, ... }@inputs:
