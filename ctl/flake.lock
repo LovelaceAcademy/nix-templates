@@ -2012,11 +2012,11 @@
         "utils": "utils_5"
       },
       "locked": {
-        "lastModified": 1673201902,
-        "narHash": "sha256-Ksisief6KeCiK2aAk3p704X7I0Yhs3szPFNcEp8uLA8=",
+        "lastModified": 1673584229,
+        "narHash": "sha256-o7TDgJcP2Gmo8KxfEc9SN+9bF7Mcm8rd7nGOfZ+aEn4=",
         "owner": "purs-nix",
         "repo": "purs-nix",
-        "rev": "96bc92023c9f062b8ee3744d5dcc2751b966fdc7",
+        "rev": "2ff35ef41e4e6df1c2417e741ac40952de5a74cf",
         "type": "github"
       },
       "original": {
