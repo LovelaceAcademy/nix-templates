@@ -357,6 +357,23 @@
         "type": "github"
       }
     },
+    "bignumber": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1670601264,
+        "narHash": "sha256-BLQi6q9FpJ5IAY6oBmv6AwZnoDrDdrtSymyLaAH2H+A=",
+        "owner": "mlabs-haskell",
+        "repo": "purescript-bignumber",
+        "rev": "58c51448be23c05caf51cde45bb3b09cc7169447",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mlabs-haskell",
+        "repo": "purescript-bignumber",
+        "rev": "58c51448be23c05caf51cde45bb3b09cc7169447",
+        "type": "github"
+      }
+    },
     "blank": {
       "locked": {
         "lastModified": 1625557891,
@@ -2167,18 +2184,21 @@
     },
     "ctl-nix": {
       "inputs": {
+        "bignumber": "bignumber",
         "ctl": "ctl",
         "nixpkgs": "nixpkgs_36",
+        "noble-secp256k1": "noble-secp256k1",
         "npmlock2nix": "npmlock2nix",
         "package-set-repo": "package-set-repo",
+        "toppokki": "toppokki",
         "utils": "utils_18"
       },
       "locked": {
-        "lastModified": 1674845175,
-        "narHash": "sha256-wIzxop56/Mql5TjdZzyAivDsV3xNzLxKq7B8aVk5exs=",
+        "lastModified": 1674865154,
+        "narHash": "sha256-ypAVTCe7uDjTPS7g45bUHbw+4b9EIstZEGMW+nVkDbA=",
         "owner": "LovelaceAcademy",
         "repo": "ctl-nix",
-        "rev": "34e28abff5cbe5bf706b1127d8d1e18f9f220911",
+        "rev": "4372656f89b1f8bdf33c377aa8d1b3d6db5ea445",
         "type": "github"
       },
       "original": {
@@ -9904,6 +9924,23 @@
         "type": "indirect"
       }
     },
+    "noble-secp256k1": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1670429600,
+        "narHash": "sha256-2FiqO8y1+7d6UhBjjB4hRt9JnlLIDDeiOaqb9/RVnAQ=",
+        "owner": "mlabs-haskell",
+        "repo": "purescript-noble-secp256k1",
+        "rev": "710c15c48c5afae5e0623664d982a587ff2bd177",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mlabs-haskell",
+        "repo": "purescript-noble-secp256k1",
+        "rev": "710c15c48c5afae5e0623664d982a587ff2bd177",
+        "type": "github"
+      }
+    },
     "node-process": {
       "flake": false,
       "locked": {
@@ -11475,6 +11512,23 @@
       "original": {
         "owner": "divnix",
         "repo": "std",
+        "type": "github"
+      }
+    },
+    "toppokki": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1657620478,
+        "narHash": "sha256-28FVVCcTieyPyI3DpFVk8FFprM3OJE8yO0hMcbXoWQU=",
+        "owner": "firefrorefiddle",
+        "repo": "purescript-toppokki",
+        "rev": "6983e07bf0aa55ab779bcef12df3df339a2b5bd9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "firefrorefiddle",
+        "repo": "purescript-toppokki",
+        "rev": "6983e07bf0aa55ab779bcef12df3df339a2b5bd9",
         "type": "github"
       }
     },
