@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.0](https://github.com/LovelaceAcademy/nix-templates/compare/v1.3.0...v1.4.0) (2023-01-31)
+
+
+### Features
+
+* **ctl:** bump deps and purs-nix now follows ctl-nix ([5880743](https://github.com/LovelaceAcademy/nix-templates/commit/5880743fd284cf2a1f07502be0bff842b47ca485))
+
 ## [1.3.0](https://github.com/LovelaceAcademy/nix-templates/compare/v1.2.0...v1.3.0) (2023-01-10)
 
 
