@@ -2,7 +2,7 @@
   inputs = {
     ctl-nix.url = "github:LovelaceAcademy/ctl-nix";
     nixpkgs.follows = "ctl-nix/nixpkgs";
-    purs-nix.url = "github:purs-nix/purs-nix";
+    purs-nix.follows = "ctl-nix/purs-nix";
     utils.url = "github:ursi/flake-utils";
   };
 
