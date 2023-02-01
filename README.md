@@ -15,7 +15,8 @@ nix flake init -t github:LovelaceAcademy/nix-templates#template-name
 - [haskell-nix](./haskell-nix): A haskell.nix template using hix
 - [plutus](./plutus): A plutus template using haskell.nix
 - [purs-nix](./purs-nix): A purs-nix template
-- [ctl](./ctl): A cardano-transaction-lib template using purs-nix
+- [ctl](./ctl): A minimal cardano-transaction-lib template using purs-nix
+- [ctl-full](./ctl-full): A optioned cardano-transaction-lib template using purs-nix
 
 ## FAQ
 

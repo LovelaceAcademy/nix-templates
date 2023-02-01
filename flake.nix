@@ -2,12 +2,22 @@
   description = "Nix flake templates";
 
   outputs = { self }:
-    let hsWelcomeText = ''
-      You just created an haskell.nix template using hix. Read more about it here:
-      https://input-output-hk.github.io/haskell.nix/tutorials/getting-started-flakes.html
-      Build and run the project with `nix run .#hello:exe:hello`
-      Development shell available on `nix develop`
-    ''; in
+    let
+      hsWelcomeText = ''
+        You just created an haskell.nix template using hix. Read more about it here:
+        https://input-output-hk.github.io/haskell.nix/tutorials/getting-started-flakes.html
+
+        Development shell available on `nix develop`
+        Build and run the project with `nix run .#hello:exe:hello`
+      '';
+      ctlWelcomeTeext = ''
+        You just created an cardano-transaction-lib project.
+        Read more about it here: https://github.com/Plutonomicon/cardano-transaction-lib
+
+        Development shell with `nix develop`
+        Build with `nix build`
+      '';
+    in
     {
       templates = {
         haskell-nix = {
@@ -37,14 +47,13 @@
         };
         ctl = {
           path = ./ctl;
-          description = "A cardano-transaction-lib template using purs-nix";
-          welcomeText = ''
-            You just created an cardano-transaction-lib project.
-            Read more about it here: https://github.com/Plutonomicon/cardano-transaction-lib
-
-            Development shell with `nix develop`
-            Build with `nix build`
-          '';
+          description = "A minimal cardano-transaction-lib template using purs-nix";
+          welcomeText = ctlWelcomeTeext;
+        };
+        ctl-full = {
+          path = ./ctl-full;
+          description = "A optioned cardano-transaction-lib template using purs-nix and vite";
+          welcomeText = ctlWelcomeTeext;
         };
       };
     };
