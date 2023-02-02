@@ -14,6 +14,7 @@
       overlays = with inputs.ctl-nix.inputs.ctl.overlays; [
         # needed by CTL
         purescript
+        runtime
       ];
     in
     utils.apply-systems
@@ -40,6 +41,23 @@
               # FFI dependencies
               # foreign.Main.node_modules = [];
             };
+          prebuilt = (pkgs.arion.build {
+            inherit pkgs;
+            modules = [ (pkgs.buildCtlRuntime { }) ];
+          }).outPath;
+          runtime = pkgs.writeShellApplication {
+            name = "runtime";
+            runtimeInputs = [ pkgs.arion pkgs.docker ];
+            text = ''arion --prebuilt-file ${prebuilt} "$@"'';
+          };
+          cardano-cli = pkgs.writeShellApplication {
+            name = "cardano-cli";
+            runtimeInputs = with pkgs; [ docker ];
+            text = ''
+              docker volume inspect store_node-preprod-ipc || _warn "Cardano node volume not found, run \"dev or runtime\" first."
+              docker run --rm -it -v "$(pwd)":/data -w /data -v store_node-preprod-ipc:/ipc -e CARDANO_NODE_SOCKET_PATH=/ipc/node.socket --entrypoint cardano-cli "inputoutput/cardano-node" "$@"
+            '';
+          };
           ps-command = ps.command { };
           purs-watch = pkgs.writeShellApplication {
             name = "purs-watch";
@@ -50,7 +68,7 @@
             name = "webpack";
             runtimeInputs = with pkgs; [ nodejs ];
             text = ''npx webpack "$@"'';
-          }; 
+          };
           serve = pkgs.writeShellApplication {
             name = "serve";
             runtimeInputs = with pkgs; [ webpack ];
@@ -60,15 +78,19 @@
             name = "dev";
             runtimeInputs = with pkgs; [
               concurrently
+              runtime
               purs-watch
               serve
             ];
             text = ''
               concurrently\
+                --color "auto"\
+                --prefix "[{command}]"\
                 --handle-input\
                 --restart-tries 10\
                 purs-watch\
                 serve\
+                "runtime up"
             '';
           };
           bundle = pkgs.writeShellApplication {
@@ -88,6 +110,8 @@
                 packages =
                   with pkgs;
                   [
+                    runtime
+                    cardano-cli
                     easy-ps.purescript-language-server
                     purs
                     ps-command
@@ -100,8 +124,9 @@
                 shellHook = ''
                   alias log_='printf "\033[1;32m%s\033[0m\n" "$@"'
                   alias info_='printf "\033[1;34m[INFO] %s\033[0m\n" "$@"'
+                  alias warn_='printf "\033[1;33m[WARN] %s\033[0m\n" "$@"'
                   log_ "Welcome to ctl-full shell."
-                  info_ "Available commands: webpack, purs-nix, serve, dev, bundle."
+                  info_ "Available commands: runtime, cardano-cli, webpack, purs-nix, serve, dev, bundle."
                   info_ "testnet-magic for preprod is 1"
                 '';
               };
