@@ -4,6 +4,8 @@
     nixpkgs.follows = "ctl-nix/nixpkgs";
     purs-nix.follows = "ctl-nix/purs-nix";
     utils.url = "github:ursi/flake-utils";
+    npmlock2nix.url = "github:nix-community/npmlock2nix";
+    npmlock2nix.flake = false;
   };
 
   outputs = { self, utils, ... }@inputs:
@@ -26,6 +28,8 @@
             inherit system;
             overlays = [ ctl-nix ];
           };
+          npmlock2nix = import inputs.npmlock2nix { inherit pkgs; };
+          node_modules = npmlock2nix.v1.node_modules { src = ./.; } + /node_modules;
           ps = purs-nix.purs
             {
               purescript = purs;
@@ -38,12 +42,31 @@
                   cardano-transaction-lib
                 ];
               # FFI dependencies
-              # foreign.Main.node_modules = [];
+              # TODO Affjax FFI should be in ctl-nix
+              foreign.Affjax.node_modules = node_modules;
             };
+          ps-output = ps.output { };
           ps-command = ps.command { };
+          purs-watch = pkgs.writeShellApplication {
+            name = "purs-watch";
+            runtimeInputs = with pkgs; [ entr ps-command ];
+            text = "find src | entr -s 'echo building && purs-nix compile'";
+          };
+          # TODO move ctl-full from vite to esbuild
+          #  depends on Plutonomicon/cardano-transaction-lib#1414
+          vite = pkgs.writeShellApplication {
+            name = "vite";
+            runtimeInputs = with pkgs; [ nodejs ];
+            text = ''npx vite --config vite.config.js --open "$@"'';
+          };
+          dev = pkgs.writeShellApplication {
+            name = "dev";
+            runtimeInputs = with pkgs; [ concurrently ];
+            text = "concurrently purs-watch vite";
+          };
         in
         {
-          packages.default = ps.output { };
+          packages.default = ps-output;
 
           devShells.default =
             pkgs.mkShell
@@ -54,6 +77,10 @@
                     easy-ps.purescript-language-server
                     purs
                     ps-command
+                    nodejs
+                    purs-watch
+                    vite
+                    dev
                   ];
               };
         });
