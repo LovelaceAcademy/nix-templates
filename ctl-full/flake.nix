@@ -4,6 +4,8 @@
     nixpkgs.follows = "ctl-nix/nixpkgs";
     purs-nix.follows = "ctl-nix/purs-nix";
     utils.url = "github:ursi/flake-utils";
+    npmlock2nix.url = "github:nix-community/npmlock2nix";
+    npmlock2nix.flake = false;
   };
 
   outputs = { self, utils, ... }@inputs:
@@ -27,6 +29,8 @@
             inherit system;
             overlays = [ ctl-nix ];
           };
+          npmlock2nix = import inputs.npmlock2nix { inherit pkgs; };
+          node_modules = npmlock2nix.v1.node_modules { src = ./.; } + /node_modules;
           ps = purs-nix.purs
             {
               purescript = purs;
@@ -39,7 +43,8 @@
                   cardano-transaction-lib
                 ];
               # FFI dependencies
-              # foreign.Main.node_modules = [];
+              # TODO Affjax FFI should be in ctl-nix
+              foreign.Affjax.node_modules = node_modules;
             };
           prebuilt = (pkgs.arion.build {
             inherit pkgs;
