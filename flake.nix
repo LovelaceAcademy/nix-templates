@@ -10,7 +10,7 @@
         Development shell available on `nix develop`
         Build and run the project with `nix run .#hello:exe:hello`
       '';
-      ctlWelcomeTeext = ''
+      ctlWelcomeText = ''
         You just created an cardano-transaction-lib project.
         Read more about it here: https://github.com/Plutonomicon/cardano-transaction-lib
 
@@ -48,12 +48,12 @@
         ctl = {
           path = ./ctl;
           description = "A minimal cardano-transaction-lib template using purs-nix";
-          welcomeText = ctlWelcomeTeext;
+          welcomeText = ctlWelcomeText;
         };
         ctl-full = {
           path = ./ctl-full;
-          description = "A optioned cardano-transaction-lib template using purs-nix and vite";
-          welcomeText = ctlWelcomeTeext;
+          description = "A optioned cardano-transaction-lib template using purs-nix and webpack";
+          welcomeText = ctlWelcomeText;
         };
       };
     };
