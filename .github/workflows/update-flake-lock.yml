@@ -31,7 +31,7 @@ jobs:
         uses: DeterminateSystems/update-flake-lock@v15
         with:
           path-to-flake-dir: ${{ matrix.template }}
-          commit-msg: "build(deps): Bump ${{ matrix.template }} flake.lock dependencies"
+          commit-msg: "build(${{ matrix.template }}): Bump flake.lock dependencies"
           pr-title: "Update ${{ matrix.template }} flake.lock" 
           pr-labels: |                  
             dependencies
