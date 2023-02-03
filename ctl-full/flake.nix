@@ -100,10 +100,13 @@
           };
           bundle = pkgs.writeShellApplication {
             name = "bundle";
-            runtimeInputs = with pkgs; [
-              webpack
-            ];
+            runtimeInputs = with pkgs; [ webpack ];
             text = ''BROWSER_RUNTIME=1 webpack --mode=production "$@"'';
+          };
+          docs = pkgs.writeShellApplication {
+            name = "docs";
+            runtimeInputs = with pkgs; [ nodejs ps-command ];
+            text = ''purs-nix docs && npx http-server ./generated-docs/html -o'';
           };
         in
         {
@@ -125,13 +128,14 @@
                     serve
                     dev
                     bundle
+                    docs
                   ];
                 shellHook = ''
                   alias log_='printf "\033[1;32m%s\033[0m\n" "$@"'
                   alias info_='printf "\033[1;34m[INFO] %s\033[0m\n" "$@"'
                   alias warn_='printf "\033[1;33m[WARN] %s\033[0m\n" "$@"'
                   log_ "Welcome to ctl-full shell."
-                  info_ "Available commands: runtime, cardano-cli, webpack, purs-nix, serve, dev, bundle."
+                  info_ "Available commands: runtime, cardano-cli, webpack, purs-nix, serve, dev, bundle, docs."
                   info_ "testnet-magic for preprod is 1"
                 '';
               };
