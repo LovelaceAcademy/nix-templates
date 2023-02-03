@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.5.0](https://github.com/LovelaceAcademy/nix-templates/compare/v1.4.0...v1.5.0) (2023-02-03)
+
+
+### Features
+
+* **ctl-full:** add ctl-full from ctl ([4f096d9](https://github.com/LovelaceAcademy/nix-templates/commit/4f096d9b849bdba12022f4aa65f075adc237eccf))
+* **ctl-full:** add docs ([62a5179](https://github.com/LovelaceAcademy/nix-templates/commit/62a5179abf171d91bc66d8d85b53bdc5872d6990))
+* **ctl-full:** add runtime and cardano-cli ([2ca8298](https://github.com/LovelaceAcademy/nix-templates/commit/2ca82983a0ee5c5304ca85c9c7df0bcc3cfe7658))
+* **ctl-full:** add webpack, purs-nix, serve, dev, bundle ([64f6fbe](https://github.com/LovelaceAcademy/nix-templates/commit/64f6fbec1429af27157029f767f7c30ff11f9aed))
+
+
+### Bug Fixes
+
+* **ctl-full:** add missing Affjax FFI ([eddf4ff](https://github.com/LovelaceAcademy/nix-templates/commit/eddf4ff46565522d738defe092aeb0f6ab29217d))
+* incorrect ctl-full description ([c02fd32](https://github.com/LovelaceAcademy/nix-templates/commit/c02fd324b5dd20554ad1c5a9e8f182d1cb176fd2))
+
 ## [1.4.0](https://github.com/LovelaceAcademy/nix-templates/compare/v1.3.0...v1.4.0) (2023-01-31)
 
 
