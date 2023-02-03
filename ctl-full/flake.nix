@@ -59,8 +59,8 @@
             name = "cardano-cli";
             runtimeInputs = with pkgs; [ docker ];
             text = ''
-              docker volume inspect store_node-preprod-ipc || _warn "Cardano node volume not found, run \"dev or runtime\" first."
-              docker run --rm -it -v "$(pwd)":/data -w /data -v store_node-preprod-ipc:/ipc -e CARDANO_NODE_SOCKET_PATH=/ipc/node.socket --entrypoint cardano-cli "inputoutput/cardano-node" "$@"
+              docker volume inspect store_node-preview-ipc || _warn "Cardano node volume not found, run \"dev or runtime\" first."
+              docker run --rm -it -v "$(pwd)":/data -w /data -v store_node-preview-ipc:/ipc -e CARDANO_NODE_SOCKET_PATH=/ipc/node.socket --entrypoint cardano-cli "inputoutput/cardano-node" "$@"
             '';
           };
           ps-command = ps.command { };
@@ -136,7 +136,7 @@
                   alias warn_='printf "\033[1;33m[WARN] %s\033[0m\n" "$@"'
                   log_ "Welcome to ctl-full shell."
                   info_ "Available commands: runtime, cardano-cli, webpack, purs-nix, serve, dev, bundle, docs."
-                  info_ "testnet-magic for preprod is 1"
+                  info_ "testnet-magic for preview is 2"
                 '';
               };
         });
