@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.1](https://github.com/LovelaceAcademy/nix-templates/compare/v1.5.0...v1.5.1) (2023-02-04)
+
+
+### Bug Fixes
+
+* **ctl-full:** cardano-cli incorrect volume ([f9a7411](https://github.com/LovelaceAcademy/nix-templates/commit/f9a7411852849660670a42dc4b825c6c9501c926))
+
 ## [1.5.0](https://github.com/LovelaceAcademy/nix-templates/compare/v1.4.0...v1.5.0) (2023-02-03)
 
 
