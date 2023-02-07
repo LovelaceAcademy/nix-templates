@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.5.2](https://github.com/LovelaceAcademy/nix-templates/compare/v1.5.1...v1.5.2) (2023-02-07)
+
+
+### Bug Fixes
+
+* **ctl-full:** nix does not have NODE_PATH ([25c2c49](https://github.com/LovelaceAcademy/nix-templates/commit/25c2c4952d083b7fbd5c63f339ddf2198be766c6))
+* **ctl-full:** update webpack for ctl v4.0.2 ([fa309e1](https://github.com/LovelaceAcademy/nix-templates/commit/fa309e1340ccac68fad916bdf1ef8168300b7c1c))
+
 ## [1.5.1](https://github.com/LovelaceAcademy/nix-templates/compare/v1.5.0...v1.5.1) (2023-02-04)
 
 
