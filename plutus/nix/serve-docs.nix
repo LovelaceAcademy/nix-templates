@@ -26,6 +26,8 @@ let
     "plutus-tx"
     # FIXME plutus-tx-plugin doc is not building
     # "plutus-tx-plugin"
+    # FIXME plutus-script-utils doc is not building
+    # "plutus-script-utils"
     "prettyprinter-configurable"
     "word-array"
   ];
