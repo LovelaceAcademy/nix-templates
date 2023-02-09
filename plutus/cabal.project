@@ -49,6 +49,18 @@ source-repository-package
     libs/non-integral
 -- /end
 
+-- TODO remove plutus-apps source repo
+--  this is needed if you'll use anything on plutus-apps
+--  you can remove it if you don't need typed plutus or PAB
+source-repository-package
+  type: git
+  location: https://github.com/input-output-hk/plutus-apps.git
+  tag: e32722a87df72ec86b5d20b85c5b749ebdb593b3
+  --sha256: rgy0olapdz2SRlVCSK8KaxVC/EQuwB2Bf8YVOe8rG3Q=
+  subdir:
+    plutus-script-utils
+-- /end
+
 packages: ./.
 
 package *

@@ -20,4 +20,5 @@ executable hello
     , plutus-ledger-api
     , plutus-tx
     , plutus-tx-plugin
+    , plutus-script-utils
     , serialise
