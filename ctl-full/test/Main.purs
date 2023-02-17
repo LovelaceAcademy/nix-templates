@@ -40,8 +40,6 @@ import Test.Spec.Runner (defaultConfig)
 
 import Main (contract)
 
-import Ctl.Internal.Helpers (notImplemented)
-
 config :: PlutipConfig
 config =
   { host: "127.0.0.1"
