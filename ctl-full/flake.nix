@@ -14,8 +14,14 @@
       #  right now purs-nix is only compatible with x86_64-linux
       systems = [ "x86_64-linux" ];
       overlays = with inputs.ctl-nix.inputs.ctl.overlays; [
-        # needed by CTL
+        # adds: purs
         purescript
+        # adds:
+        #  arion
+        #  plutip-server
+        #  ogmios
+        #  ogmios-datum-cache
+        #  kupo
         runtime
       ];
     in
@@ -111,6 +117,16 @@
         in
         {
           packages.default = ps.output { };
+
+          checks.default = (ps.test.check { }).overrideAttrs ({ buildInputs ? [ ], ... }: {
+            buildInputs = with pkgs; buildInputs ++ [
+              plutip-server
+              postgresql
+              ogmios
+              kupo
+              ogmios-datum-cache
+            ];
+          });
 
           devShells.default =
             pkgs.mkShell

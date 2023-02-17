@@ -1,4 +1,4 @@
-module Main (main) where
+module Main (contract, main) where
 
 import Contract.Prelude
 
