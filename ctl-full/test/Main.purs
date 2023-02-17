@@ -6,13 +6,8 @@ import Contract.Prelude
   , LogLevel (Trace)
   , Unit
   , flip
-  , pure
-  , unit
-  , void
-  , discard
   )
 
-import Debug (spy)
 import Contract.Config (emptyHooks)
 import Contract.Test.Mote (TestPlanM, interpretWithConfig)
 import Contract.Test.Plutip
