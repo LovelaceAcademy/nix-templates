@@ -52,10 +52,26 @@
               # TODO Affjax FFI should be in ctl-nix
               foreign.Affjax.node_modules = node_modules;
             };
+          ps-command = ps.command { };
           prebuilt = (pkgs.arion.build {
             inherit pkgs;
             modules = [ (pkgs.buildCtlRuntime { }) ];
           }).outPath;
+          concurrent = pkgs.writeShellApplication {
+            name = "concurrent";
+            runtimeInputs = with pkgs; [
+              concurrently
+            ];
+            text = ''
+              concurrently\
+                --color "auto"\
+                --prefix "[{command}]"\
+                --handle-input\
+                --restart-tries 10\
+                "$@"
+            '';
+          };
+          # TODO move from docker runtime to a nix runtime
           runtime = pkgs.writeShellApplication {
             name = "runtime";
             runtimeInputs = [ pkgs.arion pkgs.docker ];
@@ -69,11 +85,10 @@
               docker run --rm -it -v "$(pwd)":/data -w /data -v store_node-preview-ipc:/ipc -e CARDANO_NODE_SOCKET_PATH=/ipc/node.socket --entrypoint cardano-cli "inputoutput/cardano-node" "$@"
             '';
           };
-          ps-command = ps.command { };
           purs-watch = pkgs.writeShellApplication {
             name = "purs-watch";
             runtimeInputs = with pkgs; [ entr ps-command ];
-            text = "find src | entr -s 'echo building && purs-nix compile'";
+            text = ''find {src,test} | entr -s "purs-nix $*"'';
           };
           webpack = pkgs.writeShellApplication {
             name = "webpack";
@@ -88,18 +103,14 @@
           dev = pkgs.writeShellApplication {
             name = "dev";
             runtimeInputs = with pkgs; [
-              concurrently
+              concurrent
               runtime
               purs-watch
               serve
             ];
             text = ''
-              concurrently\
-                --color "auto"\
-                --prefix "[{command}]"\
-                --handle-input\
-                --restart-tries 10\
-                purs-watch\
+              concurrent \
+                "purs-watch compile"\
                 serve\
                 "runtime up"
             '';
@@ -111,21 +122,37 @@
           };
           docs = pkgs.writeShellApplication {
             name = "docs";
-            runtimeInputs = with pkgs; [ nodejs ps-command ];
-            text = ''purs-nix docs && npx http-server ./generated-docs/html -o'';
+            runtimeInputs = with pkgs; [
+              concurrent
+              nodejs
+              purs-watch
+            ];
+            text = ''
+              concurrent \
+              "purs-watch docs" \
+              "npx http-server ./generated-docs/html -o"
+            '';
+          };
+          testInputs = with pkgs; [
+            plutip-server
+            postgresql
+            ogmios
+            kupo
+            ogmios-datum-cache
+          ];
+          # FIXME ctl-full tests not working
+          #  related to LovelaceAcademy/ctl-nix#29
+          tests = pkgs.writeShellApplication {
+            name = "tests";
+            runtimeInputs = testInputs ++ [ purs-watch ];
+            text = ''purs-watch test "$@"'';
           };
         in
         {
           packages.default = ps.output { };
 
           checks.default = (ps.test.check { }).overrideAttrs ({ buildInputs ? [ ], ... }: {
-            buildInputs = with pkgs; buildInputs ++ [
-              plutip-server
-              postgresql
-              ogmios
-              kupo
-              ogmios-datum-cache
-            ];
+            buildInputs = buildInputs ++ testInputs;
           });
 
           devShells.default =
@@ -140,18 +167,17 @@
                     purs
                     ps-command
                     purs-watch
-                    webpack
-                    serve
                     dev
                     bundle
                     docs
+                    tests
                   ];
                 shellHook = ''
                   alias log_='printf "\033[1;32m%s\033[0m\n" "$@"'
                   alias info_='printf "\033[1;34m[INFO] %s\033[0m\n" "$@"'
                   alias warn_='printf "\033[1;33m[WARN] %s\033[0m\n" "$@"'
                   log_ "Welcome to ctl-full shell."
-                  info_ "Available commands: runtime, cardano-cli, webpack, purs-nix, serve, dev, bundle, docs."
+                  info_ "Available commands: dev, tests, docs, runtime, cardano-cli, purs-nix, bundle."
                   info_ "testnet-magic for preview is 2"
                 '';
               };
