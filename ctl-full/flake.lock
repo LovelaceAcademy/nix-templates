@@ -357,57 +357,6 @@
         "type": "github"
       }
     },
-    "aeson": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1671124839,
-        "narHash": "sha256-Vg0KqvzFegqK4YsJsV2CDR0nQBut+Thcmgb5Fwxy9+c=",
-        "owner": "mlabs-haskell",
-        "repo": "purescript-aeson",
-        "rev": "9fd6e8241881d4b8ed9dcb6a80b166d3683f87b5",
-        "type": "github"
-      },
-      "original": {
-        "owner": "mlabs-haskell",
-        "repo": "purescript-aeson",
-        "rev": "9fd6e8241881d4b8ed9dcb6a80b166d3683f87b5",
-        "type": "github"
-      }
-    },
-    "bigints": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1625461426,
-        "narHash": "sha256-IwXt6mncSo2Y61nShPWBgsKjTnle1WXKnO5mgU0zGnU=",
-        "owner": "purescript-contrib",
-        "repo": "purescript-bigints",
-        "rev": "d5151e04db7e18641fbb2b5892f4198b1cab5907",
-        "type": "github"
-      },
-      "original": {
-        "owner": "purescript-contrib",
-        "repo": "purescript-bigints",
-        "rev": "d5151e04db7e18641fbb2b5892f4198b1cab5907",
-        "type": "github"
-      }
-    },
-    "bignumber": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1670601264,
-        "narHash": "sha256-BLQi6q9FpJ5IAY6oBmv6AwZnoDrDdrtSymyLaAH2H+A=",
-        "owner": "mlabs-haskell",
-        "repo": "purescript-bignumber",
-        "rev": "58c51448be23c05caf51cde45bb3b09cc7169447",
-        "type": "github"
-      },
-      "original": {
-        "owner": "mlabs-haskell",
-        "repo": "purescript-bignumber",
-        "rev": "58c51448be23c05caf51cde45bb3b09cc7169447",
-        "type": "github"
-      }
-    },
     "blank": {
       "locked": {
         "lastModified": 1625557891,
@@ -2203,16 +2152,12 @@
     },
     "ctl-nix": {
       "inputs": {
-        "aeson": "aeson",
-        "bigints": "bigints",
-        "bignumber": "bignumber",
         "ctl": "ctl",
         "nixpkgs": [
           "ctl-nix",
           "purs-nix",
           "nixpkgs"
         ],
-        "noble-secp256k1": "noble-secp256k1",
         "npmlock2nix": "npmlock2nix",
         "package-set-repo": "package-set-repo",
         "purs-nix": "purs-nix",
@@ -2220,11 +2165,11 @@
         "utils": "utils_21"
       },
       "locked": {
-        "lastModified": 1675463185,
-        "narHash": "sha256-dSTJG/3hmQjECPkQXMM24CwOW6z/77YSSpoRl+AJhzM=",
+        "lastModified": 1676662563,
+        "narHash": "sha256-O0vv24b2MOKzQ2fVxXNIw5Sr17VRzjSO+TEU6gNtaLg=",
         "owner": "LovelaceAcademy",
         "repo": "ctl-nix",
-        "rev": "59829759459afc76921eb84c24ba4350beed2dd8",
+        "rev": "6a61510d1b571809630ce6af088bd427a1fd4218",
         "type": "github"
       },
       "original": {
@@ -2746,11 +2691,11 @@
     "docs-search": {
       "flake": false,
       "locked": {
-        "lastModified": 1661787609,
-        "narHash": "sha256-jgOl8PKisRmcaHOya3HzArI3eKjVErx+XIBGminh9Zk=",
+        "lastModified": 1675992564,
+        "narHash": "sha256-Tk9VSogFHXtXe9O9vuCEfM/PV/S7plMIO0I++fCZn7U=",
         "owner": "purs-nix",
         "repo": "purescript-docs-search",
-        "rev": "4620575e21886fcbf516d0b43910ba4ead2a60d0",
+        "rev": "35822b1d6ce65b1a07f80dd9e2caf15c3ee83e2c",
         "type": "github"
       },
       "original": {
@@ -9506,23 +9451,6 @@
         "type": "github"
       }
     },
-    "noble-secp256k1": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1670429600,
-        "narHash": "sha256-2FiqO8y1+7d6UhBjjB4hRt9JnlLIDDeiOaqb9/RVnAQ=",
-        "owner": "mlabs-haskell",
-        "repo": "purescript-noble-secp256k1",
-        "rev": "710c15c48c5afae5e0623664d982a587ff2bd177",
-        "type": "github"
-      },
-      "original": {
-        "owner": "mlabs-haskell",
-        "repo": "purescript-noble-secp256k1",
-        "rev": "710c15c48c5afae5e0623664d982a587ff2bd177",
-        "type": "github"
-      }
-    },
     "node-process": {
       "flake": false,
       "locked": {
@@ -10468,11 +10396,11 @@
         "utils": "utils_19"
       },
       "locked": {
-        "lastModified": 1658374818,
-        "narHash": "sha256-WxbQ/BR4Ep8tBbaOikXechspyZlvwfL5XNmRNEnaOFo=",
+        "lastModified": 1675987041,
+        "narHash": "sha256-0aHIrngBLXO95SH+PjyTWJ7LWoFdJtx8y6oSln0l5Ak=",
         "owner": "purs-nix",
         "repo": "purescript-tools",
-        "rev": "c0f887f60ea2331dfdc5b0e8be2e732976887345",
+        "rev": "7929148939325f1fed916884c53cad3c0dfa4be7",
         "type": "github"
       },
       "original": {
@@ -10494,16 +10422,16 @@
         "utils": "utils_20"
       },
       "locked": {
-        "lastModified": 1674243386,
-        "narHash": "sha256-omj3HsqzmQVX98bBxUUaaC4ONqDanzez083f8U4wvNY=",
-        "owner": "purs-nix",
+        "lastModified": 1676585554,
+        "narHash": "sha256-lTI8W1uHB8iOkk4QbFz/yeh4UmYWqzq0cW+0Da15qg8=",
+        "owner": "LovelaceAcademy",
         "repo": "purs-nix",
-        "rev": "36912b23ccd4c13a15df80d9be0e7a190c655109",
+        "rev": "c3e19fd6a78c83806221e906860cb71d3ff55652",
         "type": "github"
       },
       "original": {
-        "owner": "purs-nix",
-        "ref": "ps-0.14",
+        "owner": "LovelaceAcademy",
+        "ref": "ctl-nix",
         "repo": "purs-nix",
         "type": "github"
       }
