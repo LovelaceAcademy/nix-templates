@@ -1,5 +1,26 @@
 # Changelog
 
+## [2.0.0](https://github.com/LovelaceAcademy/nix-templates/compare/v1.5.2...v2.0.0) (2023-02-18)
+
+
+### ⚠ BREAKING CHANGES
+
+* **ctl-full:** webpack and serve removed
+
+### Features
+
+* add additional community caches ([3dcccd6](https://github.com/LovelaceAcademy/nix-templates/commit/3dcccd6522ac6510393c79f64a60a656eceb7142))
+* **ctl-full:** add tests with plutip ([4613273](https://github.com/LovelaceAcademy/nix-templates/commit/46132736929cdbb3c45c3da4360cc12e5af94e05))
+* **ctl-full:** reorganize ctl-full commands ([2158f27](https://github.com/LovelaceAcademy/nix-templates/commit/2158f270d30196c5881ef8af1fe4ba1a78579484))
+* **plutus:** add a minimal typed plutus example, add plutus-apps ([cd127ce](https://github.com/LovelaceAcademy/nix-templates/commit/cd127ce371a3a733c66666a0d1868676ad0d9950))
+* update nix cache to fix [#55](https://github.com/LovelaceAcademy/nix-templates/issues/55) ([1a46995](https://github.com/LovelaceAcademy/nix-templates/commit/1a46995ecd9b52b8fe1ed58ab8dc2df0f2346260))
+
+
+### Bug Fixes
+
+* **ctl-full:** remove unused import ([adf226f](https://github.com/LovelaceAcademy/nix-templates/commit/adf226fb83addbf7d3f57eefa447ec49678d6981))
+* **ctl-full:** remove unused test deps ([58a01e9](https://github.com/LovelaceAcademy/nix-templates/commit/58a01e984de8772b780da443d0e555fd43014119))
+
 ## [1.5.2](https://github.com/LovelaceAcademy/nix-templates/compare/v1.5.1...v1.5.2) (2023-02-07)
 
 
