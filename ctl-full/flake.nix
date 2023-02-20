@@ -133,27 +133,29 @@
               "npx http-server ./generated-docs/html -o"
             '';
           };
-          testInputs = with pkgs; [
-            plutip-server
-            postgresql
-            ogmios
-            kupo
-            ogmios-datum-cache
-          ];
-          # FIXME ctl-full tests not working
+          # FIXME ctl-full purs-nix tests not working
           #  related to LovelaceAcademy/ctl-nix#29
+          #  so we're using tests derivation for while
           tests = pkgs.writeShellApplication {
+            # TODO we should move tests derivation to ctl-nix
             name = "tests";
-            runtimeInputs = testInputs ++ [ purs-watch ];
-            text = ''purs-watch test "$@"'';
+            runtimeInputs = with pkgs; [
+              plutip-server
+              postgresql
+              ogmios
+              kupo
+              ogmios-datum-cache
+            ];
+            text = ps.test.run { };
           };
         in
         {
           packages.default = ps.output { };
 
-          checks.default = (ps.test.check { }).overrideAttrs ({ buildInputs ? [ ], ... }: {
-            buildInputs = buildInputs ++ testInputs;
-          });
+          checks.default = pkgs.runCommand
+            "check"
+            { }
+            ''${tests}/bin/tests; touch $out'';
 
           devShells.default =
             pkgs.mkShell
