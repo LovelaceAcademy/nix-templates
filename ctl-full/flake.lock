@@ -2165,11 +2165,11 @@
         "utils": "utils_21"
       },
       "locked": {
-        "lastModified": 1676662563,
-        "narHash": "sha256-O0vv24b2MOKzQ2fVxXNIw5Sr17VRzjSO+TEU6gNtaLg=",
+        "lastModified": 1677363292,
+        "narHash": "sha256-HuA+wk4w75seU1DvSxJC4ZQef/4QhNFGM/CKU418p/s=",
         "owner": "LovelaceAcademy",
         "repo": "ctl-nix",
-        "rev": "6a61510d1b571809630ce6af088bd427a1fd4218",
+        "rev": "6f6e185211ca22705e9f8d18caa037f593769226",
         "type": "github"
       },
       "original": {
@@ -9615,22 +9615,6 @@
         "type": "github"
       }
     },
-    "npmlock2nix_2": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1673447413,
-        "narHash": "sha256-sJM82Sj8yfQYs9axEmGZ9Evzdv/kDcI9sddqJ45frrU=",
-        "owner": "nix-community",
-        "repo": "npmlock2nix",
-        "rev": "9197bbf397d76059a76310523d45df10d2e4ca81",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "repo": "npmlock2nix",
-        "type": "github"
-      }
-    },
     "ogmios": {
       "inputs": {
         "CHaP": "CHaP",
@@ -10422,11 +10406,11 @@
         "utils": "utils_20"
       },
       "locked": {
-        "lastModified": 1676585554,
-        "narHash": "sha256-lTI8W1uHB8iOkk4QbFz/yeh4UmYWqzq0cW+0Da15qg8=",
+        "lastModified": 1677362568,
+        "narHash": "sha256-VeK7497idJjV/6q+cjNMWrROaitRScUzwjvsxYA18Yk=",
         "owner": "LovelaceAcademy",
         "repo": "purs-nix",
-        "rev": "c3e19fd6a78c83806221e906860cb71d3ff55652",
+        "rev": "78c4007f84923dc1191a86ab136db5ccd98a9f02",
         "type": "github"
       },
       "original": {
@@ -10443,7 +10427,6 @@
           "ctl-nix",
           "nixpkgs"
         ],
-        "npmlock2nix": "npmlock2nix_2",
         "purs-nix": [
           "ctl-nix",
           "purs-nix"
