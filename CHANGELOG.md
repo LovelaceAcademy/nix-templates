@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.0.1](https://github.com/LovelaceAcademy/nix-templates/compare/v2.0.0...v2.0.1) (2023-02-25)
+
+
+### Bug Fixes
+
+* **ctl-full:** missing node_modules on purs-nix compile ([b7b1968](https://github.com/LovelaceAcademy/nix-templates/commit/b7b19687f291e2931ab0294143fc518e19ce24b8))
+* **ctl-full:** tests not running in checks ([3d8865d](https://github.com/LovelaceAcademy/nix-templates/commit/3d8865d6a523827b6ba2316e2b649b0c52eb7c50))
+* remove not working cache ([7b89330](https://github.com/LovelaceAcademy/nix-templates/commit/7b89330001def3465a69d12c800e8b845efe215f))
+
 ## [2.0.0](https://github.com/LovelaceAcademy/nix-templates/compare/v1.5.2...v2.0.0) (2023-02-18)
 
 
