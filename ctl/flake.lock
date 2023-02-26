@@ -2165,11 +2165,11 @@
         "utils": "utils_21"
       },
       "locked": {
-        "lastModified": 1676662563,
-        "narHash": "sha256-O0vv24b2MOKzQ2fVxXNIw5Sr17VRzjSO+TEU6gNtaLg=",
+        "lastModified": 1677365175,
+        "narHash": "sha256-hhkzOa7voGwzrMH7mjKA+5SGnCiMpFZuOfdTw2dxymo=",
         "owner": "LovelaceAcademy",
         "repo": "ctl-nix",
-        "rev": "6a61510d1b571809630ce6af088bd427a1fd4218",
+        "rev": "a7afcaa03ef8f9159b1fb943557b611427e660a9",
         "type": "github"
       },
       "original": {
@@ -10406,11 +10406,11 @@
         "utils": "utils_20"
       },
       "locked": {
-        "lastModified": 1676585554,
-        "narHash": "sha256-lTI8W1uHB8iOkk4QbFz/yeh4UmYWqzq0cW+0Da15qg8=",
+        "lastModified": 1677362568,
+        "narHash": "sha256-VeK7497idJjV/6q+cjNMWrROaitRScUzwjvsxYA18Yk=",
         "owner": "LovelaceAcademy",
         "repo": "purs-nix",
-        "rev": "c3e19fd6a78c83806221e906860cb71d3ff55652",
+        "rev": "78c4007f84923dc1191a86ab136db5ccd98a9f02",
         "type": "github"
       },
       "original": {
