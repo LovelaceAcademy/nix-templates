@@ -126,36 +126,33 @@
               "npx http-server ./generated-docs/html -o"
             '';
           };
-          # FIXME ctl-full purs-nix tests not working
-          #  related to LovelaceAcademy/ctl-nix#29
-          #  so we're using tests derivation for while
+          testRuntime = with pkgs; [
+            plutip-server
+            postgresql
+            ogmios
+            kupo
+            ogmios-datum-cache
+          ];
           tests = pkgs.writeShellApplication {
-            # TODO we should move tests derivation to ctl-nix
             name = "tests";
-            runtimeInputs = with pkgs; [
-              plutip-server
-              postgresql
-              ogmios
-              kupo
-              ogmios-datum-cache
-            ];
-            text = ps.test.run { };
+            text = ''purs-watch test "$@"'';
+            runtimeInputs = testRuntime;
           };
         in
         {
           packages.default = ps.output { };
 
-          checks.default = pkgs.runCommand
-            "check"
-            { }
-            ''${tests}/bin/tests; touch $out'';
+          checks.default = (ps.test.check { }).overrideAttrs (_: {
+            runtimeInputs = testRuntime;
+          });
 
           devShells.default =
             pkgs.mkShell
               {
                 packages =
                   with pkgs;
-                  [
+                  testRuntime
+                  ++ [
                     runtime
                     cardano-cli
                     easy-ps.purescript-language-server
