@@ -136,15 +136,16 @@
           tests = pkgs.writeShellApplication {
             name = "tests";
             text = ''purs-watch test "$@"'';
-            runtimeInputs = testRuntime;
+            runtimeInputs = testRuntime ++ [ purs-watch ];
           };
+          checks = pkgs.runCommand "checks" {
+            buildInputs = testRuntime;
+          } ''${ps.test.run { }}; touch $out'';
         in
         {
           packages.default = ps.output { };
 
-          checks.default = (ps.test.check { }).overrideAttrs (_: {
-            runtimeInputs = testRuntime;
-          });
+          checks.default = checks;
 
           devShells.default =
             pkgs.mkShell
