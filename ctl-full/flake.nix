@@ -46,10 +46,34 @@
                 ];
             };
           ps-command = ps.command { };
+          # TODO move this patch to ctl-nix
           prebuilt = (pkgs.arion.build {
             inherit pkgs;
-            modules = [ (pkgs.buildCtlRuntime { }) ];
-          }).outPath;
+            modules =
+              let
+                # add here the Slot and block header where you want to start syncing
+                slot = "11213922";
+                id = "3e9029c1dff85bad50e2a0b507d39ef4d745d24a9780b3ce5eda7df307815db2";
+                ctl-module = pkgs.buildCtlRuntime {
+                  kupo.since = "${slot}.${id}";
+                  datumCache.blockFetcher.firstBlock = {
+                    inherit slot id;
+                  };
+                };
+                ctl-module' = args:
+                  let
+                    module-ret = ctl-module args;
+                    kupo-cmd = module-ret.services.kupo.service.command;
+                  in
+                  pkgs.lib.attrsets.recursiveUpdate module-ret {
+                    # FIXME remove workaround for defer-db-indexes
+                    #  Related Plutonomicon/cardano-transaction-lib#1444
+                    services.kupo.service.command =
+                      pkgs.lib.lists.subtractLists [ "--defer-db-indexes" ] kupo-cmd;
+                  };
+              in
+              [ ctl-module' ];
+          });
           concurrent = pkgs.writeShellApplication {
             name = "concurrent";
             runtimeInputs = with pkgs; [
@@ -68,7 +92,7 @@
           runtime = pkgs.writeShellApplication {
             name = "runtime";
             runtimeInputs = [ pkgs.arion pkgs.docker ];
-            text = ''arion --prebuilt-file ${prebuilt} "$@"'';
+            text = ''arion --prebuilt-file ${prebuilt.outPath} "$@"'';
           };
           cardano-cli = pkgs.writeShellApplication {
             name = "cardano-cli";
