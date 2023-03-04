@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.1.0](https://github.com/LovelaceAcademy/nix-templates/compare/v2.0.1...v2.1.0) (2023-03-04)
+
+
+### Features
+
+* **ctl-full:** add an option to speedup dev runtime ([be3bd23](https://github.com/LovelaceAcademy/nix-templates/commit/be3bd2333d8dfe09c125643d638b710378953ceb))
+* **ctl-full:** add watch tests ([2c97c62](https://github.com/LovelaceAcademy/nix-templates/commit/2c97c62f65e938c7563a39a96e65499f5de3708f))
+* **ctl:** change from nami to eternl given nami is not signing txs ([be555c4](https://github.com/LovelaceAcademy/nix-templates/commit/be555c450d83307d90036f7e8e332a72dcfc9714))
+
+
+### Bug Fixes
+
+* **ctl-full:** check not working ([8816ade](https://github.com/LovelaceAcademy/nix-templates/commit/8816aded092033df20ebba877d7f151902d3a8e9))
+
 ## [2.0.1](https://github.com/LovelaceAcademy/nix-templates/compare/v2.0.0...v2.0.1) (2023-02-25)
 
 
