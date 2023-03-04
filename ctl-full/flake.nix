@@ -162,9 +162,10 @@
             text = ''purs-watch test "$@"'';
             runtimeInputs = testRuntime ++ [ purs-watch ];
           };
-          checks = pkgs.runCommand "checks" {
-            buildInputs = testRuntime;
-          } ''${ps.test.run { }}; touch $out'';
+          checks = pkgs.runCommand "checks"
+            {
+              buildInputs = testRuntime;
+            } ''${ps.test.run { }}; touch $out'';
         in
         {
           packages.default = ps.output { };
