@@ -8,7 +8,11 @@ import Contract.Monad (Contract, launchAff_, runContract)
 import Contract.Config (testnetEternlConfig)
 
 contract :: Contract Unit
-contract = logInfo' <<< show =<< ownPaymentPubKeyHash
+contract = do
+  validator <- liftEither validator
+  logInfo' validator
+  pk <- ownPaymentPubKeyHash
+  logInfo' $ show pk
 
 main :: Effect Unit
 main = launchAff_

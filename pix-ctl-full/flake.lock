@@ -1478,6 +1478,21 @@
         "type": "github"
       }
     },
+    "contract": {
+      "locked": {
+        "lastModified": 1677893977,
+        "narHash": "sha256-xTpaX0Q430cqYBbROlyLOau8atdtEb7OXYsZW6jNWSQ=",
+        "owner": "LovelaceAcademy",
+        "repo": "nix-templates",
+        "rev": "19e35b47f2b62d6695bf44c81c624e544e03eaad",
+        "type": "github"
+      },
+      "original": {
+        "owner": "LovelaceAcademy",
+        "repo": "nix-templates",
+        "type": "github"
+      }
+    },
     "ctl": {
       "inputs": {
         "cardano-configurations": "cardano-configurations",
@@ -7536,6 +7551,7 @@
     },
     "root": {
       "inputs": {
+        "contract": "contract",
         "ctl-nix": "ctl-nix",
         "nixpkgs": [
           "ctl-nix",
