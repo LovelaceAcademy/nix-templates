@@ -33,7 +33,7 @@ jobs:
               - ${{ matrix.template && format('{0}/**', matrix.template) || 'flake.*' }}
               - CHANGELOG.md
       - if: steps.changes.outputs.template == 'true' 
-        uses: cachix/install-nix-action@v18
+        uses: cachix/install-nix-action@v20
         with:
           extra_nix_config: |
             accept-flake-config = true
