@@ -2165,11 +2165,11 @@
         "utils": "utils_21"
       },
       "locked": {
-        "lastModified": 1677365175,
-        "narHash": "sha256-hhkzOa7voGwzrMH7mjKA+5SGnCiMpFZuOfdTw2dxymo=",
+        "lastModified": 1677893936,
+        "narHash": "sha256-qXJ1YwepHAsOu4F+r6VCMxnVAPan+HBU0wnac+V6Ylw=",
         "owner": "LovelaceAcademy",
         "repo": "ctl-nix",
-        "rev": "a7afcaa03ef8f9159b1fb943557b611427e660a9",
+        "rev": "2da3b923a8aaadc66413583de6f969f1e6a2a1cf",
         "type": "github"
       },
       "original": {
