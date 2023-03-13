@@ -52,6 +52,10 @@
         {
           inherit (hixFlake) apps checks;
           legacyPackages = pkgs;
+          
+          apps = apps // {
+            serve-docs = { type = "app"; program = serve-docs; }
+          };
 
           packages = hixFlake.packages // {
             inherit serve-docs;
