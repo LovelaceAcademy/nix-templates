@@ -54,7 +54,7 @@
           legacyPackages = pkgs;
           
           apps = apps // {
-            serve-docs = { type = "app"; program = serve-docs; }
+            serve-docs = { type = "app"; program = serve-docs; };
           };
 
           packages = hixFlake.packages // {
