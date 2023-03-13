@@ -50,7 +50,7 @@
         in
         # Flake definition follows hello.cabal
         {
-          inherit (hixFlake) apps checks;
+          inherit (hixFlake) checks;
           legacyPackages = pkgs;
           
           apps = apps // {
