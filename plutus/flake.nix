@@ -53,12 +53,15 @@
           inherit (hixFlake) checks;
           legacyPackages = pkgs;
           
-          apps = apps // {
-            serve-docs = { type = "app"; program = serve-docs; };
-          };
-
           packages = hixFlake.packages // {
             inherit serve-docs;
+          };
+          
+          apps = hixFlake.apps // {
+            serve-docs = {
+              type = "app";
+              program = self.packages.${system}.serve-docs;
+             };
           };
 
           devShell = pkgs.mkShell {
