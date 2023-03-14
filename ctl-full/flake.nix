@@ -1,6 +1,6 @@
 {
   inputs = {
-    ctl-nix.url = "github:LovelaceAcademy/ctl-nix/upgrade-ctl";
+    ctl-nix.url = "github:LovelaceAcademy/ctl-nix";
     nixpkgs.follows = "ctl-nix/nixpkgs";
     purs-nix.follows = "ctl-nix/purs-nix";
     utils.url = "github:ursi/flake-utils";
