@@ -1,5 +1,24 @@
 # Changelog
 
+## [3.0.0](https://github.com/LovelaceAcademy/nix-templates/compare/v2.1.0...v3.0.0) (2023-03-14)
+
+
+### ⚠ BREAKING CHANGES
+
+* **ctl-full:** ogmius-datum-cache and postgres removed from runtime (see LovelaceAcademy/ctl-nix for more info)
+* **ctl:** ogmius-datum-cache and postgres removed from runtime (see LovelaceAcademy/ctl-nix for more info)
+
+### Bug Fixes
+
+* remove broken iohk cache ([172daf6](https://github.com/LovelaceAcademy/nix-templates/commit/172daf6692264cf91d9e77c3100df6cdca382982))
+* remove broken plutonomicon cache ([10e3f2b](https://github.com/LovelaceAcademy/nix-templates/commit/10e3f2b882d848c5762936ef307b74a4e0789da5))
+
+
+### Build System
+
+* **ctl-full:** Bump ctl-nix ([a9930a8](https://github.com/LovelaceAcademy/nix-templates/commit/a9930a8a5280b167c02aba22b675510046089ebc))
+* **ctl:** Bump ctl-nix ([d4bf383](https://github.com/LovelaceAcademy/nix-templates/commit/d4bf3835329f51be2a2bd53906de5873664a15de))
+
 ## [2.1.0](https://github.com/LovelaceAcademy/nix-templates/compare/v2.0.1...v2.1.0) (2023-03-04)
 
 
