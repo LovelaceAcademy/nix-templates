@@ -1,6 +1,6 @@
 {
   inputs = {
-    ctl-nix.url = "github:LovelaceAcademy/ctl-nix";
+    ctl-nix.url = "github:LovelaceAcademy/ctl-nix/upgrade-ctl";
     nixpkgs.follows = "ctl-nix/nixpkgs";
     purs-nix.follows = "ctl-nix/purs-nix";
     utils.url = "github:ursi/flake-utils";
@@ -18,7 +18,6 @@
         #  arion
         #  plutip-server
         #  ogmios
-        #  ogmios-datum-cache
         #  kupo
         runtime
       ];
@@ -56,9 +55,6 @@
                 id = "3e9029c1dff85bad50e2a0b507d39ef4d745d24a9780b3ce5eda7df307815db2";
                 ctl-module = pkgs.buildCtlRuntime {
                   kupo.since = "${slot}.${id}";
-                  datumCache.blockFetcher.firstBlock = {
-                    inherit slot id;
-                  };
                 };
                 ctl-module' = args:
                   let
@@ -152,10 +148,8 @@
           };
           testRuntime = with pkgs; [
             plutip-server
-            postgresql
             ogmios
             kupo
-            ogmios-datum-cache
           ];
           tests = pkgs.writeShellApplication {
             name = "tests";
