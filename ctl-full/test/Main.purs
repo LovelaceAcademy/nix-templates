@@ -9,15 +9,24 @@ import Contract.Prelude
   )
 
 import Contract.Config (emptyHooks)
-import Contract.Test.Mote (TestPlanM, interpretWithConfig)
-import Contract.Test.Plutip
-  ( InitialUTxOs
-  , PlutipConfig
-  , PlutipTest
-  , testPlutipContracts
+import Contract.Test
+  ( ContractTest
+  , InitialUTxOs
   , withWallets
+  , withKeyWallet
   )
-import Contract.Test.Utils (exitCode, interruptOnSignal)
+import Contract.Test.Mote
+  ( TestPlanM
+  , interpretWithConfig
+  )
+import Contract.Test.Plutip
+  ( PlutipConfig
+  , testPlutipContracts
+  )
+import Contract.Test.Utils
+  ( exitCode
+  , interruptOnSignal
+  )
 import Data.BigInt as DBI
 import Data.Maybe (Maybe (Just, Nothing))
 import Data.Posix.Signal (Signal(SIGINT))
@@ -46,24 +55,11 @@ config =
       , secure: false
       , path: Nothing
       }
-  , ogmiosDatumCacheConfig:
-      { port: DU.fromInt 10000
-      , host: "127.0.0.1"
-      , secure: false
-      , path: Nothing
-      }
   , kupoConfig:
       { port: DU.fromInt 1443
       , host: "127.0.0.1"
       , secure: false
       , path: Nothing
-      }
-  , postgresConfig:
-      { host: "127.0.0.1"
-      , port: DU.fromInt 5433
-      , user: "ctxlib"
-      , password: "ctxlib"
-      , dbname: "ctxlib"
       }
   , customLogger: Nothing
   , suppressLogs: true
@@ -72,7 +68,7 @@ config =
       { slotLength: Seconds 0.05 }
   }
 
-suite :: TestPlanM PlutipTest Unit
+suite :: TestPlanM ContractTest Unit
 suite = do
   test "Print PubKey" do
     let
@@ -81,8 +77,8 @@ suite = do
         [ DBI.fromInt 5_000_000
         , DBI.fromInt 2_000_000_000
         ]
-    withWallets distribution \_ -> do
-       contract
+    withWallets distribution \w -> do
+       withKeyWallet w contract
 
 main :: Effect Unit
 main = interruptOnSignal SIGINT =<< launchAff do
