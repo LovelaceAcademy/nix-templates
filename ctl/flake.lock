@@ -1532,16 +1532,15 @@
         "utils": "utils_16"
       },
       "locked": {
-        "lastModified": 1678758428,
-        "narHash": "sha256-quw9+2BhmrggbtMIpjj8/S7hA3A8YAS+EcZTM6rNrYE=",
+        "lastModified": 1678764803,
+        "narHash": "sha256-yDKIyDY8cVBlvt7S/ETvE6VXk3YpiJPuS8k8THQZykM=",
         "owner": "LovelaceAcademy",
         "repo": "ctl-nix",
-        "rev": "5e99845624792570e704047f82328a65e6a4121a",
+        "rev": "9f8885ba87512c7004dad5239227bd7a3df3376c",
         "type": "github"
       },
       "original": {
         "owner": "LovelaceAcademy",
-        "ref": "upgrade-ctl",
         "repo": "ctl-nix",
         "type": "github"
       }
