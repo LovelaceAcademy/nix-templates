@@ -7,7 +7,7 @@ import Contract.Log (logInfo')
 import Contract.Monad (Contract, launchAff_, runContract)
 import Contract.Config (testnetEternlConfig)
 
-contract :: Contract () Unit
+contract :: Contract Unit
 contract = logInfo' <<< show =<< ownPaymentPubKeyHash
 
 main :: Effect Unit
