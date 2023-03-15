@@ -3,47 +3,51 @@
 
   outputs = { self }:
     let
-      hsWelcomeText = ''
-        You just created an haskell.nix template using hix. Read more about it here:
-        https://input-output-hk.github.io/haskell.nix/tutorials/getting-started-flakes.html
+      welcome = { project, tool, link, target ? "" }: ''
+        You just created a ${project} project using ${tool}. Read more about it here:
+        ${link}
 
         Development shell available on `nix develop`
-        Build and run the project with `nix run .#hello:exe:hello`
+        Build the project with `nix build ${target}`
+        Run the project with `nix run ${target}`
       '';
-      ctlWelcomeText = ''
-        You just created an cardano-transaction-lib project.
-        Read more about it here: https://github.com/Plutonomicon/cardano-transaction-lib
-
-        Development shell with `nix develop`
-        Build with `nix build`
-      '';
+      hixWelcomeText = welcome {
+        project = "Haskell";
+        tool = "haskell.nix (hix)";
+        link = "https://input-output-hk.github.io/haskell.nix/tutorials/getting-started-flakes.html";
+        target = ".#hello:exe:hello`";
+      };
+      ctlWelcomeText = welcome {
+        project = "cardano-transaction-lib";
+        tool = "purs-nix (pix)";
+        link = "https://github.com/Plutonomicon/cardano-transaction-lib";
+      };
+      horWelcomeText = welcome {
+        project = "Haskell";
+        tool = "horizon-platform";
+        link = "https://gitlab.homotopic.tech/horizon/horizon-platform";
+      };
     in
     {
       templates = {
         hix = {
           path = ./hix;
           description = "A haskell.nix template using hix";
-          welcomeText = hsWelcomeText;
+          welcomeText = hixWelcomeText;
         };
 
         hix-plutus = {
           path = ./hix-plutus;
           description = "A plutus template using hix";
           welcomeText = ''
-            ${hsWelcomeText}
+            ${hixWelcomeText}
             Plutus docs available with `nix run .#serve-docs`
           '';
         };
         hor = {
           path = ./hor;
           description = "A haskell template using horizon-platform";
-          welcomeText = ''
-            You just created an cardano-transaction-lib project.
-            Read more about it here: https://github.com/Plutonomicon/cardano-transaction-lib
-
-            Development shell with `nix develop`
-            Build with `nix build`
-          '';
+          welcomeText = horWelcomeText;
         };
         pix = {
           path = ./pix;
