@@ -18,6 +18,8 @@ jobs:
         include:
           - template: hor
             system: x86_64-linux
+          - template: hor-plutus
+            system: x86_64-linux
           - template: pix
             system: x86_64-linux
           - template: pix-ctl
