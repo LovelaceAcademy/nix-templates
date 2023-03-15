@@ -85,7 +85,7 @@ module.exports = {
       debug: true,
     }),
     new HtmlWebpackPlugin({
-      title: "ctl-full",
+      title: "pix-ctl-full",
       template: "./index.html",
       inject: false, // See stackoverflow.com/a/38292765/3067181
     }),

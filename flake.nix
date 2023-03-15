@@ -20,22 +20,22 @@
     in
     {
       templates = {
-        haskell-nix = {
-          path = ./haskell-nix;
+        hix = {
+          path = ./hix;
           description = "A haskell.nix template using hix";
           welcomeText = hsWelcomeText;
         };
 
-        plutus = {
-          path = ./plutus;
-          description = "A plutus template using haskell.nix";
+        hix-plutus = {
+          path = ./hix-plutus;
+          description = "A plutus template using hix";
           welcomeText = ''
             ${hsWelcomeText}
             Plutus docs available with `nix run .#serve-docs`
           '';
         };
-        purs-nix = {
-          path = ./purs-nix;
+        pix = {
+          path = ./pix;
           description = "A purs-nix template";
           welcomeText = ''
             You just created a purs-nix project.
@@ -45,14 +45,14 @@
             Build with `nix build`
           '';
         };
-        ctl = {
-          path = ./ctl;
-          description = "A minimal cardano-transaction-lib template using purs-nix";
+        pix-ctl = {
+          path = ./pix-ctl;
+          description = "A minimal cardano-transaction-lib template using pix";
           welcomeText = ctlWelcomeText;
         };
-        ctl-full = {
-          path = ./ctl-full;
-          description = "A optioned cardano-transaction-lib template using purs-nix and webpack";
+        pix-ctl-full = {
+          path = ./pix-ctl-full;
+          description = "A optioned cardano-transaction-lib template using pix and webpack";
           welcomeText = ctlWelcomeText;
         };
       };

@@ -12,7 +12,7 @@
     utils.apply-systems
       {
         inherit inputs;
-        # see our haskell-nix
+        # see our hix
         systems = [
           "aarch64-linux"
           "x86_64-linux"

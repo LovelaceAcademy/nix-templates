@@ -9,10 +9,11 @@ jobs:
       matrix:
         template:
           - ""
-          - haskell-nix
-          - plutus
-          - purs-nix
-          - ctl
+          - hix
+          - hix-plutus
+          - pix
+          - pix-ctl
+          - pix-ctl-full
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
