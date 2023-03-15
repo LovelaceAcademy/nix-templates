@@ -12,6 +12,7 @@ jobs:
           - ""
           - hix
           - hix-plutus
+          - hor
         system:
           - aarch64-linux
           - x86_64-linux
