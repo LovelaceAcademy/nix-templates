@@ -34,6 +34,17 @@
             Plutus docs available with `nix run .#serve-docs`
           '';
         };
+        hor = {
+          path = ./hor;
+          description = "A haskell template using horizon-platform";
+          welcomeText = ''
+            You just created an cardano-transaction-lib project.
+            Read more about it here: https://github.com/Plutonomicon/cardano-transaction-lib
+
+            Development shell with `nix develop`
+            Build with `nix build`
+          '';
+        };
         pix = {
           path = ./pix;
           description = "A purs-nix template";
