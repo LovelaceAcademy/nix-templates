@@ -1480,11 +1480,11 @@
     },
     "contract": {
       "locked": {
-        "lastModified": 1677893977,
-        "narHash": "sha256-xTpaX0Q430cqYBbROlyLOau8atdtEb7OXYsZW6jNWSQ=",
+        "lastModified": 1678765421,
+        "narHash": "sha256-NEY9i/GoTVuRY2s7NWve7jEXW2jQ+vRZl1QelrVLecs=",
         "owner": "LovelaceAcademy",
         "repo": "nix-templates",
-        "rev": "19e35b47f2b62d6695bf44c81c624e544e03eaad",
+        "rev": "596bc338faa9c3ee362f68709c092dd598f4cc14",
         "type": "github"
       },
       "original": {
@@ -1547,11 +1547,11 @@
         "utils": "utils_16"
       },
       "locked": {
-        "lastModified": 1678764803,
-        "narHash": "sha256-yDKIyDY8cVBlvt7S/ETvE6VXk3YpiJPuS8k8THQZykM=",
+        "lastModified": 1678765300,
+        "narHash": "sha256-KxWyEweZNOEfdeGRe2Kx7+c1qm/sKI6AWej6+O0fHZA=",
         "owner": "LovelaceAcademy",
         "repo": "ctl-nix",
-        "rev": "9f8885ba87512c7004dad5239227bd7a3df3376c",
+        "rev": "b1366c4f04b9875f87ffa75377ffbe65f41f767a",
         "type": "github"
       },
       "original": {
