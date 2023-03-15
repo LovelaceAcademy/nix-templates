@@ -188,7 +188,7 @@
                   alias log_='printf "\033[1;32m%s\033[0m\n" "$@"'
                   alias info_='printf "\033[1;34m[INFO] %s\033[0m\n" "$@"'
                   alias warn_='printf "\033[1;33m[WARN] %s\033[0m\n" "$@"'
-                  log_ "Welcome to ctl-full shell."
+                  log_ "Welcome to pix-ctl-full shell."
                   info_ "Available commands: dev, tests, docs, runtime, cardano-cli, purs-nix, bundle."
                   info_ "testnet-magic for preview is 2"
                 '';

@@ -10,17 +10,17 @@ jobs:
       matrix:
         template:
           - ""
-          - haskell-nix
-          - plutus
+          - hix
+          - hix-plutus
         system:
           - aarch64-linux
           - x86_64-linux
         include:
-          - template: purs-nix
+          - template: pix
             system: x86_64-linux
-          - template: ctl
+          - template: pix-ctl
             system: x86_64-linux
-          - template: ctl-full
+          - template: pix-ctl-full
             system: x86_64-linux
     runs-on: ubuntu-latest
     steps:
