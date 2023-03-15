@@ -4,7 +4,7 @@
     nixpkgs.follows = "ctl-nix/nixpkgs";
     purs-nix.follows = "ctl-nix/purs-nix";
     utils.url = "github:ursi/flake-utils";
-    contract.url = "github:LovelaceAcademy/nix-templates?path=plutus";
+    contract.url = "github:LovelaceAcademy/nix-templates?dir=plutus";
   };
 
   outputs = { self, utils, ... }@inputs:
