@@ -3,10 +3,10 @@ cabal-version: 3.6
 -- documentation, which can be found here:
 --   http://haskell.org/cabal/release/cabal-latest/doc/users-guide/
 
-name: hello
+name: hix
 version: 1.0.0.2
 
-executable hello
+executable hix
   hs-source-dirs: src
-  main-is: hello.hs
+  main-is: Main.hs
   build-depends: base
