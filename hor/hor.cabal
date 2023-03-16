@@ -1,9 +1,9 @@
 cabal-version: 3.6
 
-name: hello
+name: hor
 version: 1.0.0.2
 
-executable hello
+executable hor
   hs-source-dirs: src
-  main-is: hello.hs
+  main-is: Main.hs
   build-depends: base
