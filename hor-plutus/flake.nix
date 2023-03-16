@@ -19,19 +19,14 @@
               {
                 hello = disableLibraryProfiling (hprev.callCabal2nix "hello" ./. { });
               });
-        in
-        # Flake definition must follow hello.cabal
-        {
-          packages.default = hsPkgs.hello;
-          devShell = hsPkgs.hello.env.overrideAttrs (attrs: {
-            buildInputs = with pkgs; attrs.buildInputs ++ [
-              cabal-install
-            ];
-          });
-          checks.output = pkgs.runCommand "hello-output" { }
+          script = pkgs.runCommand "script" { }
             ''
               echo ${hsPkgs.hello} > $out
             '';
+        in
+        {
+          packages.default = script;
+          checks.default = script;
         });
 
   # --- Flake Local Nix Configuration ----------------------------
