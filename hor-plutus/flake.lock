@@ -1,24 +1,20 @@
 {
   "nodes": {
-    "flake-parts": {
-      "inputs": {
-        "nixpkgs-lib": "nixpkgs-lib"
-      },
+    "flake-utils": {
       "locked": {
-        "lastModified": 1675933616,
-        "narHash": "sha256-/rczJkJHtx16IFxMmAWu5nNYcSXNg1YYXTHoGjLrLUA=",
-        "owner": "hercules-ci",
-        "repo": "flake-parts",
-        "rev": "47478a4a003e745402acf63be7f9a092d51b83d7",
+        "lastModified": 1659877975,
+        "narHash": "sha256-zllb8aq3YO3h8B/U0/J1WBgAL8EX5yWf5pMj3G0NAmc=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "c0e246b9b83f637f4681389ecabcb2681b4f3af0",
         "type": "github"
       },
       "original": {
-        "owner": "hercules-ci",
-        "repo": "flake-parts",
-        "type": "github"
+        "id": "flake-utils",
+        "type": "indirect"
       }
     },
-    "flake-utils": {
+    "flake-utils_2": {
       "locked": {
         "lastModified": 1644229661,
         "narHash": "sha256-1YdnJAsNy69bpcjuoKdOYQX0YxZBiCYZo4Twxerqv7k=",
@@ -33,7 +29,7 @@
         "type": "github"
       }
     },
-    "flake-utils_2": {
+    "flake-utils_3": {
       "locked": {
         "lastModified": 1618217525,
         "narHash": "sha256-WGrhVczjXTiswQaoxQ+0PTfbLNeOQM6M36zvLn78AYg=",
@@ -63,47 +59,66 @@
         "type": "github"
       }
     },
-    "horizon-platform": {
-      "inputs": {
-        "flake-parts": "flake-parts",
-        "get-flake": "get-flake",
-        "horizon-platform": "horizon-platform_2",
-        "lint-utils": "lint-utils",
-        "nixpkgs": "nixpkgs_2"
-      },
-      "locked": {
-        "lastModified": 1678113581,
-        "narHash": "sha256-I0EmMOSYcF7cjyhUURK578uy5Q1s5B/OrS3DnnoIg9U=",
-        "ref": "refs/heads/master",
-        "rev": "04baf9f1c9021d3a1e8d2d8441d3e90a3faa8b12",
-        "revCount": 976,
-        "type": "git",
-        "url": "https://gitlab.homotopic.tech/horizon/horizon-platform"
-      },
-      "original": {
-        "type": "git",
-        "url": "https://gitlab.homotopic.tech/horizon/horizon-platform"
-      }
-    },
-    "horizon-platform_2": {
+    "horizon-core": {
       "flake": false,
       "locked": {
-        "lastModified": 1677263150,
-        "narHash": "sha256-VS8RQKojTgHgPQQeL9WBIdS2C3nMZ1s7tL1slvm1qfA=",
+        "lastModified": 1675520422,
+        "narHash": "sha256-irHPKu12Tajj3VbpbqGgIh7c75r7sqMU2TyqG//WXH8=",
         "ref": "refs/heads/master",
-        "rev": "2e6a2ea4546bf344f1b7d671d3006e0cc6be1ca1",
-        "revCount": 947,
+        "rev": "3796774d7337f91e73c38afb0d7635b4a2225936",
+        "revCount": 942,
         "type": "git",
-        "url": "https://gitlab.homotopic.tech/horizon/horizon-platform"
+        "url": "https://gitlab.homotopic.tech/horizon/horizon-core"
       },
       "original": {
         "type": "git",
-        "url": "https://gitlab.homotopic.tech/horizon/horizon-platform"
+        "url": "https://gitlab.homotopic.tech/horizon/horizon-core"
+      }
+    },
+    "horizon-wave-ocean": {
+      "inputs": {
+        "flake-utils": "flake-utils",
+        "get-flake": "get-flake",
+        "horizon-core": "horizon-core",
+        "iohk-nix": "iohk-nix",
+        "lint-utils": "lint-utils",
+        "nixpkgs": "nixpkgs_2",
+        "nixpkgs-libsodium": "nixpkgs-libsodium"
+      },
+      "locked": {
+        "lastModified": 1675699017,
+        "narHash": "sha256-0LRSIpwkRWCsh+IdE0U932oW3NHXX8pxWLMhf/br2AM=",
+        "ref": "refs/heads/master",
+        "rev": "e135211d4af6f2f73dae4f67df63ddc8848e279a",
+        "revCount": 979,
+        "type": "git",
+        "url": "https://gitlab.homotopic.tech/horizon/wave-ocean/horizon-wave-ocean-platform"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://gitlab.homotopic.tech/horizon/wave-ocean/horizon-wave-ocean-platform"
+      }
+    },
+    "iohk-nix": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1653579289,
+        "narHash": "sha256-wveDdPsgB/3nAGAdFaxrcgLEpdi0aJ5kEVNtI+YqVfo=",
+        "owner": "input-output-hk",
+        "repo": "iohk-nix",
+        "rev": "edb2d2df2ebe42bbdf03a0711115cf6213c9d366",
+        "type": "github"
+      },
+      "original": {
+        "owner": "input-output-hk",
+        "repo": "iohk-nix",
+        "rev": "edb2d2df2ebe42bbdf03a0711115cf6213c9d366",
+        "type": "github"
       }
     },
     "lint-utils": {
       "inputs": {
-        "flake-utils": "flake-utils",
+        "flake-utils": "flake-utils_2",
         "nixpkgs": "nixpkgs"
       },
       "locked": {
@@ -136,21 +151,19 @@
         "type": "github"
       }
     },
-    "nixpkgs-lib": {
+    "nixpkgs-libsodium": {
       "locked": {
-        "dir": "lib",
-        "lastModified": 1675183161,
-        "narHash": "sha256-Zq8sNgAxDckpn7tJo7V1afRSk2eoVbu3OjI1QklGLNg=",
-        "owner": "NixOS",
+        "lastModified": 1672397839,
+        "narHash": "sha256-o+TBFFNSdOu5L1CUetXGMSinghqqlWcI2Sj9GVoJmUY=",
+        "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "e1e1b192c1a5aab2960bf0a0bd53a2e8124fa18e",
+        "rev": "a3f612564c15e8471dd17c15efaf7ede83c57763",
         "type": "github"
       },
       "original": {
-        "dir": "lib",
-        "owner": "NixOS",
-        "ref": "nixos-unstable",
+        "owner": "nixos",
         "repo": "nixpkgs",
+        "rev": "a3f612564c15e8471dd17c15efaf7ede83c57763",
         "type": "github"
       }
     },
@@ -172,9 +185,9 @@
     },
     "root": {
       "inputs": {
-        "horizon-platform": "horizon-platform",
+        "horizon-wave-ocean": "horizon-wave-ocean",
         "nixpkgs": [
-          "horizon-platform",
+          "horizon-wave-ocean",
           "nixpkgs"
         ],
         "utils": "utils"
@@ -182,7 +195,7 @@
     },
     "utils": {
       "inputs": {
-        "flake-utils": "flake-utils_2"
+        "flake-utils": "flake-utils_3"
       },
       "locked": {
         "lastModified": 1658606827,
