@@ -1,7 +1,4 @@
-cabal-version: 3.6
--- Instructions on how to write this file are in the Cabal
--- documentation, which can be found here:
---   http://haskell.org/cabal/release/cabal-latest/doc/users-guide/
+cabal-version: 3.8
 
 name: hello
 version: 1.0.0.2
