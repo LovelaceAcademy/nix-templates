@@ -10,24 +10,28 @@
         # TODO support additional systems on hor
         #  horizon-platform is only supporting linux
         systems = [ "x86_64-linux" ];
-        make-pkgs = system:
-          let
-            pkgs = import inputs.nixpkgs { inherit system; };
-            hPkgs = inputs.horizon-platform.legacyPackages.${system};
-          in
-          pkgs.extend (final: _: hPkgs // {
-            hello = final.callCabal2nix "hello" (./.) { };
-          });
       }
-      ({ pkgs, ... }:
+      ({ pkgs, system, ... }:
+        let
+          hsPkgs =
+            with pkgs.haskell.lib;
+            inputs.horizon-platform.legacyPackages.${system}.extend (hfinal: hprev:
+              {
+                hello = disableLibraryProfiling (hprev.callCabal2nix "hello" ./. { });
+              });
+        in
         # Flake definition must follow hello.cabal
         {
-          packages.default = pkgs.hello;
-          devShell = pkgs.hello.env.overrideAttrs (attrs: {
+          packages.default = hsPkgs.hello;
+          devShell = hsPkgs.hello.env.overrideAttrs (attrs: {
             buildInputs = with pkgs; attrs.buildInputs ++ [
               cabal-install
             ];
           });
+          checks.output = pkgs.runCommand "hello-output" { }
+            ''
+              echo ${hsPkgs.hello} > $out
+            '';
         });
 
   # --- Flake Local Nix Configuration ----------------------------
