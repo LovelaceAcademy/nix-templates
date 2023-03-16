@@ -12,8 +12,8 @@ nix flake init -t github:LovelaceAcademy/nix-templates#template-name
 
 ### Templates
 
-- [hix](./hnix): A haskell.nix (hix) template
-- [hix-plutus](./plutus): A plutus template using haskell.nix
+- [hix](./hix): A haskell.nix (hix) template
+- [hix-plutus](./hix-plutus): A plutus template using haskell.nix
 - [hor](./hor): A haskell template using horizon-platform
 - [hor-plutus](./hor-plutus): A plutus template using horizon-platform
 - [pix](./pix): A PureScript purs-nix template
