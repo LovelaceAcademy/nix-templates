@@ -48,7 +48,7 @@
             additionalPkgs = [ "cardano-api" ];
           };
         in
-        # Flake definition follows hello.cabal
+        # Flake definition follows hix-plutus.cabal
         {
           inherit (hixFlake) apps checks;
           legacyPackages = pkgs;
