@@ -1,6 +1,6 @@
 {
-  inputs.horizon-platform.url = "git+https://gitlab.homotopic.tech/horizon/horizon-platform";
-  inputs.nixpkgs.follows = "horizon-platform/nixpkgs";
+  inputs.horizon-wave-ocean.url = "git+https://gitlab.homotopic.tech/horizon/wave-ocean/horizon-wave-ocean-platform";
+  inputs.nixpkgs.follows = "horizon-wave-ocean/nixpkgs";
   inputs.utils.url = "github:ursi/flake-utils";
 
   outputs = { self, utils, ... }@inputs:
@@ -13,10 +13,12 @@
         make-pkgs = system:
           let
             pkgs = import inputs.nixpkgs { inherit system; };
-            hPkgs = inputs.horizon-platform.legacyPackages.${system};
+            hPkgs = inputs.horizon-wave-ocean.legacyPackages.${system};
           in
-          pkgs.extend (final: _: hPkgs // {
-            hello = final.callCabal2nix "hello" (./.) { };
+          pkgs.extend (f: p: hPkgs // {
+            hello = p.haskell.lib.disableLibraryProfiling (
+              f.callCabal2nix "hello" ./. { }
+            );
           });
       }
       ({ pkgs, ... }:
