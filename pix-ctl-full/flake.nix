@@ -4,7 +4,7 @@
     nixpkgs.follows = "ctl-nix/nixpkgs";
     purs-nix.follows = "ctl-nix/purs-nix";
     utils.url = "github:ursi/flake-utils";
-    contract.url = "github:LovelaceAcademy/nix-templates?dir=plutus";
+    contract.url = "github:LovelaceAcademy/nix-templates?dir=hor-plutus";
   };
 
   outputs = { self, utils, ... }@inputs:
@@ -36,7 +36,7 @@
           scripts = pkgs.runCommand
             "scripts"
             {
-              buildInputs = [ contract."hello:exe:hello" ];
+              buildInputs = [ contract ];
             }
             ''
               mkdir -p $out/Scripts
