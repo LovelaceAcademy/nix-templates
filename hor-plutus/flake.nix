@@ -24,10 +24,20 @@
               buildInputs = [ hsPkgs.hello ];
             }
             ''hello > $out'';
+          script-check = pkgs.runCommand "script-check" { }
+            ''cat ${script}; touch $out'';
         in
         {
-          packages.default = script;
-          checks.default = script;
+          packages.default = hsPkgs.hello;
+          packages.script = script;
+
+          devShells.default = hsPkgs.hello.env.overrideAttrs (attrs: {
+            buildInputs = with pkgs; attrs.buildInputs ++ [
+              cabal-install
+            ];
+          });
+
+          checks.default = script-check;
         });
 
   # --- Flake Local Nix Configuration ----------------------------
