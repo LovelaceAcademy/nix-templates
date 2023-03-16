@@ -19,10 +19,11 @@
               {
                 hello = disableLibraryProfiling (hprev.callCabal2nix "hello" ./. { });
               });
-          script = pkgs.runCommand "script" { }
-            ''
-              echo ${hsPkgs.hello} > $out
-            '';
+          script = pkgs.runCommand "script"
+            {
+              buildInputs = [ hsPkgs.hello ];
+            }
+            ''hello > $out'';
         in
         {
           packages.default = script;
