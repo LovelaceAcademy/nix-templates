@@ -13,8 +13,9 @@ nix flake init -t github:LovelaceAcademy/nix-templates#template-name
 ### Templates
 
 - [hix](./hnix): A haskell.nix (hix) template
-- [hix-plutus](./plutus): A plutus template using hix
-- [hor](./hor): A minimal haskell horizon-platform template
+- [hix-plutus](./plutus): A plutus template using haskell.nix
+- [hor](./hor): A haskell template using horizon-platform
+- [hor-plutus](./hor-plutus): A plutus template using horizon-platform
 - [pix](./pix): A purs-nix template
 - [pix-ctl](./pix-ctl): A minimal cardano-transaction-lib template using pix
 - [pix-ctl-full](./pix-ctl-full): A optioned cardano-transaction-lib template using pix
