@@ -23,7 +23,7 @@
         # Flake definition must follow hello.cabal
         {
           packages.default = hsPkgs.hello;
-          devShell = hsPkgs.hello.env.overrideAttrs (attrs: {
+          devShells.default = hsPkgs.hello.env.overrideAttrs (attrs: {
             buildInputs = with pkgs; attrs.buildInputs ++ [
               cabal-install
             ];
