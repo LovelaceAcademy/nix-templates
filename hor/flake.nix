@@ -17,20 +17,20 @@
             with pkgs.haskell.lib;
             inputs.horizon-platform.legacyPackages.${system}.extend (hfinal: hprev:
               {
-                hello = disableLibraryProfiling (hprev.callCabal2nix "hello" ./. { });
+                hor = disableLibraryProfiling (hprev.callCabal2nix "hor" ./. { });
               });
         in
-        # Flake definition must follow hello.cabal
+        # Flake definition must follow hor.cabal
         {
-          packages.default = hsPkgs.hello;
-          devShells.default = hsPkgs.hello.env.overrideAttrs (attrs: {
+          packages.default = hsPkgs.hor;
+          devShells.default = hsPkgs.hor.env.overrideAttrs (attrs: {
             buildInputs = with pkgs; attrs.buildInputs ++ [
               cabal-install
             ];
           });
-          checks.output = pkgs.runCommand "hello-output" { }
+          checks.output = pkgs.runCommand "hor-output" { }
             ''
-              echo ${hsPkgs.hello} > $out
+              echo ${hsPkgs.hor} > $out
             '';
         });
 
