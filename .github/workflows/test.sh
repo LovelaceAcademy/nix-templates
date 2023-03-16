@@ -94,6 +94,11 @@ else
 	# prepare the source
 	cp -r $PWD $SOURCE_DIR
 	# any changes before the test must happen now
+	(
+		cd ${SOURCE_DIR}/${TMPL}
+		sed -i 's|\(.*\)github:LovelaceAcademy/nix-templates?dir=\(.*\)|\1path:../\2|g' flake.nix
+		nix flake lock
+	)
 	# prepare the target
 	(
 		mkdir -p $TARGET_DIR
