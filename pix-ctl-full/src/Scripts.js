@@ -1,1 +1,1 @@
-exports.hello = JSON.stringify(require("Scripts/hello.json"));
+exports.scriptV2 = JSON.stringify(require("Scripts/scriptV2.json"));
