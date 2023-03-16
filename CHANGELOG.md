@@ -1,5 +1,54 @@
 # Changelog
 
+## [4.0.0](https://github.com/LovelaceAcademy/nix-templates/compare/v3.0.0...v4.0.0) (2023-03-16)
+
+
+### ⚠ BREAKING CHANGES
+
+* **pix-ctl-full:** rename pkg and modules
+* **hor-plutus:** rename pkg and modules
+* **hor:** rename pkg and modules
+* **pix:** rename modules
+* **hix-plutus:** rename pkg and modules
+* **hix:** rename pkg and modules
+* haskell-nix renamed to hix, plutus renamed to hix-plutus, purs-nix renamed to pix, ctl renamed to pix-ctl, ctl-full renamed to pix-ctl-full
+
+### Features
+
+* add hor template ([bfa82be](https://github.com/LovelaceAcademy/nix-templates/commit/bfa82be1cb60accc052c702cd2adaf7f134a2644))
+* **ctl-full:** add scripts ([0a873a6](https://github.com/LovelaceAcademy/nix-templates/commit/0a873a69053f23f58408baa6a4322893f255d6bb))
+* **hix-plutus:** rename pkg and modules ([a3445f4](https://github.com/LovelaceAcademy/nix-templates/commit/a3445f4a604f7df6a2e79c4485dd670b53489397))
+* **hix:** rename pkg and modules ([96bc4f4](https://github.com/LovelaceAcademy/nix-templates/commit/96bc4f4c4995e48c4a2f4230609c3d2a43f6abf5))
+* **hor-plutus:** add flake ([5eac2b5](https://github.com/LovelaceAcademy/nix-templates/commit/5eac2b5a2bdf805d55b46d647f70bf09ae13d7ff))
+* **hor-plutus:** add script output ([bdef644](https://github.com/LovelaceAcademy/nix-templates/commit/bdef644fed9adaa1db13c9566ca3dbb66dcb4c57))
+* **hor-plutus:** add script output as package ([589ccb0](https://github.com/LovelaceAcademy/nix-templates/commit/589ccb0ae953cf98ed626476aa6607fe044af41c))
+* **hor-plutus:** copy from hor ([96f27ba](https://github.com/LovelaceAcademy/nix-templates/commit/96f27bae50fde9d1bfab99b0b2df29fbf16d7c9c))
+* **hor-plutus:** import from hix-plutus ([8144604](https://github.com/LovelaceAcademy/nix-templates/commit/814460470074c4126a2049a30e72795f34a6d0ca))
+* **hor-plutus:** rename pkg and modules ([e0aea63](https://github.com/LovelaceAcademy/nix-templates/commit/e0aea63eb5b35b9ec991501b6389d308ef0f193d))
+* **hor:** add minimal template ([ae4ea3d](https://github.com/LovelaceAcademy/nix-templates/commit/ae4ea3da3327fc94299ce40611b0644f80523352))
+* **hor:** rename pkg and modules ([ef89590](https://github.com/LovelaceAcademy/nix-templates/commit/ef895902b51e9133a7a9e2dc33ebc1e7bad72167))
+* **pix-ctl-full:** change contract to hor-plutus ([5a4502e](https://github.com/LovelaceAcademy/nix-templates/commit/5a4502ede6d258bf27d47cb1857a438689175574))
+* **pix-ctl-full:** rename pkg and modules ([abcca02](https://github.com/LovelaceAcademy/nix-templates/commit/abcca028e1b58bdf2b1dec987aaf394b00a5784a))
+* **pix:** rename modules ([eb47252](https://github.com/LovelaceAcademy/nix-templates/commit/eb4725272c67e08ea05c9d3163a6bc709eae56fe))
+* rename all templates to a new naming std ([fd01ab9](https://github.com/LovelaceAcademy/nix-templates/commit/fd01ab900a1804226146d2855c5080c37f258240))
+
+
+### Bug Fixes
+
+* add missing IFD on hor ([3ab3ca3](https://github.com/LovelaceAcademy/nix-templates/commit/3ab3ca3f28a2eb4697c991919b1bcf3c0a969775))
+* **ctl-full:** incorrect contract url ([723f6f6](https://github.com/LovelaceAcademy/nix-templates/commit/723f6f6005e539d8e702058e0d0bfb7313c2a255))
+* **hor-plutus:** fix checks not working ([1b4138f](https://github.com/LovelaceAcademy/nix-templates/commit/1b4138fea05d5294b025b989011668c77a8ebb5b))
+* **hor-plutus:** script output ([590d561](https://github.com/LovelaceAcademy/nix-templates/commit/590d561723fda58c1b95a8224e0b586c463c2def))
+* **hor-plutus:** unsupported cabal-version ([9b7123f](https://github.com/LovelaceAcademy/nix-templates/commit/9b7123f53dfcb0db81d3d25b86cbe6b2a7f5f363))
+* **hor:** checks not working ([d61d63b](https://github.com/LovelaceAcademy/nix-templates/commit/d61d63bb7b9c7ccb05a876777e40b0491482d03a))
+* **hor:** unsupported cabal-version ([6b5a559](https://github.com/LovelaceAcademy/nix-templates/commit/6b5a55968d3affc82c28058924278c6ae5ca8c40))
+* **pix-ctl-full:** fix example ([45728e1](https://github.com/LovelaceAcademy/nix-templates/commit/45728e13ac6e105400587be8a1d3e4eebf46a8e8))
+
+
+### Performance Improvements
+
+* **hor:** remove useless file ([19196ce](https://github.com/LovelaceAcademy/nix-templates/commit/19196ce0257993120354a99419741e251ce5e899))
+
 ## [3.0.0](https://github.com/LovelaceAcademy/nix-templates/compare/v2.1.0...v3.0.0) (2023-03-14)
 
 
