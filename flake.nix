@@ -49,6 +49,11 @@
           description = "A haskell template using horizon-platform";
           welcomeText = horWelcomeText;
         };
+        hor-plutus = {
+          path = ./hor-plutus;
+          description = "A plutus template using horizon-platform";
+          welcomeText = horWelcomeText;
+        };
         pix = {
           path = ./pix;
           description = "A purs-nix template";
