@@ -57,7 +57,18 @@
               foreign."Scripts".node_modules = scripts;
               # 
             };
-          ps-command = ps.command { };
+          testRuntime = with pkgs; [
+            plutip-server
+            ogmios
+            kupo
+          ];
+          ps-command = pkgs.writeShellApplication {
+            name = "purs-nix";
+            runtimeInputs = testRuntime ++ [
+              (ps.command { name = "purs-nix-origin"; })
+            ];
+            text = ''purs-nix-origin "$@"'';
+          };
           # TODO move this patch to ctl-nix
           prebuilt = (pkgs.arion.build {
             inherit pkgs;
@@ -159,15 +170,10 @@
               "npx http-server ./generated-docs/html -o"
             '';
           };
-          testRuntime = with pkgs; [
-            plutip-server
-            ogmios
-            kupo
-          ];
           tests = pkgs.writeShellApplication {
             name = "tests";
             text = ''purs-watch test "$@"'';
-            runtimeInputs = testRuntime ++ [ purs-watch ];
+            runtimeInputs = [ purs-watch ];
           };
           checks = pkgs.runCommand "checks"
             {
@@ -182,21 +188,18 @@
           devShells.default =
             pkgs.mkShell
               {
-                packages =
-                  with pkgs;
-                  testRuntime
-                  ++ [
-                    runtime
-                    cardano-cli
-                    easy-ps.purescript-language-server
-                    purs
-                    ps-command
-                    purs-watch
-                    dev
-                    bundle
-                    docs
-                    tests
-                  ];
+                packages = with pkgs; [
+                  runtime
+                  cardano-cli
+                  easy-ps.purescript-language-server
+                  purs
+                  ps-command
+                  purs-watch
+                  dev
+                  bundle
+                  docs
+                  tests
+                ];
                 shellHook = ''
                   alias log_='printf "\033[1;32m%s\033[0m\n" "$@"'
                   alias info_='printf "\033[1;34m[INFO] %s\033[0m\n" "$@"'
