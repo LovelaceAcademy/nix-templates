@@ -3695,11 +3695,11 @@
       },
       "locked": {
         "dir": "hor-plutus",
-        "lastModified": 1679009937,
-        "narHash": "sha256-+8M2AMpNxHLuf+scIyyiZn/N9VEdzgQepTTHIZ4s8kk=",
+        "lastModified": 1679506482,
+        "narHash": "sha256-O0iA2sm2tdocDKur4LFP++v2bsZa2wuwOXzKdgz61FI=",
         "owner": "LovelaceAcademy",
         "repo": "nix-templates",
-        "rev": "fc8aef1e5c04b67c939120b812807609693204dc",
+        "rev": "56851ac9b7e6f210e76307a3872b7d8272185fea",
         "type": "github"
       },
       "original": {
