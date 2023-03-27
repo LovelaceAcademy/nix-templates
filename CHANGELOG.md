@@ -1,5 +1,17 @@
 # Changelog
 
+## [4.1.0](https://github.com/LovelaceAcademy/nix-templates/compare/v4.0.0...v4.1.0) (2023-03-27)
+
+
+### Features
+
+* add herculis ci cache ([34c58a5](https://github.com/LovelaceAcademy/nix-templates/commit/34c58a54366f7055eddcf7aba7926a74304c9895))
+
+
+### Performance Improvements
+
+* **pix-ctl-full:** improve build times by not including testRuntime in devShell ([56851ac](https://github.com/LovelaceAcademy/nix-templates/commit/56851ac9b7e6f210e76307a3872b7d8272185fea))
+
 ## [4.0.0](https://github.com/LovelaceAcademy/nix-templates/compare/v3.0.0...v4.0.0) (2023-03-16)
 
 
