@@ -31,6 +31,11 @@ module.exports = {
       },
     },
   },
+  
+  watchOptions: {
+    // optimizes rebuild
+    aggregateTimeout: 1000,
+  },
 
   // we can add more entrypoints as needed
   entry: "./index.js",
