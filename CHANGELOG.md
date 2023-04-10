@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.1.1](https://github.com/LovelaceAcademy/nix-templates/compare/v4.1.0...v4.1.1) (2023-04-10)
+
+
+### Performance Improvements
+
+* **pix-ctl-full:** improve webpack watch rebuild config ([8681be1](https://github.com/LovelaceAcademy/nix-templates/commit/8681be1108f3797c8c2fc9d3ccdee3267867d699))
+
 ## [4.1.0](https://github.com/LovelaceAcademy/nix-templates/compare/v4.0.0...v4.1.0) (2023-03-27)
 
 
