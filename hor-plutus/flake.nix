@@ -17,7 +17,9 @@
             with pkgs.haskell.lib;
             inputs.horizon-wave-ocean.legacyPackages.${system}.extend (hfinal: hprev:
               {
-                hor-plutus = disableLibraryProfiling (hprev.callCabal2nix "hor-plutus" ./. { });
+                hor-plutus = disableLibraryProfiling (hprev.developPackage {
+                  root = ./.;
+                });
               });
           script = pkgs.runCommand "script"
             {
@@ -32,8 +34,10 @@
           packages.script = script;
 
           devShells.default = hsPkgs.hor-plutus.env.overrideAttrs (attrs: {
-            buildInputs = with pkgs; attrs.buildInputs ++ [
+            # TODO Extract GHC version from hsPkgs
+            buildInputs = with pkgs.haskell.packages.ghc8107; attrs.buildInputs ++ [
               cabal-install
+              #haskell-language-server
             ];
           });
 
