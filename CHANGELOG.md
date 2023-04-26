@@ -1,5 +1,13 @@
 # Changelog
 
+## [4.2.0](https://github.com/LovelaceAcademy/nix-templates/compare/v4.1.1...v4.2.0) (2023-04-26)
+
+
+### Features
+
+* **hor-plutus:** add optional HSL ([f85798d](https://github.com/LovelaceAcademy/nix-templates/commit/f85798d1f6191a85a1e19e3825855382a5773366))
+* **hor-plutus:** add serve-docs ([0294d2f](https://github.com/LovelaceAcademy/nix-templates/commit/0294d2f59bc09f1a21c1203b44e9fb3ac0970e02))
+
 ## [4.1.1](https://github.com/LovelaceAcademy/nix-templates/compare/v4.1.0...v4.1.1) (2023-04-10)
 
 
