@@ -1532,11 +1532,11 @@
         "utils": "utils_16"
       },
       "locked": {
-        "lastModified": 1682455699,
-        "narHash": "sha256-1z4uEMzEKRohO0CA3CgwKdc4bXu+R6xNu4HRzDMivzk=",
+        "lastModified": 1685366570,
+        "narHash": "sha256-ThIQrXUaJ+vPasWK5L0E3nk5sUab23LyTAwPe2E5Z2A=",
         "owner": "LovelaceAcademy",
         "repo": "ctl-nix",
-        "rev": "6b83988070eb33e4516cfde153dd1e76482995a9",
+        "rev": "8803fa6a7c11fd8f77a09aadd25ef2f01483ac0b",
         "type": "github"
       },
       "original": {
