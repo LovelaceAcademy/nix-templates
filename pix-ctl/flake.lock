@@ -342,7 +342,7 @@
         "haskell-nix": "haskell-nix_4",
         "iohk-nix": "iohk-nix_4",
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "plutip",
           "bot-plutus-interface",
@@ -1110,7 +1110,7 @@
         "CHaP": "CHaP_2",
         "cardano-mainnet-mirror": "cardano-mainnet-mirror",
         "cardano-node-workbench": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios",
           "blank"
@@ -1120,7 +1120,7 @@
         "hackageNix": "hackageNix",
         "haskellNix": "haskellNix",
         "hostNixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios",
           "cardano-node",
@@ -1129,7 +1129,7 @@
         "iohkNix": "iohkNix",
         "nixTools": "nixTools",
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios",
           "cardano-node",
@@ -1137,7 +1137,7 @@
           "nixpkgs-unstable"
         ],
         "node-measured": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios",
           "blank"
@@ -1169,7 +1169,7 @@
         "iohkNix": "iohkNix_3",
         "membench": "membench_2",
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios",
           "cardano-node",
@@ -1203,7 +1203,7 @@
         "iohkNix": "iohkNix_7",
         "membench": "membench_4",
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios-nixos",
           "cardano-node",
@@ -1234,7 +1234,7 @@
       "inputs": {
         "cardano-mainnet-mirror": "cardano-mainnet-mirror_4",
         "cardano-node-workbench": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios-nixos",
           "blank"
@@ -1244,7 +1244,7 @@
         "hackageNix": "hackageNix_2",
         "haskellNix": "haskellNix_5",
         "hostNixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios-nixos",
           "cardano-node",
@@ -1253,7 +1253,7 @@
         "iohkNix": "iohkNix_5",
         "nixTools": "nixTools_2",
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios-nixos",
           "cardano-node",
@@ -1261,7 +1261,7 @@
           "nixpkgs-unstable"
         ],
         "node-measured": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios-nixos",
           "blank"
@@ -1482,7 +1482,7 @@
       "inputs": {
         "cardano-configurations": "cardano-configurations",
         "cardano-node": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios-nixos",
           "cardano-node"
@@ -1493,7 +1493,7 @@
         "kupo": "kupo",
         "kupo-nixos": "kupo-nixos",
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios",
           "nixpkgs"
@@ -1517,31 +1517,20 @@
         "type": "github"
       }
     },
-    "ctl-nix": {
-      "inputs": {
-        "ctl": "ctl",
-        "nixpkgs": [
-          "ctl-nix",
-          "purs-nix",
-          "nixpkgs"
-        ],
-        "npmlock2nix": "npmlock2nix",
-        "package-set-repo": "package-set-repo",
-        "purs-nix": "purs-nix",
-        "toppokki": "toppokki",
-        "utils": "utils_16"
-      },
+    "ctl-package-set-repo": {
+      "flake": false,
       "locked": {
-        "lastModified": 1685366570,
-        "narHash": "sha256-ThIQrXUaJ+vPasWK5L0E3nk5sUab23LyTAwPe2E5Z2A=",
-        "owner": "LovelaceAcademy",
-        "repo": "ctl-nix",
-        "rev": "8803fa6a7c11fd8f77a09aadd25ef2f01483ac0b",
+        "lastModified": 1645724869,
+        "narHash": "sha256-pvVi8MbYYJi6jOzows2sb7+SsijKBE7H9RAzDtj7xAE=",
+        "owner": "purescript",
+        "repo": "package-sets",
+        "rev": "2f7bde38fae5f6726f354b31b6d927347ef54c4a",
         "type": "github"
       },
       "original": {
-        "owner": "LovelaceAcademy",
-        "repo": "ctl-nix",
+        "owner": "purescript",
+        "repo": "package-sets",
+        "rev": "2f7bde38fae5f6726f354b31b6d927347ef54c4a",
         "type": "github"
       }
     },
@@ -1710,7 +1699,7 @@
     "devshell": {
       "inputs": {
         "flake-utils": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios",
           "haskell-nix",
@@ -1719,7 +1708,7 @@
           "flake-utils"
         ],
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios",
           "haskell-nix",
@@ -1745,7 +1734,7 @@
     "devshell_2": {
       "inputs": {
         "flake-utils": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios-nixos",
           "haskell-nix",
@@ -1754,7 +1743,7 @@
           "flake-utils"
         ],
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios-nixos",
           "haskell-nix",
@@ -1780,7 +1769,7 @@
     "devshell_3": {
       "inputs": {
         "flake-utils": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "plutip",
           "bot-plutus-interface",
@@ -1790,7 +1779,7 @@
           "flake-utils"
         ],
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "plutip",
           "bot-plutus-interface",
@@ -1817,7 +1806,7 @@
     "dmerge": {
       "inputs": {
         "nixlib": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios",
           "haskell-nix",
@@ -1826,7 +1815,7 @@
           "nixpkgs"
         ],
         "yants": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios",
           "haskell-nix",
@@ -1852,7 +1841,7 @@
     "dmerge_2": {
       "inputs": {
         "nixlib": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios-nixos",
           "haskell-nix",
@@ -1861,7 +1850,7 @@
           "nixpkgs"
         ],
         "yants": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios-nixos",
           "haskell-nix",
@@ -1887,7 +1876,7 @@
     "dmerge_3": {
       "inputs": {
         "nixlib": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "plutip",
           "bot-plutus-interface",
@@ -1897,7 +1886,7 @@
           "nixpkgs"
         ],
         "yants": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "plutip",
           "bot-plutus-interface",
@@ -1995,7 +1984,7 @@
     "fenix_3": {
       "inputs": {
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "purs-nix",
           "statix",
           "nixpkgs"
@@ -2839,7 +2828,7 @@
     "gitignore": {
       "inputs": {
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "purs-nix",
           "statix",
           "nixpkgs"
@@ -3122,7 +3111,7 @@
         "hydra": "hydra",
         "nix-tools": "nix-tools",
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "kupo-nixos",
           "haskell-nix",
@@ -3165,7 +3154,7 @@
         "hydra": "hydra_3",
         "iserv-proxy": "iserv-proxy",
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios",
           "nixpkgs"
@@ -3208,7 +3197,7 @@
         "hpc-coveralls": "hpc-coveralls_11",
         "hydra": "hydra_5",
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios-nixos",
           "nixpkgs"
@@ -3250,7 +3239,7 @@
         "hpc-coveralls": "hpc-coveralls_12",
         "hydra": "hydra_6",
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "plutip",
           "bot-plutus-interface",
@@ -3290,7 +3279,7 @@
         "flake-utils": "flake-utils_2",
         "ghc-8.6.5-iohk": "ghc-8.6.5-iohk_2",
         "hackage": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios",
           "cardano-node",
@@ -3299,7 +3288,7 @@
         "hpc-coveralls": "hpc-coveralls_2",
         "hydra": "hydra_2",
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios",
           "cardano-node",
@@ -3340,7 +3329,7 @@
         "hpc-coveralls": "hpc-coveralls_3",
         "nix-tools": "nix-tools_2",
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios",
           "cardano-node",
@@ -3381,7 +3370,7 @@
         "hpc-coveralls": "hpc-coveralls_4",
         "nix-tools": "nix-tools_3",
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios",
           "cardano-node",
@@ -3423,7 +3412,7 @@
         "hpc-coveralls": "hpc-coveralls_5",
         "nix-tools": "nix-tools_4",
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios",
           "cardano-node",
@@ -3462,7 +3451,7 @@
         "flake-utils": "flake-utils_10",
         "ghc-8.6.5-iohk": "ghc-8.6.5-iohk_7",
         "hackage": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios-nixos",
           "cardano-node",
@@ -3472,7 +3461,7 @@
         "hydra": "hydra_4",
         "nix-tools": "nix-tools_5",
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios-nixos",
           "cardano-node",
@@ -3512,7 +3501,7 @@
         "hpc-coveralls": "hpc-coveralls_8",
         "nix-tools": "nix-tools_6",
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios-nixos",
           "cardano-node",
@@ -3553,7 +3542,7 @@
         "hpc-coveralls": "hpc-coveralls_9",
         "nix-tools": "nix-tools_7",
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios-nixos",
           "cardano-node",
@@ -3595,7 +3584,7 @@
         "hpc-coveralls": "hpc-coveralls_10",
         "nix-tools": "nix-tools_8",
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios-nixos",
           "cardano-node",
@@ -3820,7 +3809,7 @@
       "inputs": {
         "nix": "nix",
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "kupo-nixos",
           "haskell-nix",
@@ -3846,7 +3835,7 @@
       "inputs": {
         "nix": "nix_2",
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios",
           "cardano-node",
@@ -3873,7 +3862,7 @@
       "inputs": {
         "nix": "nix_3",
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios",
           "haskell-nix",
@@ -3899,7 +3888,7 @@
       "inputs": {
         "nix": "nix_4",
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios-nixos",
           "cardano-node",
@@ -3926,7 +3915,7 @@
       "inputs": {
         "nix": "nix_5",
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios-nixos",
           "haskell-nix",
@@ -3952,7 +3941,7 @@
       "inputs": {
         "nix": "nix_6",
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "plutip",
           "bot-plutus-interface",
@@ -3978,7 +3967,7 @@
     "iohk-nix": {
       "inputs": {
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "kupo-nixos",
           "haskell-nix",
@@ -4021,7 +4010,7 @@
     "iohk-nix_2": {
       "inputs": {
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios",
           "nixpkgs"
@@ -4044,7 +4033,7 @@
     "iohk-nix_3": {
       "inputs": {
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios-nixos",
           "nixpkgs"
@@ -4068,7 +4057,7 @@
     "iohk-nix_4": {
       "inputs": {
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "plutip",
           "bot-plutus-interface",
@@ -4092,7 +4081,7 @@
     "iohkNix": {
       "inputs": {
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios",
           "cardano-node",
@@ -4116,7 +4105,7 @@
     "iohkNix_2": {
       "inputs": {
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios",
           "cardano-node",
@@ -4141,7 +4130,7 @@
     "iohkNix_3": {
       "inputs": {
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios",
           "cardano-node",
@@ -4168,7 +4157,7 @@
     "iohkNix_4": {
       "inputs": {
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios",
           "cardano-node",
@@ -4194,7 +4183,7 @@
     "iohkNix_5": {
       "inputs": {
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios-nixos",
           "cardano-node",
@@ -4218,7 +4207,7 @@
     "iohkNix_6": {
       "inputs": {
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios-nixos",
           "cardano-node",
@@ -4243,7 +4232,7 @@
     "iohkNix_7": {
       "inputs": {
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios-nixos",
           "cardano-node",
@@ -4270,7 +4259,7 @@
     "iohkNix_8": {
       "inputs": {
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios-nixos",
           "cardano-node",
@@ -4331,12 +4320,12 @@
         "haskell-nix": "haskell-nix",
         "iohk-nix": "iohk-nix",
         "kupo": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "kupo"
         ],
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "kupo-nixos",
           "haskell-nix",
@@ -4538,14 +4527,14 @@
       "inputs": {
         "cardano-mainnet-mirror": "cardano-mainnet-mirror_2",
         "cardano-node-measured": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios",
           "cardano-node",
           "node-snapshot"
         ],
         "cardano-node-process": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios",
           "cardano-node",
@@ -4553,7 +4542,7 @@
         ],
         "cardano-node-snapshot": "cardano-node-snapshot",
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios",
           "cardano-node",
@@ -4580,7 +4569,7 @@
       "inputs": {
         "cardano-mainnet-mirror": "cardano-mainnet-mirror_3",
         "cardano-node-measured": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios",
           "cardano-node",
@@ -4589,7 +4578,7 @@
           "cardano-node-snapshot"
         ],
         "cardano-node-process": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios",
           "cardano-node",
@@ -4598,7 +4587,7 @@
           "cardano-node-snapshot"
         ],
         "cardano-node-snapshot": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios",
           "cardano-node",
@@ -4607,7 +4596,7 @@
           "cardano-node-snapshot"
         ],
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios",
           "cardano-node",
@@ -4636,14 +4625,14 @@
       "inputs": {
         "cardano-mainnet-mirror": "cardano-mainnet-mirror_5",
         "cardano-node-measured": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios-nixos",
           "cardano-node",
           "node-snapshot"
         ],
         "cardano-node-process": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios-nixos",
           "cardano-node",
@@ -4651,7 +4640,7 @@
         ],
         "cardano-node-snapshot": "cardano-node-snapshot_2",
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios-nixos",
           "cardano-node",
@@ -4678,7 +4667,7 @@
       "inputs": {
         "cardano-mainnet-mirror": "cardano-mainnet-mirror_6",
         "cardano-node-measured": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios-nixos",
           "cardano-node",
@@ -4687,7 +4676,7 @@
           "cardano-node-snapshot"
         ],
         "cardano-node-process": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios-nixos",
           "cardano-node",
@@ -4696,7 +4685,7 @@
           "cardano-node-snapshot"
         ],
         "cardano-node-snapshot": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios-nixos",
           "cardano-node",
@@ -4705,7 +4694,7 @@
           "cardano-node-snapshot"
         ],
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios-nixos",
           "cardano-node",
@@ -4734,7 +4723,7 @@
       "inputs": {
         "flake-utils": "flake-utils_9",
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios",
           "haskell-nix",
@@ -4761,7 +4750,7 @@
       "inputs": {
         "flake-utils": "flake-utils_17",
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios-nixos",
           "haskell-nix",
@@ -4788,7 +4777,7 @@
       "inputs": {
         "flake-utils": "flake-utils_21",
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "plutip",
           "bot-plutus-interface",
@@ -4873,7 +4862,7 @@
       "inputs": {
         "flake-compat": "flake-compat_6",
         "flake-utils": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios",
           "haskell-nix",
@@ -4883,7 +4872,7 @@
         ],
         "gomod2nix": "gomod2nix",
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios",
           "haskell-nix",
@@ -4891,7 +4880,7 @@
           "nixpkgs"
         ],
         "nixpkgs-lib": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios",
           "haskell-nix",
@@ -4917,7 +4906,7 @@
       "inputs": {
         "flake-compat": "flake-compat_10",
         "flake-utils": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios-nixos",
           "haskell-nix",
@@ -4927,7 +4916,7 @@
         ],
         "gomod2nix": "gomod2nix_2",
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios-nixos",
           "haskell-nix",
@@ -4935,7 +4924,7 @@
           "nixpkgs"
         ],
         "nixpkgs-lib": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios-nixos",
           "haskell-nix",
@@ -4961,7 +4950,7 @@
       "inputs": {
         "flake-compat": "flake-compat_13",
         "flake-utils": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "plutip",
           "bot-plutus-interface",
@@ -4972,7 +4961,7 @@
         ],
         "gomod2nix": "gomod2nix_3",
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "plutip",
           "bot-plutus-interface",
@@ -4981,7 +4970,7 @@
           "nixpkgs"
         ],
         "nixpkgs-lib": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "plutip",
           "bot-plutus-interface",
@@ -5329,7 +5318,7 @@
     "nixago": {
       "inputs": {
         "flake-utils": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios",
           "haskell-nix",
@@ -5338,7 +5327,7 @@
           "flake-utils"
         ],
         "nixago-exts": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios",
           "haskell-nix",
@@ -5347,7 +5336,7 @@
           "blank"
         ],
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios",
           "haskell-nix",
@@ -5373,7 +5362,7 @@
     "nixago_2": {
       "inputs": {
         "flake-utils": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios-nixos",
           "haskell-nix",
@@ -5382,7 +5371,7 @@
           "flake-utils"
         ],
         "nixago-exts": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios-nixos",
           "haskell-nix",
@@ -5391,7 +5380,7 @@
           "blank"
         ],
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios-nixos",
           "haskell-nix",
@@ -5417,7 +5406,7 @@
     "nixago_3": {
       "inputs": {
         "flake-utils": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "plutip",
           "bot-plutus-interface",
@@ -5427,7 +5416,7 @@
           "flake-utils"
         ],
         "nixago-exts": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "plutip",
           "bot-plutus-interface",
@@ -5437,7 +5426,7 @@
           "blank"
         ],
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "plutip",
           "bot-plutus-interface",
@@ -6903,7 +6892,7 @@
         "iohkNix": "iohkNix_2",
         "membench": "membench",
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios",
           "cardano-node",
@@ -6936,7 +6925,7 @@
         "iohkNix": "iohkNix_6",
         "membench": "membench_3",
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios-nixos",
           "cardano-node",
@@ -6988,7 +6977,7 @@
         "haskell-nix": "haskell-nix_2",
         "iohk-nix": "iohk-nix_2",
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios",
           "haskell-nix",
@@ -7020,7 +7009,7 @@
         "haskell-nix": "haskell-nix_3",
         "iohk-nix": "iohk-nix_3",
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios-nixos",
           "haskell-nix",
@@ -7309,20 +7298,32 @@
         "type": "github"
       }
     },
-    "package-set-repo": {
-      "flake": false,
+    "package-sets": {
+      "inputs": {
+        "ctl": "ctl",
+        "ctl-package-set-repo": "ctl-package-set-repo",
+        "nixpkgs": [
+          "package-sets",
+          "purs-nix",
+          "nixpkgs"
+        ],
+        "npmlock2nix": "npmlock2nix",
+        "purs-nix": "purs-nix",
+        "toppokki": "toppokki",
+        "utils": "utils_16"
+      },
       "locked": {
-        "lastModified": 1645724869,
-        "narHash": "sha256-pvVi8MbYYJi6jOzows2sb7+SsijKBE7H9RAzDtj7xAE=",
-        "owner": "purescript",
-        "repo": "package-sets",
-        "rev": "2f7bde38fae5f6726f354b31b6d927347ef54c4a",
+        "lastModified": 1686158471,
+        "narHash": "sha256-Nd+hju0F1wUKBoNSKFVr5qkO/h0+BcPLBOhzOWNruZo=",
+        "owner": "LovelaceAcademy",
+        "repo": "ctl-nix",
+        "rev": "e331c08088ecbb7c27f47bc760948b06c5ebf82d",
         "type": "github"
       },
       "original": {
-        "owner": "purescript",
-        "repo": "package-sets",
-        "rev": "2f7bde38fae5f6726f354b31b6d927347ef54c4a",
+        "owner": "LovelaceAcademy",
+        "ref": "rename-project",
+        "repo": "ctl-nix",
         "type": "github"
       }
     },
@@ -7344,7 +7345,7 @@
     "plutip": {
       "inputs": {
         "CHaP": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "plutip",
           "bot-plutus-interface",
@@ -7353,21 +7354,21 @@
         "bot-plutus-interface": "bot-plutus-interface",
         "flake-compat": "flake-compat_14",
         "haskell-nix": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "plutip",
           "bot-plutus-interface",
           "haskell-nix"
         ],
         "iohk-nix": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "plutip",
           "bot-plutus-interface",
           "iohk-nix"
         ],
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "plutip",
           "bot-plutus-interface",
@@ -7428,7 +7429,7 @@
         "haskellNix": "haskellNix_4",
         "iohkNix": "iohkNix_4",
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios",
           "cardano-node",
@@ -7460,7 +7461,7 @@
         "haskellNix": "haskellNix_8",
         "iohkNix": "iohkNix_8",
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios-nixos",
           "cardano-node",
@@ -7536,13 +7537,13 @@
     },
     "root": {
       "inputs": {
-        "ctl-nix": "ctl-nix",
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "nixpkgs"
         ],
+        "package-sets": "package-sets",
         "purs-nix": [
-          "ctl-nix",
+          "package-sets",
           "purs-nix"
         ],
         "utils": "utils_17"
@@ -7818,7 +7819,7 @@
         "dmerge": "dmerge",
         "flake-utils": "flake-utils_8",
         "makes": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios",
           "haskell-nix",
@@ -7828,7 +7829,7 @@
         ],
         "mdbook-kroki-preprocessor": "mdbook-kroki-preprocessor",
         "microvm": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios",
           "haskell-nix",
@@ -7862,7 +7863,7 @@
         "dmerge": "dmerge_2",
         "flake-utils": "flake-utils_16",
         "makes": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios-nixos",
           "haskell-nix",
@@ -7872,7 +7873,7 @@
         ],
         "mdbook-kroki-preprocessor": "mdbook-kroki-preprocessor_2",
         "microvm": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios-nixos",
           "haskell-nix",
@@ -7906,7 +7907,7 @@
         "dmerge": "dmerge_3",
         "flake-utils": "flake-utils_20",
         "makes": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "plutip",
           "bot-plutus-interface",
@@ -7917,7 +7918,7 @@
         ],
         "mdbook-kroki-preprocessor": "mdbook-kroki-preprocessor_3",
         "microvm": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "plutip",
           "bot-plutus-interface",
@@ -7967,7 +7968,7 @@
         "nix-nomad": "nix-nomad",
         "nix2container": "nix2container",
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios",
           "haskell-nix",
@@ -7994,7 +7995,7 @@
         "nix-nomad": "nix-nomad_2",
         "nix2container": "nix2container_2",
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios-nixos",
           "haskell-nix",
@@ -8021,7 +8022,7 @@
         "nix-nomad": "nix-nomad_3",
         "nix2container": "nix2container_3",
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "plutip",
           "bot-plutus-interface",
@@ -8316,7 +8317,7 @@
     "yants": {
       "inputs": {
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios",
           "haskell-nix",
@@ -8342,7 +8343,7 @@
     "yants_2": {
       "inputs": {
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "ogmios-nixos",
           "haskell-nix",
@@ -8368,7 +8369,7 @@
     "yants_3": {
       "inputs": {
         "nixpkgs": [
-          "ctl-nix",
+          "package-sets",
           "ctl",
           "plutip",
           "bot-plutus-interface",

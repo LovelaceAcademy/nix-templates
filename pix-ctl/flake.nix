@@ -1,8 +1,8 @@
 {
   inputs = {
-    ctl-nix.url = "github:LovelaceAcademy/ctl-nix";
-    nixpkgs.follows = "ctl-nix/nixpkgs";
-    purs-nix.follows = "ctl-nix/purs-nix";
+    package-sets.url = "github:LovelaceAcademy/ctl-nix/rename-project";
+    nixpkgs.follows = "package-sets/nixpkgs";
+    purs-nix.follows = "package-sets/purs-nix";
     utils.url = "github:ursi/flake-utils";
   };
 
@@ -11,20 +11,20 @@
       # TODO add missing arm to match standard systems
       #  right now purs-nix is only compatible with x86_64-linux
       systems = [ "x86_64-linux" ];
-      overlays = with inputs.ctl-nix.inputs.ctl.overlays; [
+      overlays = with inputs.package-sets.inputs.ctl.overlays; [
         # needed by CTL
         purescript
       ];
     in
     utils.apply-systems
       { inherit inputs systems overlays; }
-      ({ system, pkgs, ctl-nix, ... }:
+      ({ system, pkgs, package-sets, ... }:
         let
           # Use purs from CTL instead from nixpkgs
           purs = pkgs.easy-ps.purs-0_14_5;
           purs-nix = inputs.purs-nix {
             inherit system;
-            overlays = [ ctl-nix ];
+            overlays = with package-sets; [ ctl-overlay ];
           };
           ps = purs-nix.purs
             {
@@ -33,9 +33,8 @@
               dir = ./.;
               # Dependencies
               dependencies =
-                with purs-nix.ps-pkgs;
                 [
-                  cardano-transaction-lib
+                  "cardano-transaction-lib"
                 ];
               # FFI dependencies
               # foreign.Main.node_modules = [];
