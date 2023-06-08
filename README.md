@@ -19,6 +19,7 @@ nix flake init -t github:LovelaceAcademy/nix-templates#template-name
 - [pix](./pix): A PureScript purs-nix template
 - [pix-ctl](./pix-ctl): A minimal cardano-transaction-lib template using pix
 - [pix-ctl-full](./pix-ctl-full): A optioned cardano-transaction-lib template using pix
+- [pix-purenix](./pix-purenix): A minimal purenix template using pix
 
 ## FAQ
 

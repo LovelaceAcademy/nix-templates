@@ -17,6 +17,11 @@
         link = "https://input-output-hk.github.io/haskell.nix/tutorials/getting-started-flakes.html";
         target = ".#hello:exe:hello`";
       };
+      pixWelcomeText = welcome {
+        project = "PureScript";
+        tool = "purs-nix (pix)";
+        link = "https://github.com/purs-nix/purs-nix";
+      };
       ctlWelcomeText = welcome {
         project = "cardano-transaction-lib";
         tool = "purs-nix (pix)";
@@ -57,13 +62,7 @@
         pix = {
           path = ./pix;
           description = "A purs-nix template";
-          welcomeText = ''
-            You just created a purs-nix project.
-            Read more about it here: https://github.com/purs-nix/purs-nix
-
-            Development shell with `nix develop`
-            Build with `nix build`
-          '';
+          welcomeText = pixWelcomeText;
         };
         pix-ctl = {
           path = ./pix-ctl;
@@ -74,6 +73,11 @@
           path = ./pix-ctl-full;
           description = "A optioned cardano-transaction-lib template using pix and webpack";
           welcomeText = ctlWelcomeText;
+        };
+        pix-purenix = {
+          path = ./pix-purenix;
+          description = "A minimal purenix template using pix";
+          welcomeText = pixWelcomeText;
         };
       };
     };

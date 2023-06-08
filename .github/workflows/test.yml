@@ -26,6 +26,8 @@ jobs:
             system: x86_64-linux
           - template: pix-ctl-full
             system: x86_64-linux
+          - template: pix-purenix
+            system: x86_64-linux
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
