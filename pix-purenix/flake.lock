@@ -846,11 +846,11 @@
         "utils": "utils_4"
       },
       "locked": {
-        "lastModified": 1686189064,
-        "narHash": "sha256-7QzCS3/So5bn88J9M5tJZSrLsMQvaq5AMlkIfOKohrI=",
+        "lastModified": 1686191454,
+        "narHash": "sha256-0G97vfqT3Kc2+8fJ/XvVFLNmEx4c5HaxI0t0K6lEgRo=",
         "owner": "klarkc",
         "repo": "purenix-packages",
-        "rev": "38a3a467a7b0f328dd2dcfd70fd9eaade635078b",
+        "rev": "36fca239ee8a3a7904a4ec944496bac06a6b07a5",
         "type": "github"
       },
       "original": {
