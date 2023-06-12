@@ -61,6 +61,8 @@
 
   # --- Flake Local Nix Configuration ----------------------------
   nixConfig = {
+    extra-experimental-features = "nix-command flakes";
+    allow-import-from-derivation = "true";
     # This sets the flake to use nix cache.
     # Nix should ask for permission before using it,
     # but remove it here if you do not want it to.
@@ -78,6 +80,5 @@
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
       "hercules-ci.cachix.org-1:ZZeDl9Va+xe9j+KqdzoBZMFJHVQ42Uu/c/1/KMC5Lw0="
     ];
-    allow-import-from-derivation = "true";
   };
 }
