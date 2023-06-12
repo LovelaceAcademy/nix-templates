@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.2.1](https://github.com/LovelaceAcademy/nix-templates/compare/v4.2.0...v4.2.1) (2023-06-12)
+
+
+### Bug Fixes
+
+* add experimental flake command config ([b42de1a](https://github.com/LovelaceAcademy/nix-templates/commit/b42de1a9f38895cce7aa85b0690c8a86260b6e94))
+
 ## [4.2.0](https://github.com/LovelaceAcademy/nix-templates/compare/v4.1.1...v4.2.0) (2023-04-26)
 
 
