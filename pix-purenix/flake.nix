@@ -19,8 +19,6 @@
       { inherit inputs systems; }
       ({ system, pkgs, purenix-pkgs, ps-tools, ... }:
         let
-          # TODO use compiler from purenix-pkgs
-          #purescript = ps-tools.purescript-0_15_4;
           compile = { codegen = "corefn"; };
           purs-nix = inputs.purs-nix {
             inherit system;
@@ -29,7 +27,6 @@
           };
           ps = purs-nix.purs
             {
-              #inherit purescript;
               # Project dir (src, test)
               dir = ./.;
               # Dependencies
