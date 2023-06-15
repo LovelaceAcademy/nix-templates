@@ -1172,11 +1172,11 @@
         "utils": "utils_4"
       },
       "locked": {
-        "lastModified": 1686805863,
-        "narHash": "sha256-4BCpKVkrpLcl/SY21PIqhbMSJp2U+8VhqrBIiiSyrw4=",
+        "lastModified": 1686845224,
+        "narHash": "sha256-QKTMSBkfiQMOU4CfuHLkc1qoEJFD70pyc8lyaZ+fKQM=",
         "owner": "klarkc",
         "repo": "purenix-packages",
-        "rev": "16f2bfafd27526662885be8c5aa4e86aee1524ee",
+        "rev": "d55443b6c544d1bdcc7983b7778404c44727dfe7",
         "type": "github"
       },
       "original": {
