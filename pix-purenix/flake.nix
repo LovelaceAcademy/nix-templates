@@ -2,10 +2,11 @@
   inputs = {
     purenix-pkgs.url = "github:klarkc/purenix-packages";
     nixpkgs.follows = "purenix-pkgs/nixpkgs";
-    purs-nix.follows = "purenix-pkgs/purs-nix";
+    # FIXME purenix-packages is supposed to work with purs 0.15
+    purs-nix.url = "github:purs-nix/purs-nix/ps-0.14";
+    ps-tools.follows = "purs-nix/ps-tools";
+    purenix.url = "github:purenix-org/purenix";
     utils.url = "github:ursi/flake-utils";
-    # optional
-    # ps-tools.follows = "purs-nix/ps-tools";
   };
 
   outputs = { self, utils, ... }@inputs:
@@ -16,14 +17,19 @@
     in
     utils.apply-systems
       { inherit inputs systems; }
-      ({ system, pkgs, purenix-pkgs, ... }:
+      ({ system, pkgs, purenix-pkgs, ps-tools, ... }:
         let
+          # TODO use compiler from purenix-pkgs
+          #purescript = ps-tools.purescript-0_15_4;
+          compile = { codegen = "corefn"; };
           purs-nix = inputs.purs-nix {
             inherit system;
+            defaults = { inherit compile; };
             overlays = [ purenix-pkgs ];
           };
           ps = purs-nix.purs
             {
+              #inherit purescript;
               # Project dir (src, test)
               dir = ./.;
               # Dependencies
@@ -31,13 +37,27 @@
                 with purs-nix.ps-pkgs;
                 [
                   prelude
-                  arrays
                 ];
             };
-          ps-command = ps.command { };
+          prefix = "output";
+          purenix-output = pkgs.stdenv.mkDerivation
+            {
+              inherit prefix;
+              name = "purenix-output";
+              src = ps.output { };
+              nativeBuildInputs = with pkgs; [ purenix ];
+              dontInstall = true;
+              postBuild = ''
+                mkdir -p $out
+                cp -L -r $src $out/${prefix}
+                chmod -R u+w $out/${prefix}
+                cd $out
+                purenix
+              '';
+            };
         in
         {
-          packages.default = ps.output { };
+          packages.default = purenix-output;
 
           devShells.default =
             pkgs.mkShell
@@ -45,9 +65,10 @@
                 packages =
                   with pkgs;
                   [
-                    ps-command
+                    (ps.command { inherit compile; })
                     # optional devShell tools
-                    # ps-tools.for-0_15.purescript-language-server
+                    # ps-tools.for-0_14.purescript-language-server
+                    # ps-tools.for-0_14.purty
                     # purs-nix.esbuild
                     # purs-nix.purescript
                     # nodejs
