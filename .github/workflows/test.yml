@@ -37,6 +37,7 @@ jobs:
             template:
               - ${{ matrix.template && format('{0}/**', matrix.template) || 'flake.*' }}
               - CHANGELOG.md
+              - .github/workflows/test.*
       - if: steps.changes.outputs.template == 'true' 
         uses: cachix/install-nix-action@v22
         with:
