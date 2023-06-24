@@ -13,7 +13,7 @@
       '';
       haskWelcomeText = welcome {
         project = "Haskell";
-        tool = "haskell";
+        tool = "hask";
         link = "https://nixos.org/manual/nixpkgs/stable/#haskell";
       };
       hixWelcomeText = welcome {
