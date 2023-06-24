@@ -11,6 +11,11 @@
         Build the project with `nix build ${target}`
         Run the project with `nix run ${target}`
       '';
+      haskWelcomeText = welcome {
+        project = "Haskell";
+        tool = "haskell";
+        link = "https://nixos.org/manual/nixpkgs/stable/#haskell";
+      };
       hixWelcomeText = welcome {
         project = "Haskell";
         tool = "haskell.nix (hix)";
@@ -30,6 +35,12 @@
     in
     {
       templates = {
+        hask = {
+          path = ./hask;
+          description = "A minimal haskell template";
+          welcomeText = haskWelcomeText;
+        };
+
         hix = {
           path = ./hix;
           description = "A haskell.nix template using hix";

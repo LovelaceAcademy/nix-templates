@@ -1,0 +1,13 @@
+cabal-version: 3.6
+
+name: hask
+version: 1.0.0.1
+
+common lang
+  ghc-options: -Wall 
+
+executable hask
+  import: lang
+  hs-source-dirs: src
+  main-is: Main.hs
+  build-depends: base

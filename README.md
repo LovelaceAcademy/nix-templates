@@ -12,6 +12,7 @@ nix flake init -t github:LovelaceAcademy/nix-templates#template-name
 
 ### Templates
 
+- [hask](./hask): A minimal haskell template
 - [hix](./hix): A haskell.nix (hix) template
 - [hix-plutus](./hix-plutus): A plutus template using haskell.nix
 - [hor](./hor): A haskell template using horizon-platform
@@ -37,8 +38,9 @@ It depends on upstream supporting it, and also our capacity to test in our CI. R
 
 It depends on the template:
 
-- hix, hor, pix: you'll need at least 8GB RAM and 10GB HDD
-- hix-plutus, pix-ctl: you'll need at least 16GB RAM (for HDD) or 12GB RAM (for SSD). At least 20GB of available space.
+- hask, pix: 4GB RAM and 5GB HDD
+- hix, hor: 8GB RAM and 10GB HDD
+- hix-plutus, pix-ctl: 16GB RAM (for HDD) / 12GB RAM (for SSD). At least 20GB of available space.
 
 ### Why it take soo long to build?
 

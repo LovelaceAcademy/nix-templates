@@ -10,6 +10,7 @@ jobs:
       matrix:
         template:
           - ""
+          - hask
           - hix
           - hix-plutus
         system:
