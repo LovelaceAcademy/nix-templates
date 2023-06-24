@@ -1,5 +1,26 @@
 # Changelog
 
+## [5.0.0](https://github.com/LovelaceAcademy/nix-templates/compare/v4.2.1...v5.0.0) (2023-06-24)
+
+
+### ⚠ BREAKING CHANGES
+
+* **test:** remove aarch64-linux for all templates
+
+### Features
+
+* **hask:** add minimal template ([3e94feb](https://github.com/LovelaceAcademy/nix-templates/commit/3e94feb8fe548f022c075c2e6512f45e787453d4))
+
+
+### Bug Fixes
+
+* hask name, supported systems ([a356d2a](https://github.com/LovelaceAcademy/nix-templates/commit/a356d2a0c84338aef08eab827e0dce23788cde02))
+
+
+### Continuous Integration
+
+* **test:** rework test matrix ([e09102a](https://github.com/LovelaceAcademy/nix-templates/commit/e09102af209dccb2ccfe77e8b21161c861e9a29b))
+
 ## [4.2.1](https://github.com/LovelaceAcademy/nix-templates/compare/v4.2.0...v4.2.1) (2023-06-12)
 
 
