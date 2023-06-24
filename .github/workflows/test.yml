@@ -7,27 +7,40 @@ on:
 jobs:
   test:
     strategy:
+      fail-fast: false
       matrix:
         template:
           - ""
           - hask
           - hix
           - hix-plutus
+          - hor
+          - hor-plutus
+          - pix
+          - pix-ctl
+          - pix-ctl-full
         system:
-          - aarch64-linux
           - x86_64-linux
-        include:
+          - x86_64-darwin
+        os:
+          - ubuntu-latest
+          - macos-latest
+        exclude:
+          - system: x86_64-linux
+            os: macos-latest
+          - system: x86_64-darwin
+            os: ubuntu-latest
           - template: hor
-            system: x86_64-linux
+            system: x86_64-darwin
           - template: hor-plutus
-            system: x86_64-linux
+            system: x86_64-darwin
           - template: pix
-            system: x86_64-linux
+            system: x86_64-darwin
           - template: pix-ctl
-            system: x86_64-linux
+            system: x86_64-darwin
           - template: pix-ctl-full
-            system: x86_64-linux
-    runs-on: ubuntu-latest
+            system: x86_64-darwin
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
       - uses: dorny/paths-filter@v2
