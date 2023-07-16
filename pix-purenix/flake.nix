@@ -1,10 +1,9 @@
 {
   inputs = {
-    purenix-pkgs.url = "github:klarkc/purenix-packages";
+    purenix-pkgs.url = "github:klarkc/purenix-packages/add-registry";
     nixpkgs.follows = "purenix-pkgs/nixpkgs";
-    # FIXME purenix-packages is supposed to work with purs 0.15
-    purs-nix.url = "github:purs-nix/purs-nix/ps-0.14";
-    ps-tools.follows = "purs-nix/ps-tools";
+    purs-nix.follows = "purenix-pkgs/purs-nix";
+    #ps-tools.follows = "purenix-pkgs/ps-tools";
     purenix.url = "github:purenix-org/purenix";
     utils.url = "github:ursi/flake-utils";
   };
@@ -17,13 +16,13 @@
     in
     utils.apply-systems
       { inherit inputs systems; }
-      ({ system, pkgs, purenix-pkgs, ps-tools, ... }:
+      ({ system, pkgs, purenix-pkgs, ... }:
         let
           compile = { codegen = "corefn"; };
           purs-nix = inputs.purs-nix {
             inherit system;
             defaults = { inherit compile; };
-            overlays = [ purenix-pkgs ];
+            overlays = [ purenix-pkgs.overlay ];
           };
           ps = purs-nix.purs
             {
@@ -35,6 +34,8 @@
                 [
                   prelude
                 ];
+              # use compatible compiler
+              inherit (purenix-pkgs) purescript;
             };
           prefix = "output";
           purenix-output = pkgs.stdenv.mkDerivation
@@ -42,7 +43,7 @@
               inherit prefix;
               name = "purenix-output";
               src = ps.output { };
-              nativeBuildInputs = with pkgs; [ purenix ];
+              nativeBuildInputs = with pkgs; [ purenix tree ];
               dontInstall = true;
               postBuild = ''
                 mkdir -p $out
@@ -64,8 +65,8 @@
                   [
                     (ps.command { inherit compile; })
                     # optional devShell tools
-                    # ps-tools.for-0_14.purescript-language-server
-                    # ps-tools.for-0_14.purty
+                    # ps-tools.for-0_15.purescript-language-server
+                    # ps-tools.for-0_15.purty
                     # purs-nix.esbuild
                     # purs-nix.purescript
                     # nodejs
