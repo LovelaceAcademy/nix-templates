@@ -4226,11 +4226,11 @@
       },
       "locked": {
         "dir": "hor-plutus",
-        "lastModified": 1687586616,
-        "narHash": "sha256-u2crhYpNiE8NB7hGiDBV/7xlpOhduYwEK8IMZUuXpkI=",
+        "lastModified": 1690206902,
+        "narHash": "sha256-ab3hZiuqNgKow7hG5mi8dZVQM586SjMgTfgoe7lRxOQ=",
         "owner": "LovelaceAcademy",
         "repo": "nix-templates",
-        "rev": "6810973428f76ef9098782afc7501c01b0a40436",
+        "rev": "7d529074e2b1cd9c244324e89dffbb5700a5c85b",
         "type": "github"
       },
       "original": {
