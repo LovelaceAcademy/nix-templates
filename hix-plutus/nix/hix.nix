@@ -18,6 +18,6 @@
   shell.tools.cabal = "latest";
   # FIXME find out the hlint version for hix
   # shell.tools.hlint = "latest";
-  # haskell-language-server should follow GHC
-  shell.tools.haskell-language-server = "2.0.0.0";
+  # FIXME haskell-language-server not building with ghc8107
+  # shell.tools.haskell-language-server = "2.0.0.0";
 }
