@@ -9,14 +9,13 @@
         inherit inputs;
         # TODO support additional systems
         #  right now we can't afford to test every other system
-        systems = [ "x86_64-linux" "aarch64-linux" ];
+        systems = [ "x86_64-linux" "x86_64-darwin" ];
         overlays = [ inputs.haskell-nix.overlay ];
       }
       ({ pkgs, system, ... }:
         let
           hixProject = pkgs.haskell-nix.hix.project {
             src = ./.;
-            evalSystem = "x86_64-linux";
           };
           flake = hixProject.flake { };
         in
