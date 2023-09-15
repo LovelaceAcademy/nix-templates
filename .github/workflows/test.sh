@@ -11,7 +11,8 @@ rm -Rf $DIR
 set -ex
 
 develop () {
-	nix develop -c "echo"
+	nix develop -c "echo" --show-trace --print-build-logs --verbose
+
 }
 
 check () {
