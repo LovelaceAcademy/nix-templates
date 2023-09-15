@@ -51,7 +51,7 @@
             # TODO Extract GHC version from hsPkgs
             buildInputs = with pkgs.haskell.packages.ghc8107; attrs.buildInputs ++ [
               serve-docs
-              cabal-install
+              pkgs.cabal-install
               #haskell-language-server
             ];
           });
