@@ -24,8 +24,10 @@
         {
           packages.default = hsPkgs.hor;
           devShells.default = hsPkgs.hor.env.overrideAttrs (attrs: {
-            buildInputs = with pkgs; attrs.buildInputs ++ [
+            buildInputs = with hsPkgs; attrs.buildInputs ++ [
               cabal-install
+              haskell-language-server
+              hlint
             ];
           });
           checks.output = pkgs.runCommand "hor-output" { }
