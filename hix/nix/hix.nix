@@ -17,6 +17,6 @@
   shell.tools.cabal = "latest";
   # FIXME hlint not building with ghc8107
   # shell.tools.hlint = "latest";
-  # haskell-language-server should follow GHC
-  shell.tools.haskell-language-server = "2.0.0.0";
+  # FIXME haskell-language-server wih ghc8107
+  # shell.tools.haskell-language-server = "2.0.0.0";
 }
