@@ -42,8 +42,8 @@ else
 		cd $TARGET_DIR
 		git_init
 		nix flake init -t "${SOURCE_DIR}#${TMPL}"
+		# test the target
+		check
+		develop
 	)
-	# test the target
-	check
-	develop
 fi
