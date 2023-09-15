@@ -26,6 +26,10 @@ jobs:
             os: macos-latest
           - template: hor-plutus
             os: macos-latest
+          - template: hix
+            os: macos-latest
+          - template: hix-plutus
+            os: macos-latest
           - template: pix
             os: macos-latest
           - template: pix-ctl

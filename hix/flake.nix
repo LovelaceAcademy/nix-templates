@@ -7,9 +7,8 @@
     utils.apply-systems
       {
         inherit inputs;
-        # TODO support additional systems
-        #  right now we can't afford to test every other system
-        systems = [ "x86_64-linux" "x86_64-darwin" ];
+        # FIXME add x86_64-darwin on hix
+        systems = [ "x86_64-linux" ];
         overlays = [ inputs.haskell-nix.overlay ];
       }
       ({ pkgs, system, ... }:
