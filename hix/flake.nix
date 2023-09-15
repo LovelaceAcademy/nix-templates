@@ -16,6 +16,7 @@
         let
           hixProject = pkgs.haskell-nix.hix.project {
             src = ./.;
+            evalSystem = system;
           };
           flake = hixProject.flake { };
         in
