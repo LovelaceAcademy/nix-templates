@@ -12,11 +12,8 @@
     utils.apply-systems
       {
         inherit inputs;
-        # see our hix
-        systems = [
-          "aarch64-linux"
-          "x86_64-linux"
-        ];
+        # FIXME add x86_64-darwin on hix-plutus
+        systems = [ "x86_64-linux" ];
         overlays = [
           inputs.haskell-nix.overlay
           # plutus runtime dependency
@@ -27,7 +24,7 @@
         let
           hixProject = pkgs.haskell-nix.hix.project {
             src = ./.;
-            evalSystem = "x86_64-linux";
+            evalSystem = system;
             inputMap = { "https://input-output-hk.github.io/cardano-haskell-packages" = inputs.CHaP; };
             modules = [
               (_: {
