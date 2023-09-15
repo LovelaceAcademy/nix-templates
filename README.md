@@ -2,7 +2,14 @@
 
 [![Test](https://github.com/LovelaceAcademy/nix-templates/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/LovelaceAcademy/nix-templates/actions/workflows/test.yml?query=branch%3Amain)
 
-Minimal reproducible nix flake templates
+Minimal reproducible nix flake templates.
+
+## What is the definition of minimum?
+
+- Hello World (eg: a script which prints "hello world").
+- LSP support (if available)
+- Code formatter (if available)
+- Docs (if available)
 
 ## Usage
 
