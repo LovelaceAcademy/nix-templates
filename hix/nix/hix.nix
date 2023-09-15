@@ -18,5 +18,5 @@
   # FIXME hlint not building with ghc8107
   # shell.tools.hlint = "latest";
   # FIXME haskell-language-server not building with ghc8107
-  # shell.tools.haskell-language-server = "latest";
+  shell.tools.haskell-language-server = "2.0.0.0";
 }
