@@ -15,6 +15,8 @@
 
   # Tools to include in the development shell
   shell.tools.cabal = "latest";
-  shell.tools.hlint = "latest";
-  shell.tools.haskell-language-server = "latest";
+  # FIXME hlint not building with ghc8107
+  # shell.tools.hlint = "latest";
+  # FIXME haskell-language-server not building with ghc8107
+  # shell.tools.haskell-language-server = "latest";
 }
