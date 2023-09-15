@@ -16,8 +16,8 @@
           devShells.default = pkgs.mkShell {
             packages = with pkgs; [
               cabal-install
-              #haskell-language-server
-              #hlint
+              haskell-language-server
+              hlint
             ];
             inputsFrom = [
               hask.env
