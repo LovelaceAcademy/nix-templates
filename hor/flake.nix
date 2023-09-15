@@ -25,7 +25,7 @@
           packages.default = hsPkgs.hor;
           devShells.default = hsPkgs.hor.env.overrideAttrs (attrs: {
             buildInputs = with hsPkgs; attrs.buildInputs ++ [
-              cabal-install
+              pkgs.cabal-install
               haskell-language-server
               hlint
             ];
