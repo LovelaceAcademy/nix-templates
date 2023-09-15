@@ -18,27 +18,20 @@ jobs:
           - pix
           - pix-ctl
           - pix-ctl-full
-        system:
-          - x86_64-linux
-          - x86_64-darwin
         os:
           - ubuntu-latest
           - macos-latest
         exclude:
-          - system: x86_64-linux
-            os: macos-latest
-          - system: x86_64-darwin
-            os: ubuntu-latest
           - template: hor
-            system: x86_64-darwin
+            os: macos-latest
           - template: hor-plutus
-            system: x86_64-darwin
+            os: macos-latest
           - template: pix
-            system: x86_64-darwin
+            os: macos-latest
           - template: pix-ctl
-            system: x86_64-darwin
+            os: macos-latest
           - template: pix-ctl-full
-            system: x86_64-darwin
+            os: macos-latest
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
@@ -66,4 +59,4 @@ jobs:
           brew install gnu-sed
           echo "$(brew --prefix)/opt/gnu-sed/libexec/gnubin:$PATH" >> $GITHUB_PATH
       - if: steps.changes.outputs.template == 'true' 
-        run: ./.github/workflows/test.sh ${{ matrix.system }} ${{ matrix.template }}
+        run: ./.github/workflows/test.sh ${{ matrix.template }}

@@ -1,6 +1,5 @@
 #!/bin/bash
-SYSTEM=$1
-TMPL=$2
+TMPL=$1
 PWD=$(pwd)
 DIR=/tmp/nix-templates
 SOURCE_DIR="${DIR}/source"
