@@ -11,6 +11,10 @@ set +ex
 rm -Rf $DIR
 set -ex
 
+develop () {
+	nix develop -c "echo"
+}
+
 check () {
 	nix flake check --show-trace --print-build-logs --verbose
 }
@@ -41,4 +45,5 @@ else
 	)
 	# test the target
 	check
+	develop
 fi
