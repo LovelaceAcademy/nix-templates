@@ -16,6 +16,8 @@
 
   # Tools to include in the development shell
   shell.tools.cabal = "latest";
+  # FIXME find out the hlint version for hix
   # shell.tools.hlint = "latest";
-  # shell.tools.haskell-language-server = "latest";
+  # haskell-language-server should follow GHC
+  shell.tools.haskell-language-server = "2.0.0.0";
 }
