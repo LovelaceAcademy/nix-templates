@@ -52,7 +52,8 @@
             buildInputs = with pkgs.haskell.packages.ghc8107; attrs.buildInputs ++ [
               serve-docs
               pkgs.cabal-install
-              haskell-language-server
+              # FIXME hor-plutus LSP not building
+              # haskell-language-server
               hlint
             ];
           });
