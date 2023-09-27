@@ -1,5 +1,45 @@
 # Changelog
 
+## [6.0.0](https://github.com/LovelaceAcademy/nix-templates/compare/v5.0.0...v6.0.0) (2023-09-27)
+
+
+### ⚠ BREAKING CHANGES
+
+* **hix/hix-plutus:** x86_64-darwin not supported anymore
+
+### Features
+
+* **hask:** add hlint and lsp ([e482a42](https://github.com/LovelaceAcademy/nix-templates/commit/e482a425bbf62d3e70a1ff4743d9104ef808822f))
+* **hix-plutus:** add LSP ([5e61bc7](https://github.com/LovelaceAcademy/nix-templates/commit/5e61bc78d2edf0f3227fe07eb62363aeaad0ef26))
+* **hix/hix-plutus:** drop support for broken systems ([072e276](https://github.com/LovelaceAcademy/nix-templates/commit/072e276b20d792ba8167a7f38f9862d6f67d879f))
+* **hix:** add evalSystem for running system ([469b797](https://github.com/LovelaceAcademy/nix-templates/commit/469b79723fb3fe8549277f18e4851a5dd529b75a))
+* **hix:** add missing LSP ([4a2fc04](https://github.com/LovelaceAcademy/nix-templates/commit/4a2fc0472c4d38c4add6366995d1831bc3c206e7))
+* **hix:** enable lsp and lint ([e9828c3](https://github.com/LovelaceAcademy/nix-templates/commit/e9828c369d6f0862015c80a0536ccf54acc331fa))
+* **hor-plutus:** add dev tools ([3d25d16](https://github.com/LovelaceAcademy/nix-templates/commit/3d25d165000e30c82bb553768f0733884bed9940))
+* **hor-plutus:** use latest cabal-install ([7a4973d](https://github.com/LovelaceAcademy/nix-templates/commit/7a4973de977c9e491d70a065f5e98cd38c2c04b9))
+* **hor,hor-plutus:** add hor proper cache ([41a4525](https://github.com/LovelaceAcademy/nix-templates/commit/41a45256d65f42c1ec2a6e4ee649ab2a5585996a))
+* **hor:** enable hor dev tools ([c5aba6f](https://github.com/LovelaceAcademy/nix-templates/commit/c5aba6fe68a307b34e21f6a74e1b8b850f22d334))
+* **hor:** use latest cabal-install ([712e3a6](https://github.com/LovelaceAcademy/nix-templates/commit/712e3a6b73792d3a96338ce8f70b5c8c9efa507d))
+* **pix-ctl,pix-ctl-full:** remove redudant cache ([1043c6e](https://github.com/LovelaceAcademy/nix-templates/commit/1043c6e7c2833ba727c38590e9a4264eba6e61fd))
+
+
+### Bug Fixes
+
+* **hask:** cabal dist not being ignored ([5cd90cf](https://github.com/LovelaceAcademy/nix-templates/commit/5cd90cf2213c29a28c68f63900b02e8b5bc3826f))
+* **hix,hix-plutus:** lsp broken ([8750a6e](https://github.com/LovelaceAcademy/nix-templates/commit/8750a6e4bafa6f9a1b64088a8327b59d33600e0c))
+* **hix:** disable broken LSP and lint build ([ba34c83](https://github.com/LovelaceAcademy/nix-templates/commit/ba34c837dcd23b47470e6de22da06a0b9ac5c272))
+* **hix:** not producing expected system ([06458aa](https://github.com/LovelaceAcademy/nix-templates/commit/06458aa56cd203ebcd8d29bf56b568d370f20a6d))
+* **hor-plutus:** disable LSP not building ([bca2332](https://github.com/LovelaceAcademy/nix-templates/commit/bca23321a84fa5811ee9328d98d21552cf88e9a8))
+* **hor-plutus:** fix cabal files gitignore ([c859569](https://github.com/LovelaceAcademy/nix-templates/commit/c859569c37c7dadabca4a1f5f08e516a9a7f07f1))
+
+
+### Performance Improvements
+
+* **hix-plutus:** remove unused cache ([4a9c76d](https://github.com/LovelaceAcademy/nix-templates/commit/4a9c76dcdf93fa4498b6a555337d553483780fed))
+* **hix:** remove unused cache ([e8af120](https://github.com/LovelaceAcademy/nix-templates/commit/e8af1207b3ea2c8400405c9d95d9463c6f9f0f09))
+* **hor,hor-plutus:** remove unused cache ([84b1518](https://github.com/LovelaceAcademy/nix-templates/commit/84b1518c781999247fcdb096cb150a60589efbea))
+* **pix:** remove unused cache ([5ef3767](https://github.com/LovelaceAcademy/nix-templates/commit/5ef3767d5fbf0e8df1f0bc2a5565f4b1bf68dc5f))
+
 ## [5.0.0](https://github.com/LovelaceAcademy/nix-templates/compare/v4.2.1...v5.0.0) (2023-06-24)
 
 
