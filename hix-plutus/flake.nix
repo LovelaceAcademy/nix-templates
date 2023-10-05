@@ -15,9 +15,10 @@
         # FIXME add x86_64-darwin on hix-plutus
         systems = [ "x86_64-linux" ];
         overlays = [
-          inputs.haskell-nix.overlay
-          # plutus runtime dependency
+          # plutus dependencies
           inputs.iohk-nix.overlays.crypto
+          inputs.haskell-nix.overlay
+          inputs.iohk-nix.overlays.haskell-nix-crypto
         ];
       }
       ({ pkgs, system, ... }@context:
@@ -26,15 +27,6 @@
             src = ./.;
             evalSystem = system;
             inputMap = { "https://input-output-hk.github.io/cardano-haskell-packages" = inputs.CHaP; };
-            modules = [
-              (_: {
-                # See input-output-hk/iohk-nix#488
-                packages.cardano-crypto-praos.components.library.pkgconfig =
-                  pkgs.lib.mkForce [ [ pkgs.libsodium-vrf ] ];
-                packages.cardano-crypto-class.components.library.pkgconfig =
-                  pkgs.lib.mkForce [ [ pkgs.libsodium-vrf pkgs.secp256k1 ] ];
-              })
-            ];
           };
           hixFlake = hixProject.flake { };
           serve-docs = import ./nix/serve-docs.nix inputs context {
