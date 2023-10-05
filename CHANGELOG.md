@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.1.0](https://github.com/LovelaceAcademy/nix-templates/compare/v6.0.0...v6.1.0) (2023-10-05)
+
+
+### Features
+
+* **hix-plutus:** update to new iohk-nix overlays ([4fb46d3](https://github.com/LovelaceAcademy/nix-templates/commit/4fb46d388baaf69fb0c91e7cb7b922ad8ea5e232))
+
 ## [6.0.0](https://github.com/LovelaceAcademy/nix-templates/compare/v5.0.0...v6.0.0) (2023-09-27)
 
 
