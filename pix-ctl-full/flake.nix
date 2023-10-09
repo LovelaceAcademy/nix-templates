@@ -13,7 +13,7 @@
       #  right now purs-nix is only compatible with x86_64-linux
       systems = [ "x86_64-linux" ];
       overlays = with inputs.ctl-nix.inputs.ctl.overlays; [
-        # adds: purs
+        # adds easy-ps for CTL
         purescript
         # adds:
         #  arion
@@ -28,7 +28,7 @@
       ({ system, pkgs, ctl-nix, hor-plutus, ... }:
         let
           # Use purs from CTL instead from nixpkgs
-          purs = pkgs.easy-ps.purs-0_14_5;
+          purs = pkgs.easy-ps.purs-0_14_7;
           purs-nix = inputs.purs-nix {
             inherit system;
             overlays = [ ctl-nix ];
