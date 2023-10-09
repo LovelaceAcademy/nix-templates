@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.1.1](https://github.com/LovelaceAcademy/nix-templates/compare/v6.1.0...v6.1.1) (2023-10-09)
+
+
+### Bug Fixes
+
+* **pix-ctl/pix-ctl-full:** bump purs to 0.14.7 and fix different version ([d2e90d2](https://github.com/LovelaceAcademy/nix-templates/commit/d2e90d284e8eb49ec930def86a923d8dd1d66749))
+
 ## [6.1.0](https://github.com/LovelaceAcademy/nix-templates/compare/v6.0.0...v6.1.0) (2023-10-05)
 
 
