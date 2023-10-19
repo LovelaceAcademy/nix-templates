@@ -10,7 +10,7 @@ import Contract.Prelude
   , discard
   , show
   )
-import Contract.Address (ownPaymentPubKeyHash)
+import Contract.Wallet (ownPaymentPubKeyHashes)
 import Contract.Log (logInfo')
 import Contract.Monad (Contract, launchAff_, runContract)
 import Contract.Config (testnetEternlConfig)
@@ -20,7 +20,7 @@ contract :: Contract Unit
 contract = do
   validator' <- liftEither validator
   logInfo' $ show validator'
-  pk <- ownPaymentPubKeyHash
+  pk <- ownPaymentPubKeyHashes
   logInfo' $ show pk
 
 main :: Effect Unit

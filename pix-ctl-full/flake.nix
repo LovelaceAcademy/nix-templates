@@ -1,8 +1,10 @@
 {
   inputs = {
-    ctl-nix.url = "github:LovelaceAcademy/ctl-nix";
+    ctl-nix.url = "github:LovelaceAcademy/ctl-nix/upgrade-ctl";
+    ctl.follows = "ctl-nix/ctl";
     nixpkgs.follows = "ctl-nix/nixpkgs";
     purs-nix.follows = "ctl-nix/purs-nix";
+    ps-tools.follows = "ctl-nix/purs-nix/ps-tools";
     utils.url = "github:ursi/flake-utils";
     hor-plutus.url = "github:LovelaceAcademy/nix-templates?dir=hor-plutus";
   };
@@ -12,11 +14,10 @@
       # TODO add missing arm to match standard systems
       #  right now purs-nix is only compatible with x86_64-linux
       systems = [ "x86_64-linux" ];
-      overlays = with inputs.ctl-nix.inputs.ctl.overlays; [
+      overlays = with inputs.ctl.overlays; [
         # adds easy-ps for CTL
         purescript
         # adds:
-        #  arion
         #  plutip-server
         #  ogmios
         #  kupo
@@ -25,26 +26,30 @@
     in
     utils.apply-systems
       { inherit inputs systems overlays; }
-      ({ system, pkgs, ctl-nix, hor-plutus, ... }:
+      ({ system, pkgs, ... }@ctx:
         let
-          # Use purs from CTL instead from nixpkgs
-          purs = pkgs.easy-ps.purs-0_14_7;
+          inherit (pkgs) nodejs;
+          # TODO Use a default purs version from CTL
+          inherit (ctx.ps-tools.for-0_15)
+            purescript purs-tidy purescript-language-server;
           purs-nix = inputs.purs-nix {
             inherit system;
-            overlays = [ ctl-nix ];
+            overlays = [ ctx.ctl-nix ];
           };
           scripts = pkgs.runCommand
             "scripts"
             {
-              buildInputs = [ hor-plutus ];
+              buildInputs = [ ctx.hor-plutus ];
             }
             ''
               mkdir -p $out/Scripts
-              hor-plutus > $out/Scripts/scriptV2.json
+              hor-plutus > script.json
+              (echo "export default "; cat script.json) \
+                > $out/Scripts/scriptV2.mjs
             '';
           ps = purs-nix.purs
             {
-              purescript = purs;
+              inherit purescript nodejs;
               # Project dir (src, test)
               dir = ./.;
               # Dependencies
@@ -55,7 +60,6 @@
                 ];
               # FFI dependencies
               foreign."Scripts".node_modules = scripts;
-              # 
             };
           testRuntime = with pkgs; [
             plutip-server
@@ -69,36 +73,34 @@
             ];
             text = ''purs-nix-origin "$@"'';
           };
-          # TODO move this patch to ctl-nix
-          prebuilt = (pkgs.arion.build {
-            inherit pkgs;
-            modules =
-              let
-                # add here the Slot and block header where you want to start syncing
-                slot = "11213922";
-                id = "3e9029c1dff85bad50e2a0b507d39ef4d745d24a9780b3ce5eda7df307815db2";
-                ctl-module = pkgs.buildCtlRuntime {
-                  kupo.since = "${slot}.${id}";
-                };
-                ctl-module' = args:
-                  let
-                    module-ret = ctl-module args;
-                    kupo-cmd = module-ret.services.kupo.service.command;
-                  in
-                  pkgs.lib.attrsets.recursiveUpdate module-ret {
-                    # FIXME remove workaround for defer-db-indexes
-                    #  Related Plutonomicon/cardano-transaction-lib#1444
-                    services.kupo.service.command =
-                      pkgs.lib.lists.subtractLists [ "--defer-db-indexes" ] kupo-cmd;
-                  };
-              in
-              [ ctl-module' ];
-          });
+          #  # TODO move this patch to ctl-nix
+          #  prebuilt = (pkgs.arion.build {
+          #    inherit pkgs;
+          #    modules =
+          #      let
+          #        # add here the Slot and block header where you want to start syncing
+          #        slot = "11213922";
+          #        id = "3e9029c1dff85bad50e2a0b507d39ef4d745d24a9780b3ce5eda7df307815db2";
+          #        ctl-module = pkgs.buildCtlRuntime {
+          #          kupo.since = "${slot}.${id}";
+          #        };
+          #        ctl-module' = args:
+          #          let
+          #            module-ret = ctl-module args;
+          #            kupo-cmd = module-ret.services.kupo.service.command;
+          #          in
+          #          pkgs.lib.attrsets.recursiveUpdate module-ret {
+          #            # FIXME remove workaround for defer-db-indexes
+          #            #  Related Plutonomicon/cardano-transaction-lib#1444
+          #            services.kupo.service.command =
+          #              pkgs.lib.lists.subtractLists [ "--defer-db-indexes" ] kupo-cmd;
+          #          };
+          #      in
+          #      [ ctl-module' ];
+          #  });
           concurrent = pkgs.writeShellApplication {
             name = "concurrent";
-            runtimeInputs = with pkgs; [
-              concurrently
-            ];
+            runtimeInputs = with pkgs; [ concurrently ];
             text = ''
               concurrently\
                 --color "auto"\
@@ -108,55 +110,55 @@
                 "$@"
             '';
           };
-          # TODO move from docker runtime to a nix runtime
-          runtime = pkgs.writeShellApplication {
-            name = "runtime";
-            runtimeInputs = [ pkgs.arion pkgs.docker ];
-            text = ''arion --prebuilt-file ${prebuilt.outPath} "$@"'';
-          };
-          cardano-cli = pkgs.writeShellApplication {
-            name = "cardano-cli";
-            runtimeInputs = with pkgs; [ docker ];
-            text = ''
-              docker volume inspect store_node-preview-ipc || _warn "Cardano node volume not found, run \"dev or runtime\" first."
-              docker run --rm -it -v "$(pwd)":/data -w /data -v store_node-preview-ipc:/ipc -e CARDANO_NODE_SOCKET_PATH=/ipc/node.socket --entrypoint cardano-cli "inputoutput/cardano-node" "$@"
-            '';
-          };
+          #  # TODO move from docker runtime to a nix runtime
+          #  runtime = pkgs.writeShellApplication {
+          #    name = "runtime";
+          #    runtimeInputs = [ pkgs.arion pkgs.docker ];
+          #    text = ''arion --prebuilt-file ${prebuilt.outPath} "$@"'';
+          #  };
+          #  cardano-cli = pkgs.writeShellApplication {
+          #    name = "cardano-cli";
+          #    runtimeInputs = with pkgs; [ docker ];
+          #    text = ''
+          #      docker volume inspect store_node-preview-ipc || _warn "Cardano node volume not found, run \"dev or runtime\" first."
+          #      docker run --rm -it -v "$(pwd)":/data -w /data -v store_node-preview-ipc:/ipc -e CARDANO_NODE_SOCKET_PATH=/ipc/node.socket --entrypoint cardano-cli "inputoutput/cardano-node" "$@"
+          #    '';
+          #  };
           purs-watch = pkgs.writeShellApplication {
             name = "purs-watch";
             runtimeInputs = with pkgs; [ entr ps-command ];
             text = ''find {src,test} | entr -s "purs-nix $*"'';
           };
-          webpack = pkgs.writeShellApplication {
-            name = "webpack";
-            runtimeInputs = with pkgs; [ nodejs ];
-            text = ''npx webpack "$@"'';
-          };
-          serve = pkgs.writeShellApplication {
-            name = "serve";
-            runtimeInputs = with pkgs; [ webpack ];
-            text = ''BROWSER_RUNTIME=1 webpack serve --progress --open "$@"'';
-          };
-          dev = pkgs.writeShellApplication {
-            name = "dev";
-            runtimeInputs = with pkgs; [
-              concurrent
-              runtime
-              purs-watch
-              serve
-            ];
-            text = ''
-              concurrent \
-                "purs-watch compile"\
-                serve\
-                "runtime up"
-            '';
-          };
-          bundle = pkgs.writeShellApplication {
-            name = "bundle";
-            runtimeInputs = with pkgs; [ webpack ];
-            text = ''BROWSER_RUNTIME=1 webpack --mode=production "$@"'';
-          };
+          #  webpack = pkgs.writeShellApplication {
+          #    name = "webpack";
+          #    runtimeInputs = with pkgs; [ nodejs ];
+          #    text = ''npx webpack "$@"'';
+          #  };
+          #  serve = pkgs.writeShellApplication {
+          #    name = "serve";
+          #    runtimeInputs = with pkgs; [ webpack ];
+          #    text = ''BROWSER_RUNTIME=1 webpack serve --progress --open "$@"'';
+          #  };
+          #  dev = pkgs.writeShellApplication {
+          #    name = "dev";
+          #    runtimeInputs = with pkgs; [
+          #      concurrent
+          #      runtime
+          #      purs-watch
+          #      serve
+          #    ];
+          #    text = ''
+          #      concurrent \
+          #        "purs-watch compile"\
+          #        serve\
+          #        "runtime up"
+          #    '';
+          #  };
+          #  bundle = pkgs.writeShellApplication {
+          #    name = "bundle";
+          #    runtimeInputs = with pkgs; [ webpack ];
+          #    text = ''BROWSER_RUNTIME=1 webpack --mode=production "$@"'';
+          #  };
           docs = pkgs.writeShellApplication {
             name = "docs";
             runtimeInputs = with pkgs; [
@@ -189,14 +191,15 @@
             pkgs.mkShell
               {
                 packages = with pkgs; [
-                  runtime
-                  cardano-cli
-                  easy-ps.purescript-language-server
-                  purs
+                  #        runtime
+                  #        cardano-cli
+                  purescript
+                  purescript-language-server
+                  purs-tidy
                   ps-command
                   purs-watch
-                  dev
-                  bundle
+                  #        dev
+                  #        bundle
                   docs
                   tests
                 ];
