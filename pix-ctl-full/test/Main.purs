@@ -65,7 +65,11 @@ config =
   , suppressLogs: true
   , hooks: emptyHooks
   , clusterConfig:
-      { slotLength: Seconds 0.05 }
+      { slotLength: Seconds 0.05
+      , epochSize: Nothing
+      , maxTxSize: Nothing
+      , raiseExUnitsToMax: false
+      }
   }
 
 suite :: TestPlanM ContractTest Unit
