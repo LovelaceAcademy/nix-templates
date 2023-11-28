@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.2.0](https://github.com/LovelaceAcademy/nix-templates/compare/v6.1.1...v6.2.0) (2023-11-28)
+
+
+### Features
+
+* **pix-ctl/pix-ctl-full:** add mlabs cache ([a1e042c](https://github.com/LovelaceAcademy/nix-templates/commit/a1e042cb590e910c6b6b43c489c40e014e81afd2))
+
 ## [6.1.1](https://github.com/LovelaceAcademy/nix-templates/compare/v6.1.0...v6.1.1) (2023-10-09)
 
 
