@@ -27,7 +27,7 @@ import Contract.Test.Utils
   ( exitCode
   , interruptOnSignal
   )
-import Data.BigInt as DBI
+import JS.BigInt as DBI
 import Data.Maybe (Maybe (Just, Nothing))
 import Data.Posix.Signal (Signal(SIGINT))
 import Data.Time.Duration (Seconds (Seconds))
