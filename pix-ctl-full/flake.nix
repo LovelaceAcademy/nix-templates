@@ -2,7 +2,7 @@
   inputs = {
     ctl-nix.url = "github:LovelaceAcademy/ctl-nix/upgrade-ctl";
     ctl.follows = "ctl-nix/ctl";
-    nixpkgs.follows = "ctl-nix/nixpkgs";
+    nixpkgs.follows = "ctl/nixpkgs";
     purs-nix.follows = "ctl-nix/purs-nix";
     ps-tools.follows = "ctl-nix/purs-nix/ps-tools";
     utils.url = "github:ursi/flake-utils";
@@ -73,31 +73,23 @@
             ];
             text = ''purs-nix-origin "$@"'';
           };
-          #  # TODO move this patch to ctl-nix
-          #  prebuilt = (pkgs.arion.build {
-          #    inherit pkgs;
-          #    modules =
-          #      let
-          #        # add here the Slot and block header where you want to start syncing
-          #        slot = "11213922";
-          #        id = "3e9029c1dff85bad50e2a0b507d39ef4d745d24a9780b3ce5eda7df307815db2";
-          #        ctl-module = pkgs.buildCtlRuntime {
-          #          kupo.since = "${slot}.${id}";
-          #        };
-          #        ctl-module' = args:
-          #          let
-          #            module-ret = ctl-module args;
-          #            kupo-cmd = module-ret.services.kupo.service.command;
-          #          in
-          #          pkgs.lib.attrsets.recursiveUpdate module-ret {
-          #            # FIXME remove workaround for defer-db-indexes
-          #            #  Related Plutonomicon/cardano-transaction-lib#1444
-          #            services.kupo.service.command =
-          #              pkgs.lib.lists.subtractLists [ "--defer-db-indexes" ] kupo-cmd;
-          #          };
-          #      in
-          #      [ ctl-module' ];
-          #  });
+          # TODO move this patch to ctl-nix
+          prebuilt = pkgs.arion.build {
+            inherit pkgs;
+            modules =
+              let
+                # add here the Slot and block header where you want to start syncing
+                slot = "11213922";
+                id = "3e9029c1dff85bad50e2a0b507d39ef4d745d24a9780b3ce5eda7df307815db2";
+                ctl-module = pkgs.buildCtlRuntime {
+                  kupo = {
+                    since = "${slot}.${id}";
+                    deferDbIndexes = false;
+                  };
+                };
+              in
+              [ ctl-module ];
+          };
           concurrent = pkgs.writeShellApplication {
             name = "concurrent";
             runtimeInputs = with pkgs; [ concurrently ];
@@ -110,12 +102,12 @@
                 "$@"
             '';
           };
-          #  # TODO move from docker runtime to a nix runtime
-          #  runtime = pkgs.writeShellApplication {
-          #    name = "runtime";
-          #    runtimeInputs = [ pkgs.arion pkgs.docker ];
-          #    text = ''arion --prebuilt-file ${prebuilt.outPath} "$@"'';
-          #  };
+          # TODO move from docker runtime to a nix runtime
+          runtime = pkgs.writeShellApplication {
+            name = "runtime";
+            runtimeInputs = [ pkgs.arion pkgs.docker ];
+            text = ''arion --prebuilt-file ${prebuilt.outPath} "$@"'';
+          };
           #  cardano-cli = pkgs.writeShellApplication {
           #    name = "cardano-cli";
           #    runtimeInputs = with pkgs; [ docker ];
@@ -191,7 +183,7 @@
             pkgs.mkShell
               {
                 packages = with pkgs; [
-                  #        runtime
+                  runtime
                   #        cardano-cli
                   purescript
                   purescript-language-server

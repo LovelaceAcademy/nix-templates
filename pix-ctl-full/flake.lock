@@ -10464,7 +10464,7 @@
         "ctl-nix": "ctl-nix",
         "hor-plutus": "hor-plutus",
         "nixpkgs": [
-          "ctl-nix",
+          "ctl",
           "nixpkgs"
         ],
         "ps-tools": [
