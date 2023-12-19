@@ -121,36 +121,36 @@
             runtimeInputs = with pkgs; [ entr ps-command ];
             text = ''find {src,test} | entr -s "purs-nix $*"'';
           };
-          #  webpack = pkgs.writeShellApplication {
-          #    name = "webpack";
-          #    runtimeInputs = with pkgs; [ nodejs ];
-          #    text = ''npx webpack "$@"'';
-          #  };
-          #  serve = pkgs.writeShellApplication {
-          #    name = "serve";
-          #    runtimeInputs = with pkgs; [ webpack ];
-          #    text = ''BROWSER_RUNTIME=1 webpack serve --progress --open "$@"'';
-          #  };
-          #  dev = pkgs.writeShellApplication {
-          #    name = "dev";
-          #    runtimeInputs = with pkgs; [
-          #      concurrent
-          #      runtime
-          #      purs-watch
-          #      serve
-          #    ];
-          #    text = ''
-          #      concurrent \
-          #        "purs-watch compile"\
-          #        serve\
-          #        "runtime up"
-          #    '';
-          #  };
-          #  bundle = pkgs.writeShellApplication {
-          #    name = "bundle";
-          #    runtimeInputs = with pkgs; [ webpack ];
-          #    text = ''BROWSER_RUNTIME=1 webpack --mode=production "$@"'';
-          #  };
+          webpack = pkgs.writeShellApplication {
+            name = "webpack";
+            runtimeInputs = with pkgs; [ nodejs ];
+            text = ''npx webpack "$@"'';
+          };
+          serve = pkgs.writeShellApplication {
+            name = "serve";
+            runtimeInputs = with pkgs; [ webpack ];
+            text = ''BROWSER_RUNTIME=1 webpack serve --progress --open "$@"'';
+          };
+          dev = pkgs.writeShellApplication {
+            name = "dev";
+            runtimeInputs = with pkgs; [
+              concurrent
+              runtime
+              purs-watch
+              serve
+            ];
+            text = ''
+              concurrent \
+                "purs-watch compile"\
+                serve\
+                "runtime up"
+            '';
+          };
+          bundle = pkgs.writeShellApplication {
+            name = "bundle";
+            runtimeInputs = with pkgs; [ webpack ];
+            text = ''BROWSER_RUNTIME=1 webpack --mode=production "$@"'';
+          };
           docs = pkgs.writeShellApplication {
             name = "docs";
             runtimeInputs = with pkgs; [
@@ -190,8 +190,8 @@
                   purs-tidy
                   ps-command
                   purs-watch
-                  #        dev
-                  #        bundle
+                  dev
+                  bundle
                   docs
                   tests
                 ];
