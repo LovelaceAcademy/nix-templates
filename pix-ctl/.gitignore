@@ -1,3 +1,6 @@
 /.psc-ide-port
+/.psci_modules
+/.purs-repl
 /result
 /output
+/generated-docs
