@@ -108,14 +108,14 @@
             runtimeInputs = [ pkgs.arion pkgs.docker ];
             text = ''arion --prebuilt-file ${prebuilt.outPath} "$@"'';
           };
-          #  cardano-cli = pkgs.writeShellApplication {
-          #    name = "cardano-cli";
-          #    runtimeInputs = with pkgs; [ docker ];
-          #    text = ''
-          #      docker volume inspect store_node-preview-ipc || _warn "Cardano node volume not found, run \"dev or runtime\" first."
-          #      docker run --rm -it -v "$(pwd)":/data -w /data -v store_node-preview-ipc:/ipc -e CARDANO_NODE_SOCKET_PATH=/ipc/node.socket --entrypoint cardano-cli "inputoutput/cardano-node" "$@"
-          #    '';
-          #  };
+          cardano-cli = pkgs.writeShellApplication {
+            name = "cardano-cli";
+            runtimeInputs = with pkgs; [ docker ];
+            text = ''
+              docker volume inspect ctl-runtime_node-preview-ipc || _warn "Cardano node volume not found, run \"dev or runtime\" first."
+              docker run --rm -it -v "$(pwd)":/data -w /data -v ctl-runtime_node-preview-ipc:/ipc -e CARDANO_NODE_SOCKET_PATH=/ipc/node.socket --entrypoint cardano-cli "inputoutput/cardano-node" "$@"
+            '';
+          };
           purs-watch = pkgs.writeShellApplication {
             name = "purs-watch";
             runtimeInputs = with pkgs; [ entr ps-command ];
@@ -184,7 +184,7 @@
               {
                 packages = with pkgs; [
                   runtime
-                  #        cardano-cli
+                  cardano-cli
                   purescript
                   purescript-language-server
                   purs-tidy
