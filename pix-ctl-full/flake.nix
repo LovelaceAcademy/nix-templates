@@ -1,6 +1,6 @@
 {
   inputs = {
-    ctl-nix.url = "github:LovelaceAcademy/ctl-nix/upgrade-ctl";
+    ctl-nix.url = "github:LovelaceAcademy/ctl-nix";
     ctl.follows = "ctl-nix/ctl";
     nixpkgs.follows = "ctl/nixpkgs";
     purs-nix.follows = "ctl-nix/purs-nix";

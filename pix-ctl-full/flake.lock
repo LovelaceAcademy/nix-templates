@@ -1870,16 +1870,15 @@
         "utils": "utils_27"
       },
       "locked": {
-        "lastModified": 1702930829,
-        "narHash": "sha256-XPOi1HiZ2eLSN6elK5c6KGAPPI4gumiZ7qWHu423Gr0=",
+        "lastModified": 1703003703,
+        "narHash": "sha256-Pfnm+YLl6tGK4+ejcuMY2vHGN3ZPLC3cHMf+9s9Y/Rw=",
         "owner": "LovelaceAcademy",
         "repo": "ctl-nix",
-        "rev": "5b75c5b69cba7035fff3d87e1ed5005ba617a391",
+        "rev": "68588892ddbc56e917362376cfc5af86fefd6088",
         "type": "github"
       },
       "original": {
         "owner": "LovelaceAcademy",
-        "ref": "upgrade-ctl",
         "repo": "ctl-nix",
         "type": "github"
       }
