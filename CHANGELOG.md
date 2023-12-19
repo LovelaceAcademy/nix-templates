@@ -1,5 +1,27 @@
 # Changelog
 
+## [7.0.0](https://github.com/LovelaceAcademy/nix-templates/compare/v6.1.1...v7.0.0) (2023-12-19)
+
+
+### ⚠ BREAKING CHANGES
+
+* **pix-ctl:** see ctl-nix upstream for breaking changes
+* **pix-ctl-full:** see ctl-nix upstream for breaking changes
+
+### Features
+
+* **pix-ctl-full:** upgrade CTL to purs 0.15 ([9e9735b](https://github.com/LovelaceAcademy/nix-templates/commit/9e9735be1df642e10f8b7b9897c83c80e2b2e88d))
+* **pix-ctl:** upgrade CTL to v7.0 ([7ef265f](https://github.com/LovelaceAcademy/nix-templates/commit/7ef265f385e3232b7be7fffe389ed086328dd926))
+
+
+### Bug Fixes
+
+* **pix-ctl-full:** add missing repl gitignore ([685eed9](https://github.com/LovelaceAcademy/nix-templates/commit/685eed9a9f6c17a2201d64f48a042a09b5d3cbbf))
+* **pix-ctl-full:** add runtime by fixing arion version ([f186401](https://github.com/LovelaceAcademy/nix-templates/commit/f186401b625a6e624a122726ec187e4f7ffc2d85))
+* **pix-ctl-full:** breaking change on BigInt ([2451551](https://github.com/LovelaceAcademy/nix-templates/commit/245155134c5f3d362da01b3be9420c36902b2603))
+* **pix-ctl-full:** readd cardano-cli ([aec6562](https://github.com/LovelaceAcademy/nix-templates/commit/aec6562d03110ad25570c0adfa10e6e03df6fd5a))
+* **pix-ctl-full:** readd dev and bundle cmds ([1da131e](https://github.com/LovelaceAcademy/nix-templates/commit/1da131e5236b3088755c38bb725f4e0e083e9078))
+
 ## [6.1.1](https://github.com/LovelaceAcademy/nix-templates/compare/v6.1.0...v6.1.1) (2023-10-09)
 
 
