@@ -1,9 +1,12 @@
 {
   inputs = {
-    ctl-nix.url = "github:LovelaceAcademy/ctl-nix";
-    nixpkgs.follows = "ctl-nix/nixpkgs";
+    ctl-nix.url = "github:LovelaceAcademy/ctl-nix/upgrade-ctl";
+    ctl.follows = "ctl-nix/ctl";
+    nixpkgs.follows = "ctl/nixpkgs";
     purs-nix.follows = "ctl-nix/purs-nix";
+    ps-tools.follows = "ctl-nix/purs-nix/ps-tools";
     utils.url = "github:ursi/flake-utils";
+    hor-plutus.url = "github:LovelaceAcademy/nix-templates?dir=hor-plutus";
   };
 
   outputs = { self, utils, ... }@inputs:
@@ -11,24 +14,42 @@
       # TODO add missing arm to match standard systems
       #  right now purs-nix is only compatible with x86_64-linux
       systems = [ "x86_64-linux" ];
-      overlays = with inputs.ctl-nix.inputs.ctl.overlays; [
+      overlays = with inputs.ctl.overlays; [
         # adds easy-ps for CTL
         purescript
+        # adds:
+        #  plutip-server
+        #  ogmios
+        #  kupo
+        # runtime
       ];
     in
     utils.apply-systems
       { inherit inputs systems overlays; }
-      ({ system, pkgs, ctl-nix, ... }:
+      ({ system, pkgs, ... }@ctx:
         let
-          # Use purs from CTL instead from nixpkgs
-          purs = pkgs.easy-ps.purs-0_14_7;
+          inherit (pkgs) nodejs;
+          # TODO Use a default purs version from CTL
+          inherit (ctx.ps-tools.for-0_15)
+            purescript purs-tidy purescript-language-server;
           purs-nix = inputs.purs-nix {
             inherit system;
-            overlays = [ ctl-nix ];
+            overlays = [ ctx.ctl-nix ];
           };
+          scripts = pkgs.runCommand
+            "scripts"
+            {
+              buildInputs = [ ctx.hor-plutus ];
+            }
+            ''
+              mkdir -p $out/Scripts
+              hor-plutus > script.json
+              (echo "export default "; cat script.json) \
+                > $out/Scripts/scriptV2.mjs
+            '';
           ps = purs-nix.purs
             {
-              purescript = purs;
+              inherit purescript nodejs;
               # Project dir (src, test)
               dir = ./.;
               # Dependencies
@@ -38,9 +59,39 @@
                   cardano-transaction-lib
                 ];
               # FFI dependencies
-              # foreign.Main.node_modules = [];
+              foreign."Scripts".node_modules = scripts;
             };
           ps-command = ps.command { };
+          concurrent = pkgs.writeShellApplication {
+            name = "concurrent";
+            runtimeInputs = with pkgs; [ concurrently ];
+            text = ''
+              concurrently\
+                --color "auto"\
+                --prefix "[{command}]"\
+                --handle-input\
+                --restart-tries 10\
+                "$@"
+            '';
+          };
+          purs-watch = pkgs.writeShellApplication {
+            name = "purs-watch";
+            runtimeInputs = with pkgs; [ entr ps-command ];
+            text = ''find src | entr -s "purs-nix $*"'';
+          };
+          docs = pkgs.writeShellApplication {
+            name = "docs";
+            runtimeInputs = with pkgs; [
+              concurrent
+              nodejs
+              purs-watch
+            ];
+            text = ''
+              concurrent \
+              "purs-watch docs" \
+              "npx http-server ./generated-docs/html -o"
+            '';
+          };
         in
         {
           packages.default = ps.output { };
@@ -48,13 +99,13 @@
           devShells.default =
             pkgs.mkShell
               {
-                packages =
-                  with pkgs;
-                  [
-                    purs
-                    easy-ps.purescript-language-server
-                    ps-command
-                  ];
+                packages = with pkgs; [
+                  purescript
+                  purescript-language-server
+                  purs-tidy
+                  ps-command
+                  docs
+                ];
               };
         });
 
