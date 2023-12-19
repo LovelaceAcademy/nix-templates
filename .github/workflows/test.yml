@@ -48,7 +48,7 @@ jobs:
               - CHANGELOG.md
               - .github/workflows/test.*
       - if: steps.changes.outputs.template == 'true' 
-        uses: cachix/install-nix-action@v23
+        uses: cachix/install-nix-action@v24
         with:
           extra_nix_config: |
             accept-flake-config = true
