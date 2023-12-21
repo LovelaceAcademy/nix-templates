@@ -69,11 +69,11 @@
     # Nix should ask for permission before using it,
     # but remove it here if you do not want it to.
     extra-substituters = [
-      "https://klarkc.cachix.org?priority=99"
+      "https://cache.tcp4.me?priority=99"
       "https://horizon.cachix.org"
     ];
     extra-trusted-public-keys = [
-      "klarkc.cachix.org-1:R+z+m4Cq0hMgfZ7AQ42WRpGuHJumLLx3k0XhwpNFq9U="
+      "cache.tcp4.me:cmk2Iz81lQuX7FtTUcBgtqgI70E8p6SOamNAIcFDSew="
       "horizon.cachix.org-1:MeEEDRhRZTgv/FFGCv3479/dmJDfJ82G6kfUDxMSAw0="
     ];
   };
