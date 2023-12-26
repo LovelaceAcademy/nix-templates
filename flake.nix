@@ -16,6 +16,12 @@
         tool = "hask";
         link = "https://nixos.org/manual/nixpkgs/stable/#haskell";
       };
+      iogxWelcomeText = welcome {
+        project = "Haskell";
+        tool = "haskell.nix (iogx)";
+        link = "https://github.com/input-output-hk/iogx";
+        target = ".#iogx:exe:iogx`";
+      };
       hixWelcomeText = welcome {
         project = "Haskell";
         tool = "haskell.nix (hix)";
@@ -36,10 +42,10 @@
           welcomeText = haskWelcomeText;
         };
 
-        hix = {
-          path = ./hix;
-          description = "A haskell.nix template using hix";
-          welcomeText = hixWelcomeText;
+        iogx = {
+          path = ./iogx;
+          description = "A haskell.nix template using iogx";
+          welcomeText = iogxWelcomeText;
         };
 
         hix-plutus = {

@@ -1,0 +1,9 @@
+cabal-version: 3.8
+-- [cabal-version] upgrade policy: as soon cabal-install supports it
+name: iogx
+version: 1.0.0.0
+
+executable iogx
+  hs-source-dirs: src
+  main-is: Main.hs
+  build-depends: base
