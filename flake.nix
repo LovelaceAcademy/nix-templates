@@ -27,11 +27,6 @@
         tool = "purs-nix (pix)";
         link = "https://github.com/Plutonomicon/cardano-transaction-lib";
       };
-      horWelcomeText = welcome {
-        project = "Haskell";
-        tool = "horizon-platform";
-        link = "https://gitlab.homotopic.tech/horizon/horizon-platform";
-      };
     in
     {
       templates = {
@@ -54,16 +49,6 @@
             ${hixWelcomeText}
             Plutus docs available with `nix run .#serve-docs`
           '';
-        };
-        hor = {
-          path = ./hor;
-          description = "A haskell template using horizon-platform";
-          welcomeText = horWelcomeText;
-        };
-        hor-plutus = {
-          path = ./hor-plutus;
-          description = "A plutus template using horizon-platform";
-          welcomeText = horWelcomeText;
         };
         pix = {
           path = ./pix;

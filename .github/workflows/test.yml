@@ -13,8 +13,6 @@ jobs:
           - hask
           - hix
           - hix-plutus
-          - hor
-          - hor-plutus
           - pix
           - pix-ctl
           - pix-ctl-full
@@ -22,10 +20,6 @@ jobs:
           - ubuntu-latest
           - macos-latest
         exclude:
-          - template: hor
-            os: macos-latest
-          - template: hor-plutus
-            os: macos-latest
           - template: hix
             os: macos-latest
           - template: hix-plutus

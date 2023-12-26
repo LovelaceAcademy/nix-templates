@@ -6,7 +6,7 @@
     purs-nix.follows = "ctl-nix/purs-nix";
     ps-tools.follows = "ctl-nix/purs-nix/ps-tools";
     utils.url = "github:ursi/flake-utils";
-    hor-plutus.url = "github:LovelaceAcademy/nix-templates?dir=hor-plutus";
+    script.url = "github:LovelaceAcademy/nix-templates?dir=hix-plutus";
   };
 
   outputs = { self, utils, ... }@inputs:
@@ -39,11 +39,11 @@
           scripts = pkgs.runCommand
             "scripts"
             {
-              buildInputs = [ ctx.hor-plutus ];
+              buildInputs = [ ctx.script."hix-plutus:exe:hix-plutus" ];
             }
             ''
               mkdir -p $out/Scripts
-              hor-plutus > script.json
+              hix-plutus > script.json
               (echo "export default "; cat script.json) \
                 > $out/Scripts/scriptV2.mjs
             '';

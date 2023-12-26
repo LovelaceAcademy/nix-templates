@@ -1,9 +1,0 @@
-cabal-version: 3.6
-
-name: hor
-version: 1.0.0.2
-
-executable hor
-  hs-source-dirs: src
-  main-is: Main.hs
-  build-depends: base
