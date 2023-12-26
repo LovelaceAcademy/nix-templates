@@ -11,7 +11,7 @@ jobs:
         template:
           - ""
           - hask
-          - hix
+          - iogx
           - hix-plutus
           - pix
           - pix-ctl
@@ -20,7 +20,7 @@ jobs:
           - ubuntu-latest
           - macos-latest
         exclude:
-          - template: hix
+          - template: iogx
             os: macos-latest
           - template: hix-plutus
             os: macos-latest
