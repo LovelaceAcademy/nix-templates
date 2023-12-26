@@ -1,4 +1,6 @@
 cabal-version: 3.8
+-- [cabal-version] upgrade policy: as soon cabal supports it
+
 -- Instructions on how to write this file are in the Cabal
 -- documentation, which can be found here:
 --   http://haskell.org/cabal/release/cabal-latest/doc/users-guide/

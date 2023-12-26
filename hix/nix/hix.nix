@@ -1,9 +1,12 @@
 {pkgs, ...}: {
   # name = "project-name";
   
-  # We use the latest supported and cached version
-  # from github:input-output-hk/haskell.nix
-  compiler-nix-name = "ghc92";
+  # GHC upgrade policy:
+  #  We use the latest supported and cached version
+  #  from github:input-output-hk/haskell.nix
+  # TODO ghc99 does not build with HSL
+  # TODO ghc98 does not build with HSL
+  compiler-nix-name = "ghc96";
 
   # Enable for cross-platform build
   # crossPlatforms = p: pkgs.lib.optionals pkgs.stdenv.hostPlatform.isx86_64 ([
