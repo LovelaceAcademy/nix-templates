@@ -54,13 +54,18 @@ jobs:
             accept-flake-config = true
             access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
       - if: steps.changes.outputs.template == 'true' 
-        uses: cachix/cachix-action@v12
+        uses: webfactory/ssh-agent@v0.8.0
         with:
-          name: klarkc
-          authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+          ssh-private-key: ${{ secrets.BUILDER_TOKEN }}
       - if: ${{ steps.changes.outputs.template == 'true' && matrix.os == 'macos-latest' }}
         run: |
           brew install gnu-sed
           echo "$(brew --prefix)/opt/gnu-sed/libexec/gnubin:$PATH" >> $GITHUB_PATH
-      - if: steps.changes.outputs.template == 'true' 
-        run: ./.github/workflows/test.sh ${{ matrix.template }}
+      - if: steps.changes.outputs.template == 'true'
+        uses: gacts/run-and-post-run@v1
+        with:
+          run: ./.github/workflows/test.sh ${{ matrix.template }}
+          post: |
+            mkdir -p ~/.ssh/ && touch ~/.ssh/known_hosts
+            cp .github/workflows/known_hosts ~/.ssh/known_hosts
+            nix -v copy -s --all --to ssh://builder@cache.tcp4.me
