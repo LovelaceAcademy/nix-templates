@@ -10384,14 +10384,20 @@
         ]
       },
       "locked": {
-        "lastModified": 1,
-        "narHash": "sha256-SnXF2+PM8sr5wLoi8NUnuBgGRYOWgT49uP57DKDzna4=",
-        "path": "../iogx-plutus",
-        "type": "path"
+        "dir": "iogx-plutus",
+        "lastModified": 1704318828,
+        "narHash": "sha256-s4RBNtWyc3O/5gu9WFj3vGDusAdGLw47U7pzAYWlOng=",
+        "owner": "LovelaceAcademy",
+        "repo": "nix-templates",
+        "rev": "78202f4869fee82dd812c8c2f0f5e25a6f2e0754",
+        "type": "github"
       },
       "original": {
-        "path": "../iogx-plutus",
-        "type": "path"
+        "dir": "iogx-plutus",
+        "owner": "LovelaceAcademy",
+        "ref": "change-cache",
+        "repo": "nix-templates",
+        "type": "github"
       }
     },
     "secp256k1": {
