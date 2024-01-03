@@ -21,7 +21,7 @@ nix flake init -t github:LovelaceAcademy/nix-templates#template-name
 
 - [hask](./hask): A minimal haskell template
 - [iogx](./iogx): A haskell.nix (iogx) template
-- [hix-plutus](./hix-plutus): A plutus template using haskell.nix
+- [iogx-plutus](./iogx-plutus): A plutus template using haskell.nix (iogx)
 - [pix](./pix): A PureScript purs-nix template
 - [pix-ctl](./pix-ctl): A minimal cardano-transaction-lib template using pix
 - [pix-ctl-full](./pix-ctl-full): A optioned cardano-transaction-lib template using pix
@@ -45,7 +45,7 @@ It depends on the template:
 
 - hask, pix: 4GB RAM and 5GB HDD
 - iogx: 8GB RAM and 10GB HDD
-- hix-plutus, pix-ctl: 16GB RAM (for HDD) / 12GB RAM (for SSD). At least 20GB of available space.
+- iogx-plutus, pix-ctl: 16GB RAM (for HDD) / 12GB RAM (for SSD). At least 20GB of available space.
 
 ### Why it take soo long to build?
 

@@ -22,12 +22,6 @@
         link = "https://github.com/input-output-hk/iogx";
         target = ".#iogx:exe:iogx`";
       };
-      hixWelcomeText = welcome {
-        project = "Haskell";
-        tool = "haskell.nix (hix)";
-        link = "https://input-output-hk.github.io/haskell.nix/tutorials/getting-started-flakes.html";
-        target = ".#hello:exe:hello`";
-      };
       ctlWelcomeText = welcome {
         project = "cardano-transaction-lib";
         tool = "purs-nix (pix)";
@@ -48,11 +42,11 @@
           welcomeText = iogxWelcomeText;
         };
 
-        hix-plutus = {
-          path = ./hix-plutus;
-          description = "A plutus template using hix";
+        iogx-plutus = {
+          path = ./iogx-plutus;
+          description = "A plutus template using iogx";
           welcomeText = ''
-            ${hixWelcomeText}
+            ${iogxWelcomeText}
             Plutus docs available with `nix run .#serve-docs`
           '';
         };
