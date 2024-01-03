@@ -55,6 +55,12 @@ jobs:
         run: |
           brew install gnu-sed
           echo "$(brew --prefix)/opt/gnu-sed/libexec/gnubin:$PATH" >> $GITHUB_PATH
+
+      - if: ${{ steps.changes.outputs.template == 'true' && matrix.os == 'ubuntu-latest' }}
+        name: Free Disk Space (Ubuntu)
+        uses: jlumbroso/free-disk-space@main
+        with:
+          tool-cache: true
       - if: steps.changes.outputs.template == 'true'
         uses: gacts/run-and-post-run@v1
         with:
