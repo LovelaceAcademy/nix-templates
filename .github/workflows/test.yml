@@ -62,4 +62,5 @@ jobs:
           post: |
             mkdir -p ~/.ssh/ && touch ~/.ssh/known_hosts
             cp .github/workflows/known_hosts ~/.ssh/known_hosts
-            nix -v copy -s --all --to ssh://builder@cache.tcp4.me
+            nix -v copy -s --all --to ssh://builder@cache.tcp4.me || EXIT_CODE=$?
+            echo $EXIT_CODE
