@@ -1,5 +1,22 @@
 # Changelog
 
+## [8.0.0](https://github.com/LovelaceAcademy/nix-templates/compare/v7.0.0...v8.0.0) (2024-01-04)
+
+
+### ⚠ BREAKING CHANGES
+
+* **hix-plutus:** hix-plutus removed, we using the new iogx template for haskell.nix
+* **hix:** hix removed, we using the new iogx template for haskell.nix
+* **hor|hor-plutus:** hor and hor-plutus removed
+
+### Features
+
+* change cache server ([fcd9dba](https://github.com/LovelaceAcademy/nix-templates/commit/fcd9dba1b744daf93e1cbbaae756c8ad0ca37aaf))
+* **hix-plutus:** move from hix-plutus to iogx-plutus ([05f69fa](https://github.com/LovelaceAcademy/nix-templates/commit/05f69fadfbbdb74f08c7a237c7afecf1bc572f33))
+* **hix:** bump GHC ([8337d49](https://github.com/LovelaceAcademy/nix-templates/commit/8337d49ada534e998dc3951cfffd4503eb3935f5))
+* **hix:** move from hix to iogx ([1422913](https://github.com/LovelaceAcademy/nix-templates/commit/1422913b7092def1c1a8793627dc862d76729488))
+* **hor|hor-plutus:** remove horizon templates ([8e43510](https://github.com/LovelaceAcademy/nix-templates/commit/8e435106ee451b819189b85c737d9a0106ae1154))
+
 ## [7.0.0](https://github.com/LovelaceAcademy/nix-templates/compare/v6.1.1...v7.0.0) (2023-12-19)
 
 
