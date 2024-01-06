@@ -50,6 +50,8 @@ jobs:
             # currently there is no way to nix copy to use the flake settings so we need them
             substituters = https://cache.tcp4.me?priority=99 https://cache.iog.io https://cache.zw3rk.com https://hercules-ci.cachix.org
             trusted-public-keys = cache.tcp4.me:cmk2Iz81lQuX7FtTUcBgtqgI70E8p6SOamNAIcFDSew= hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ= loony-tools:pr9m4BkM/5/eSTZlkQyRt57Jz7OMBxNSUiMC4FkcNfk= hercules-ci.cachix.org-1:ZZeDl9Va+xe9j+KqdzoBZMFJHVQ42Uu/c/1/KMC5Lw0=
+            # if substituters fail, build it again
+            fallback = true
       - if: steps.changes.outputs.template == 'true' 
         uses: webfactory/ssh-agent@v0.8.0
         with:
