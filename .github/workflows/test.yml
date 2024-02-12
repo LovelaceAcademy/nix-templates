@@ -57,7 +57,7 @@ jobs:
       - if: steps.changes.outputs.template == 'true' 
         uses: webfactory/ssh-agent@v0.8.0
         with:
-          ssh-private-key: ${{ secrets.BUILDER_TOKEN }}
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
       - if: ${{ steps.changes.outputs.template == 'true' && matrix.os == 'macos-latest' }}
         run: |
           brew install gnu-sed
