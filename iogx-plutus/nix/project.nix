@@ -4,6 +4,18 @@ let
   name = "iogx-plutus";
 in
 lib.iogx.mkHaskellProject {
+  combinedHaddock = {
+    enable = true;
+    packages = [
+      name
+      # add cabal packages here
+      "cardano-api"
+      "plutus-core"
+      "plutus-ledger-api"
+      "plutus-tx"
+      "plutus-tx-plugin"
+    ];
+  };
   cabalProject = pkgs.haskell-nix.cabalProject'
     {
       inherit name;
