@@ -31,7 +31,7 @@ jobs:
           name: klarkc
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
       - name: Update ${{ matrix.template }} flake.lock
-        uses: DeterminateSystems/update-flake-lock@v20
+        uses: DeterminateSystems/update-flake-lock@v21
         with:
           path-to-flake-dir: ${{ matrix.template }}
           commit-msg: "build(${{ matrix.template }}): Bump flake.lock dependencies"
