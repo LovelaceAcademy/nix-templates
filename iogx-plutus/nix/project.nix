@@ -23,8 +23,7 @@ lib.iogx.mkHaskellProject {
       # `compiler-nix-name` upgrade policy:
       #  as soon input-output-hk/haskell-nix has cached it
       # TODO ghc98 not available on iogx
-      # TODO ghc96 not compatible with cardano-api constraint
-      compiler-nix-name = lib.mkDefault "ghc92";
+      compiler-nix-name = lib.mkDefault "ghc96";
       inputMap = {
         "https://input-output-hk.github.io/cardano-haskell-packages" = inputs.iogx.inputs.CHaP;
       };

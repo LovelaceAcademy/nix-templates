@@ -15,4 +15,4 @@ constraints:
     -- cardano-api upgrade policy:
     -- as soon cardano-node running on mainnet supports it
     -- as soon cardano-transaction-lib -> plutip -> cardano-node supports it
-  , cardano-api ^>=8.2
+  , cardano-api ^>=8.44
