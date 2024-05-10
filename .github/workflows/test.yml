@@ -31,9 +31,11 @@ jobs:
             os: macos-latest
           - template: pix-ctl-full
             os: macos-latest
-            # FIXME hask flake not passing CI tests
+            # FIXME flakes not passing CI tests
             #   error: flake 'git+file:///private/tmp/nix-templates/target' does not provide attribute 'devShells.aarch64-darwin.default', 'devShell.aarch64-darwin', 'packages.aarch64-darwin.default' or 'defaultPackage.aarch64-darwin'
           - template: hask
+            os: macos-latest
+          - template: agd
             os: macos-latest
     runs-on: ${{ matrix.os }}
     steps:
