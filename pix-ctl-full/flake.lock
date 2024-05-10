@@ -10385,17 +10385,16 @@
       },
       "locked": {
         "dir": "iogx-plutus",
-        "lastModified": 1704318828,
-        "narHash": "sha256-s4RBNtWyc3O/5gu9WFj3vGDusAdGLw47U7pzAYWlOng=",
+        "lastModified": 1715347702,
+        "narHash": "sha256-B1qv3/yQ9Uk3F4wz9yRh2ptNaInd7UiLykYF+p5IbTo=",
         "owner": "LovelaceAcademy",
         "repo": "nix-templates",
-        "rev": "78202f4869fee82dd812c8c2f0f5e25a6f2e0754",
+        "rev": "aef9093107b350e0b762fdb6c7a980cb066808bf",
         "type": "github"
       },
       "original": {
         "dir": "iogx-plutus",
         "owner": "LovelaceAcademy",
-        "ref": "change-cache",
         "repo": "nix-templates",
         "type": "github"
       }
