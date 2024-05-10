@@ -1,5 +1,18 @@
 # Changelog
 
+## [9.0.0](https://github.com/LovelaceAcademy/nix-templates/compare/v8.0.0...v9.0.0) (2024-05-10)
+
+
+### ⚠ BREAKING CHANGES
+
+* **hask:** drop support for darwin
+
+### Features
+
+* **agd:** add minimal template ([60ad952](https://github.com/LovelaceAcademy/nix-templates/commit/60ad952e18f038030d703111a9aa12a6253a1be8))
+* **agd:** drop support for darwin ([623339f](https://github.com/LovelaceAcademy/nix-templates/commit/623339f848d07991e64f9ee2d418d7a1f7631d19))
+* **hask:** drop support for darwin ([91ffb7e](https://github.com/LovelaceAcademy/nix-templates/commit/91ffb7e35f37d376c70d300018a6fc1b35b94afe))
+
 ## [8.0.0](https://github.com/LovelaceAcademy/nix-templates/compare/v7.0.0...v8.0.0) (2024-01-04)
 
 
