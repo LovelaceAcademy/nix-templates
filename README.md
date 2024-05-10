@@ -38,7 +38,6 @@ While I agree that storing lock files in templates is not ideal, there is no way
 It depends on upstream supporting it, and also our capacity to test in our CI. Right now only these systems are supported:
 
 - x86_64-linux (all templates)
-- x86_64-darwin (hask)
 
 ### Minimal system requirements?
 
