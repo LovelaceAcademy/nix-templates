@@ -1,5 +1,12 @@
 # Changelog
 
+## [9.0.1](https://github.com/LovelaceAcademy/nix-templates/compare/v9.0.0...v9.0.1) (2024-05-10)
+
+
+### Bug Fixes
+
+* **pix-ctl|pix-ctl-full:** fix missing cache branch ([738e768](https://github.com/LovelaceAcademy/nix-templates/commit/738e768f8772a74ffc19909cf14e9aa69deb7366))
+
 ## [9.0.0](https://github.com/LovelaceAcademy/nix-templates/compare/v8.0.0...v9.0.0) (2024-05-10)
 
 
