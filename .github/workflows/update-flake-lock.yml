@@ -51,3 +51,4 @@ jobs:
           title: ${{ matrix.template }} update failure
           body: The [${{ github.workflow }}](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}) workflow failed. Check the workflow run for details.
           labels: automated
+          issue-creator: github-actions
