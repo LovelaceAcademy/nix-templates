@@ -8,36 +8,37 @@ jobs:
   test:
     strategy:
       matrix:
-        template:
-          - ""
-          - agd
-          - hask
-          - iogx
-          - iogx-plutus
-          - pix
-          - pix-ctl
-          - pix-ctl-full
-        os:
-          - ubuntu-latest
-          - macos-latest
-        exclude:
-          - template: iogx
+        target:
+          - name: ""
+            free: false
+            os: ubuntu-latest
+          - name: ""
+            free: false
             os: macos-latest
-          - template: iogx-plutus
-            os: macos-latest
-          - template: pix
-            os: macos-latest
-          - template: pix-ctl
-            os: macos-latest
-          - template: pix-ctl-full
-            os: macos-latest
-            # FIXME flakes not passing CI tests
-            #   error: flake 'git+file:///private/tmp/nix-templates/target' does not provide attribute 'devShells.aarch64-darwin.default', 'devShell.aarch64-darwin', 'packages.aarch64-darwin.default' or 'defaultPackage.aarch64-darwin'
-          - template: hask
-            os: macos-latest
-          - template: agd
-            os: macos-latest
-    runs-on: ${{ matrix.os }}
+          # FIXME hask and agd flakes not running mac CI tests
+          #   error: flake 'git+file:///private/tmp/nix-templates/target' does not provide attribute 'devShells.aarch64-darwin.default', 'devShell.aarch64-darwin', 'packages.aarch64-darwin.default' or 'defaultPackage.aarch64-darwin'
+          - name: agd
+            free: false
+            os: ubuntu-latest
+          - name: hask
+            free: false
+            os: ubuntu-latest
+          - name: iogx
+            free: false
+            os: ubuntu-latest
+          - name: iogx-plutus
+            free: false
+            os: ubuntu-latest
+          - name: pix
+            free: false
+            os: ubuntu-latest
+          - name: pix-ctl
+            free: false
+            os: ubuntu-latest
+          - name: pix-ctl-full
+            free: false
+            os: ubuntu-latest
+    runs-on: ${{ matrix.target.os }}
     steps:
       - uses: actions/checkout@v4
       - uses: dorny/paths-filter@v2
@@ -45,7 +46,7 @@ jobs:
         with:
           filters: |
             template:
-              - ${{ matrix.template && format('{0}/**', matrix.template) || 'flake.*' }}
+              - ${{ matrix.target.name && format('{0}/**', matrix.target.name) || 'flake.*' }}
               - CHANGELOG.md
               - .github/workflows/test.*
       - if: steps.changes.outputs.template == 'true' 
@@ -65,12 +66,12 @@ jobs:
         uses: webfactory/ssh-agent@v0.8.0
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-      - if: ${{ steps.changes.outputs.template == 'true' && matrix.os == 'macos-latest' }}
+      - if: ${{ steps.changes.outputs.template == 'true' && matrix.target.os == 'macos-latest' }}
         run: |
           brew install gnu-sed
           echo "$(brew --prefix)/opt/gnu-sed/libexec/gnubin:$PATH" >> $GITHUB_PATH
 
-      - if: ${{ steps.changes.outputs.template == 'true' && matrix.os == 'ubuntu-latest' }}
+      - if: ${{ steps.changes.outputs.template == 'true' && matrix.target.os == 'ubuntu-latest' && matrix.target.free }}
         name: Free Disk Space (Ubuntu)
         uses: jlumbroso/free-disk-space@main
         with:
@@ -82,7 +83,7 @@ jobs:
             curl https://raw.githubusercontent.com/cachix/cachix-action/master/dist/main/list-nix-store.sh --output ./.github/workflows/list-nix-store.sh
             chmod +x ./.github/workflows/list-nix-store.sh
             ./.github/workflows/list-nix-store.sh > /tmp/store
-            ./.github/workflows/test.sh ${{ matrix.template }}
+            ./.github/workflows/test.sh ${{ matrix.target.name }}
           post: |
             ./.github/workflows/list-nix-store.sh > /tmp/store-new
             comm -13 <(sort /tmp/store) <(./.github/workflows/list-nix-store.sh) > /tmp/store-new
