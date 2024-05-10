@@ -10,6 +10,7 @@ jobs:
       matrix:
         template:
           - ""
+          - agd
           - hask
           - iogx
           - iogx-plutus

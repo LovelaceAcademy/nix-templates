@@ -27,6 +27,11 @@
         tool = "purs-nix (pix)";
         link = "https://github.com/Plutonomicon/cardano-transaction-lib";
       };
+      agdWelcomeText = welcome {
+        project = "agd";
+        tool = "agd";
+        link = "https://github.com/agda/agda";
+      };
     in
     {
       templates = {
@@ -70,6 +75,11 @@
           path = ./pix-ctl-full;
           description = "A optioned cardano-transaction-lib template using pix and webpack";
           welcomeText = ctlWelcomeText;
+        };
+        agd = {
+          path = ./agd;
+          description = "A minimal agda template";
+          welcomeText = agdWelcomeText;
         };
       };
     };

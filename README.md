@@ -19,6 +19,7 @@ nix flake init -t github:LovelaceAcademy/nix-templates#template-name
 
 ### Templates
 
+- [agd](./agd): A minimal agda template
 - [hask](./hask): A minimal haskell template
 - [iogx](./iogx): A haskell.nix (iogx) template
 - [iogx-plutus](./iogx-plutus): A plutus template using haskell.nix (iogx)
@@ -43,7 +44,7 @@ It depends on upstream supporting it, and also our capacity to test in our CI. R
 
 It depends on the template:
 
-- hask, pix: 4GB RAM and 5GB HDD
+- agd, hask, pix: 4GB RAM and 5GB HDD
 - iogx: 8GB RAM and 10GB HDD
 - iogx-plutus, pix-ctl: 16GB RAM (for HDD) / 12GB RAM (for SSD). At least 20GB of available space.
 
