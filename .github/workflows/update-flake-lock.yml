@@ -42,3 +42,11 @@ jobs:
             automated
           token: ${{ secrets.PAT_TOKEN }}
           branch: update_${{ matrix.template }}_flake_lock_action
+      - name: Send notification on failure
+        if: github.event.workflow_run.conclusion != "success"
+        uses: actions-cool/issues-helper@v3
+        with:
+          actions: create-issue
+          token: ${{ secrets.PAT_TOKEN }}
+          title: Workflow Failure Notification
+          body: The [${{ github.workflow }}](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}) workflow failed. Check the workflow run for details.
