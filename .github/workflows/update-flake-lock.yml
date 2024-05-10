@@ -11,12 +11,12 @@ jobs:
           - ""
           - agd
           - hask
-          - hix
-          - hix-plutus
+          - iogx
+          - iogx-plutus
           - pix
           - pix-ctl
           - pix-ctl-full
-          - hor
+
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
