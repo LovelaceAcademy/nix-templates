@@ -1,0 +1,6 @@
+name: agd
+include:
+  .
+depend:
+  standard-library
+  agda-prelude
