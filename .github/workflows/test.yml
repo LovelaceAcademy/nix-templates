@@ -36,7 +36,7 @@ jobs:
             free: false
             os: ubuntu-latest
           - name: pix-ctl-full
-            free: false
+            free: true
             os: ubuntu-latest
     runs-on: ${{ matrix.target.os }}
     steps:
