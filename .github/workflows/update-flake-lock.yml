@@ -31,23 +31,21 @@ jobs:
         with:
           name: klarkc
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
-      - name: Update ${{ matrix.template }} flake.lock
-        uses: DeterminateSystems/update-flake-lock@v21
-        with:
-          path-to-flake-dir: ${{ matrix.template }}
-          commit-msg: "build(${{ matrix.template }}): Bump flake.lock dependencies"
-          pr-title: "Update ${{ matrix.template }} flake.lock" 
-          pr-labels: |                  
-            dependencies
-            automated
-          token: ${{ secrets.PAT_TOKEN }}
-          branch: update_${{ matrix.template }}_flake_lock_action
-      - name: Send notification on failure
-        if: ${{ failure() }}
-        uses: actions-cool/issues-helper@v3
-        with:
-          actions: create-issue
-          token: ${{ secrets.GITHUB_TOKEN }}
-          title: ${{ matrix.template }} update failure
-          body: The [${{ github.workflow }}](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}) workflow failed. Check the workflow run for details.
-          labels: automated
+      - name: Read inputs from flake.nix
+        id: read_inputs
+        run: |
+          cd $${ matrix.template }}
+          inputs=$(nix-instantiate --eval --json flake.nix | jq -r '.inputs | keys[]')
+          echo "::set-output name=inputs::$inputs"
+      - name: Trigger update-flake-lock-inputs workflow
+        run: |
+          template="${{ matrix.template }}"
+          inputs="${{ steps.read_inputs.outputs.inputs }}"
+          for input in $inputs; do
+            echo "Triggering update-flake-lock-inputs workflow for input: $input"
+            curl -X POST \
+              -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+              -H "Accept: application/vnd.github.v3+json" \
+              https://api.github.com/repos/${{ github.repository }}/actions/workflows/update-flake-lock.yml/dispatches \
+              -d '{"ref":"main","inputs":{"template": "'$template'","input_names":"'$input'"}}'
+          done
