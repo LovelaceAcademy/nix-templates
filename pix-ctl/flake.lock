@@ -1857,11 +1857,11 @@
         "utils": "utils_27"
       },
       "locked": {
-        "lastModified": 1703602026,
-        "narHash": "sha256-V4lDtKxr8X4rGPc5FpYtVDnovEX64k5JxWPDnChh704=",
+        "lastModified": 1710168018,
+        "narHash": "sha256-pvQPOrlM9X+u5PDqvu4StBup3dVDh3k/Dc1JTualyDY=",
         "owner": "LovelaceAcademy",
         "repo": "ctl-nix",
-        "rev": "410c46234ae67a86b15b0789dd519a7a39185a86",
+        "rev": "c7903b1e1ba8b2733344bc3ed8aa6d76cf8f9878",
         "type": "github"
       },
       "original": {
