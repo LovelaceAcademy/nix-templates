@@ -2,19 +2,19 @@ name: update-flake-lock-inputs
 on:
   workflow_dispatch: # allows manual triggering
     inputs:
-      templates: 
-        description: 'Template paths ([ tmpl1, tmpl2 ])'
+      templates:
+        description: 'Template paths (e.g., "[tmpl1, tmpl2]")'
         required: true
-      input:
-        description: 'Flake inputs to update ([ inp1, inp2 ])'
+      flake_inputs:
+        description: 'Flake inputs to update (e.g., "[inp1, inp2]")'
         required: true
 jobs:
   lockfile:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        template: ${{ github.event.inputs.templates }}
-        input: ${{ github.event.inputs.flake_inputs }}
+        template: ${{ fromJson(github.event.inputs.templates) }}
+        input: ${{ fromJson(github.event.inputs.flake_inputs) }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
