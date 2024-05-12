@@ -21,7 +21,7 @@ jobs:
           extra_nix_config: |
             accept-flake-config = true
             access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
-      - name: Update ${{ matrix.template }} flake.lock
+      - name: Update ${{ matrix.template }} flake.lock ${{ matrix.input_names }}
         uses: DeterminateSystems/update-flake-lock@v21
         with:
           path-to-flake-dir: ${{ matrix.template }}
