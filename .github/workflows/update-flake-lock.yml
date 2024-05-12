@@ -40,7 +40,7 @@ jobs:
           pr-labels: |                  
             dependencies
             automated
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PAT_TOKEN }}
           branch: update_${{ matrix.template }}_flake_lock_action
       - name: Send notification on failure
         if: ${{ failure() }}
