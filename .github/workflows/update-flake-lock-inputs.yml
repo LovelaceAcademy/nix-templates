@@ -3,10 +3,10 @@ on:
   workflow_dispatch: # allows manual triggering
     inputs:
       templates:
-        description: 'Template paths (e.g., "[tmpl1, tmpl2]")'
+        description: 'Template paths (e.g., [ "tmpl1", "tmpl2"])'
         required: true
       flake_inputs:
-        description: 'Flake inputs to update (e.g., "[inp1, inp2]")'
+        description: 'Flake inputs to update (e.g., ["inp1", "inp2"])'
         required: true
 jobs:
   lockfile:
