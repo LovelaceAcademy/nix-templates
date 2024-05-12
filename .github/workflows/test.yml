@@ -76,7 +76,7 @@ jobs:
         uses: jlumbroso/free-disk-space@main
         with:
           tool-cache: true
-      - if: steps.changes.outputs.template == 'true' && 
+      - if: steps.changes.outputs.template == 'true'
         uses: gacts/run-and-post-run@v1
         with:
           run: |
