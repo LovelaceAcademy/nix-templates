@@ -36,7 +36,7 @@ jobs:
         run: |
           cd ${{ matrix.template }}
           inputs=$(nix-instantiate --json --eval --expr 'let inputs = (import ./flake.nix).inputs; in builtins.attrNames inputs')
-          echo "::set-output name=inputs::$inputs"
+          echo "inputs=$inputs" >> $GITHUB_OUTPUT
       - name: Trigger update-flake-lock-inputs workflow
         run: |
           template="${{ matrix.template }}"
