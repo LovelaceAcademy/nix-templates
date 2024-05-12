@@ -34,7 +34,7 @@ jobs:
       - name: Read inputs from flake.nix
         id: read_inputs
         run: |
-          cd ${{ matrix.template }}
+          [ -n "${{ matrix.template }}" ] && cd ${{ matrix.template }}
           inputs=$(nix-instantiate --json --eval --expr 'let inputs = (import ./flake.nix).inputs; in builtins.attrNames inputs')
           echo "inputs=$inputs" >> $GITHUB_OUTPUT
       - name: Trigger update-flake-lock-inputs workflow
