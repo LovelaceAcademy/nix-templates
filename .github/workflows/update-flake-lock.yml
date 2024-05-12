@@ -27,10 +27,6 @@ jobs:
           extra_nix_config: |
             accept-flake-config = true
             access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
-      - uses: cachix/cachix-action@v14
-        with:
-          name: klarkc
-          authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
       - name: Read inputs from flake.nix
         id: read_inputs
         run: |
