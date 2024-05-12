@@ -62,7 +62,7 @@ jobs:
             # if substituters fail, build it again
             fallback = true
 
-      - if: steps.changes.outputs.template == 'true' && ${{ github.actor != 'dependabot[bot]' }}
+      - if: steps.changes.outputs.template == 'true' 
         uses: webfactory/ssh-agent@v0.8.0
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
@@ -85,13 +85,9 @@ jobs:
             ./.github/workflows/list-nix-store.sh > /tmp/store
             ./.github/workflows/test.sh ${{ matrix.target.name }}
           post: |
-            if [ "${{ github.actor }}" -eq "dependabot[bot]" ]; then
-              echo "Skipping cache submission on dependabot"
-            else
-              ./.github/workflows/list-nix-store.sh > /tmp/store-new
-              comm -13 <(sort /tmp/store) <(./.github/workflows/list-nix-store.sh) > /tmp/store-new
-              mkdir -p ~/.ssh/ && touch ~/.ssh/known_hosts
-              cp .github/workflows/known_hosts ~/.ssh/known_hosts
-              (cat /tmp/store-new | nix -v copy -s --stdin --to ssh://builder@cache.tcp4.me) || EXIT_CODE=$?
-              echo $EXIT_CODE
-            fi
+            ./.github/workflows/list-nix-store.sh > /tmp/store-new
+            comm -13 <(sort /tmp/store) <(./.github/workflows/list-nix-store.sh) > /tmp/store-new
+            mkdir -p ~/.ssh/ && touch ~/.ssh/known_hosts
+            cp .github/workflows/known_hosts ~/.ssh/known_hosts
+            (cat /tmp/store-new | nix -v copy -s --stdin --to ssh://builder@cache.tcp4.me) || EXIT_CODE=$?
+            echo $EXIT_CODE
