@@ -3,18 +3,18 @@ on:
   workflow_dispatch: # allows manual triggering
     inputs:
       templates: 
-        description: 'Template paths (sep by spaces)'
+        description: 'Template paths ([ tmpl1, tmpl2 ])'
         required: true
       input:
-        description: 'Flake inputs to update (sep by spaces)'
+        description: 'Flake inputs to update ([ inp1, inp2 ])'
         required: true
 jobs:
   lockfile:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        template: [${{ github.event.inputs.templates }}]
-        input: [${{ github.event.inputs.flake_inputs }}]
+        template: ${{ github.event.inputs.templates }}
+        input: ${{ github.event.inputs.flake_inputs }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
