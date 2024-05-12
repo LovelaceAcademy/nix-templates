@@ -1,0 +1,43 @@
+name: update-flake-lock-inputs
+on:
+  workflow_dispatch: # allows manual triggering
+    inputs:
+      template: 
+        description: 'Template path'
+        required: false
+        default: ''
+      flake_inputs:
+        description: 'Flake inputs to update'
+        required: true
+jobs:
+  lockfile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Install Nix
+        uses: cachix/install-nix-action@v24
+        with:
+          extra_nix_config: |
+            accept-flake-config = true
+            access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
+      - name: Update ${{ matrix.template }} flake.lock
+        uses: DeterminateSystems/update-flake-lock@v21
+        with:
+          path-to-flake-dir: ${{ matrix.template }}
+          commit-msg: "build(${{ matrix.template }}): Bump flake.lock ${{ matrix.input_names }} dependencies"
+          pr-title: "Update ${{ matrix.template }} flake.lock ${{ matrix.input_names }}" 
+          pr-labels: |                  
+            dependencies
+            automated
+          token: ${{ secrets.PAT_TOKEN }}
+          branch: update_${{ matrix.template }}_flake_lock_${{ matrix.input_names }}_action
+      - name: Send notification on failure
+        if: ${{ failure() }}
+        uses: actions-cool/issues-helper@v3
+        with:
+          actions: create-issue
+          token: ${{ secrets.GITHUB_TOKEN }}
+          title: ${{ matrix.template }} ${{ matrix.input_names }} update failure
+          body: The [${{ github.workflow }}](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}) workflow failed. Check the workflow run for details.
+          labels: automated
