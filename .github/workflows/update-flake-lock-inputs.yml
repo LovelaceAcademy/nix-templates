@@ -12,6 +12,7 @@ jobs:
   lockfile:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         template: ${{ fromJson(github.event.inputs.templates) }}
         input: ${{ fromJson(github.event.inputs.flake_inputs) }}
