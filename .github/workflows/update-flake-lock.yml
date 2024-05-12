@@ -39,8 +39,8 @@ jobs:
           echo "inputs=$inputs" >> $GITHUB_OUTPUT
       - name: Trigger update-flake-lock-inputs workflow
         run: |
-          curl -X POST \
+          curl -f -X POST \
             -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
             -H "Accept: application/vnd.github.v3+json" \
             https://api.github.com/repos/${{ github.repository }}/actions/workflows/update-flake-lock-inputs.yml/dispatches \
-            -d '{"ref":"main","inputs":{"templates":["${{ matrix.template }}"],"flake_inputs":${{ steps.read_inputs.outputs.inputs }}}}'
+            -d '{"ref":"main","inputs":{"templates":"[\"${{ matrix.template }}\"]","flake_inputs":${{ toJSON(steps.read_inputs.outputs.inputs) }}}}'
