@@ -35,9 +35,10 @@ jobs:
         id: read_inputs
         run: |
           [ -n "${{ matrix.template }}" ] && cd ${{ matrix.template }}
-          inputs=$(nix-instantiate --json --eval --expr 'let inputs = (import ./flake.nix).inputs; in builtins.attrNames inputs')
+          inputs=$(nix-instantiate --json --eval --expr 'let inputs = ((import ./flake.nix).inputs or {}); in builtins.attrNames inputs')
           echo "inputs=$inputs" >> $GITHUB_OUTPUT
       - name: Trigger update-flake-lock-inputs workflow
+        if: steps.read_inputs.outputs.inputs != []
         run: |
           curl -f -X POST \
             -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
