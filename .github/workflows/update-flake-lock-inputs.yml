@@ -35,6 +35,7 @@ jobs:
             automated
           token: ${{ secrets.PAT_TOKEN }}
           branch: "update_${{ matrix.template }}_flake_lock_${{ matrix.input }}_action"
+          inputs: ${{ matrix.input }}
       - name: Send notification on failure
         if: ${{ failure() }}
         uses: actions-cool/issues-helper@v3
