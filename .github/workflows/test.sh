@@ -45,10 +45,10 @@ else
 		check
 
 		if [ "$TMPL" != "pix-ctl-full" ]; then
+			develop
+		else
 			# FIXME slow CI on pix-ctl-full develop
 			echo "WARN: skipping slow develop on pix-ctl-full"
-		else
-			develop
 		fi
 	)
 fi
