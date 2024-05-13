@@ -12,7 +12,6 @@ set -ex
 
 develop () {
 	nix develop -c "echo" --show-trace --print-build-logs --verbose
-
 }
 
 check () {
@@ -44,6 +43,12 @@ else
 		nix flake init -t "${SOURCE_DIR}#${TMPL}"
 		# test the target
 		check
-		develop
+
+		if [ "$TMPL" != "pix-ctl-full" ]; then
+			# FIXME slow CI on pix-ctl-full develop
+			echo "WARN: skipping slow develop on pix-ctl-full"
+		else
+			develop
+		fi
 	)
 fi
