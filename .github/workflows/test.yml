@@ -12,9 +12,10 @@ jobs:
           - name: ""
             free: false
             os: ubuntu-latest
-          - name: ""
-            free: false
-            os: macos-latest
+          # FIXME macos-latest tests disabled in CI
+          #- name: ""
+          #  free: false
+          #  os: macos-latest
           # FIXME hask and agd flakes not running mac CI tests
           #   error: flake 'git+file:///private/tmp/nix-templates/target' does not provide attribute 'devShells.aarch64-darwin.default', 'devShell.aarch64-darwin', 'packages.aarch64-darwin.default' or 'defaultPackage.aarch64-darwin'
           - name: agd
