@@ -32,7 +32,7 @@ jobs:
             accept-flake-config = true
             access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
       - name: Update ${{ matrix.template }} flake.lock ${{ matrix.input }}
-        uses: DeterminateSystems/update-flake-lock@v22
+        uses: DeterminateSystems/update-flake-lock@v23
         with:
           path-to-flake-dir: ${{ matrix.template }}
           commit-msg: "build(${{ matrix.template }}): Bump flake.lock ${{ matrix.input }}"
