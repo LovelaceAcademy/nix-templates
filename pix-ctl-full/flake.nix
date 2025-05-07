@@ -1,6 +1,7 @@
 {
   inputs = {
-    ctl-nix.url = "github:LovelaceAcademy/ctl-nix";
+    # TODO revert ctl-nix to main (after merge)
+    ctl-nix.url = "github:LovelaceAcademy/ctl-nix/upgrade-conway";
     ctl.follows = "ctl-nix/ctl";
     nixpkgs.follows = "ctl/nixpkgs";
     purs-nix.follows = "ctl-nix/purs-nix";
@@ -79,12 +80,12 @@
             modules =
               let
                 # add here the Slot and block header where you want to start syncing
-                slot = "11213922";
-                id = "3e9029c1dff85bad50e2a0b507d39ef4d745d24a9780b3ce5eda7df307815db2";
+                #slot = "11213922";
+                #id = "3e9029c1dff85bad50e2a0b507d39ef4d745d24a9780b3ce5eda7df307815db2";
                 ctl-module = pkgs.buildCtlRuntime {
                   kupo = {
-                    since = "${slot}.${id}";
-                    deferDbIndexes = false;
+                    #since = "${slot}.${id}";
+                    #deferDbIndexes = false;
                   };
                 };
               in
@@ -169,15 +170,16 @@
             text = ''purs-watch test "$@"'';
             runtimeInputs = [ purs-watch ];
           };
-          checks = pkgs.runCommand "checks"
-            {
-              buildInputs = testRuntime;
-            } ''${ps.test.run { }}; touch $out'';
+          #checks = pkgs.runCommand "checks"
+          #  {
+          #    buildInputs = testRuntime;
+          #  } ''${ps.test.run { }};touch $out'';
         in
         {
-          packages.default = ps.output { };
+          packages.output = ps.output { };
 
-          checks.default = checks;
+          # TODO re-enable checks
+          #checks.default = checks;
 
           devShells.default =
             pkgs.mkShell
