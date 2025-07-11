@@ -1,5 +1,12 @@
 # Changelog
 
+## [9.0.2](https://github.com/LovelaceAcademy/nix-templates/compare/v9.0.1...v9.0.2) (2025-07-11)
+
+
+### Bug Fixes
+
+* remove cache, fix shell aliases, add config ([c5bdced](https://github.com/LovelaceAcademy/nix-templates/commit/c5bdced4449131329012c40651b9716aadea8e6e))
+
 ## [9.0.1](https://github.com/LovelaceAcademy/nix-templates/compare/v9.0.0...v9.0.1) (2024-05-10)
 
 
