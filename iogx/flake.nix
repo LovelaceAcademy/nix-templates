@@ -19,11 +19,9 @@
     # Nix should ask for permission before using it,
     # but remove it here if you do not want it to.
     extra-substituters = [
-      "https://cache.tcp4.me?priority=99"
       "https://cache.iog.io"
     ];
     extra-trusted-public-keys = [
-      "cache.tcp4.me:cmk2Iz81lQuX7FtTUcBgtqgI70E8p6SOamNAIcFDSew="
       "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ="
     ];
   };
