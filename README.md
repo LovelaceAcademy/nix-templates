@@ -1,6 +1,6 @@
 # nix-templates
 
-[![Test](https://github.com/LovelaceAcademy/nix-templates/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/LovelaceAcademy/nix-templates/actions/workflows/test.yml?query=branch%3Amain)
+[![Test](https://github.com/klarkc/nix-templates/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/klarkc/nix-templates/actions/workflows/test.yml?query=branch%3Amain)
 
 Minimal reproducible nix flake templates.
 
@@ -14,7 +14,7 @@ Minimal reproducible nix flake templates.
 ## Usage
 
 ```bash
-nix flake init -t github:LovelaceAcademy/nix-templates#template-name
+nix flake init -t github:klarkc/nix-templates#template-name
 ```
 
 ### Templates

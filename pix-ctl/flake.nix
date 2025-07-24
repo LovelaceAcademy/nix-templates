@@ -6,7 +6,7 @@
     purs-nix.follows = "ctl-nix/purs-nix";
     ps-tools.follows = "ctl-nix/purs-nix/ps-tools";
     utils.url = "github:ursi/flake-utils";
-    script.url = "github:LovelaceAcademy/nix-templates?dir=iogx-plutus";
+    script.url = "github:klarkc/nix-templates?dir=iogx-plutus";
   };
 
   outputs = { self, utils, ... }@inputs:
