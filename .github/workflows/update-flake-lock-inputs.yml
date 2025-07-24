@@ -25,7 +25,7 @@ jobs:
           private_key: ${{ secrets.BOT_PRIVATE_KEY }}
       - name: Checkout repository
         uses: actions/checkout@v4
-      - uses: DeterminateSystems/determinate-nix-action@3.8.2
+      - uses: DeterminateSystems/determinate-nix-action@v3.8.2
       - name: Update ${{ matrix.template }} flake.lock ${{ matrix.input }}
         uses: DeterminateSystems/update-flake-lock@v27
         with:
