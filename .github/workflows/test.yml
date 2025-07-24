@@ -70,3 +70,5 @@ jobs:
         uses: jlumbroso/free-disk-space@main
         with:
           tool-cache: true
+      - if: steps.changes.outputs.template == 'true'
+        run: ./.github/workflows/test.sh ${{ matrix.target.name }}
