@@ -15,7 +15,8 @@ develop () {
 }
 
 check () {
-	nix flake check --show-trace --print-build-logs --verbose
+	# TODO remove the need of impure
+	nix flake check --show-trace --print-build-logs --verbose --impure
 }
 
 git_init() {
