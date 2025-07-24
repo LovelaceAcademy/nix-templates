@@ -51,44 +51,20 @@ jobs:
               - CHANGELOG.md
               - .github/workflows/test.*
       - if: steps.changes.outputs.template == 'true' 
-        uses: cachix/install-nix-action@V27
-        with:
-          extra_nix_config: |
-            accept-flake-config = true
-            access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
-            # currently there is no way to nix copy to use the flake settings so we need them
-            substituters = https://cache.nixos.org https://cache.iog.io https://cache.tcp4.me?priority=99 https://cache.zw3rk.com https://hercules-ci.cachix.org https://horizon.cachix.org
-            trusted-substituters = https://cache.nixos.org https://cache.iog.io https://cache.tcp4.me https://cache.zw3rk.com https://hercules-ci.cachix.org https://horizon.cachix.org https://klarkc.cachix.org
-            trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= cache.tcp4.me:cmk2Iz81lQuX7FtTUcBgtqgI70E8p6SOamNAIcFDSew= klarkc.cachix.org-1:R+z+m4Cq0hMgfZ7AQ42WRpGuHJumLLx3k0XhwpNFq9U= hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ= loony-tools:pr9m4BkM/5/eSTZlkQyRt57Jz7OMBxNSUiMC4FkcNfk= hercules-ci.cachix.org-1:ZZeDl9Va+xe9j+KqdzoBZMFJHVQ42Uu/c/1/KMC5Lw0= horizon.cachix.org-1:MeEEDRhRZTgv/FFGCv3479/dmJDfJ82G6kfUDxMSAw0=
-            # if substituters fail, build it again
-            fallback = true
-
+        uses: DeterminateSystems/determinate-nix-action@3.8.2
       - if: steps.changes.outputs.template == 'true' 
-        uses: webfactory/ssh-agent@v0.9.0
+        uses: DeterminateSystems/magic-nix-cache-action@v13
+      - if: steps.changes.outputs.template == 'true' 
+        uses: DeterminateSystems/flake-checker-action@v12
         with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          flake-lock-path: ./${{ matrix.target.name }}/flake.lock
+          fail-mode: true
       - if: ${{ steps.changes.outputs.template == 'true' && matrix.target.os == 'macos-latest' }}
         run: |
           brew install gnu-sed
           echo "$(brew --prefix)/opt/gnu-sed/libexec/gnubin:$PATH" >> $GITHUB_PATH
-
       - if: ${{ steps.changes.outputs.template == 'true' && matrix.target.os == 'ubuntu-latest' && matrix.target.free }}
         name: Free Disk Space (Ubuntu)
         uses: jlumbroso/free-disk-space@main
         with:
           tool-cache: true
-      - if: steps.changes.outputs.template == 'true'
-        uses: gacts/run-and-post-run@v1
-        with:
-          run: |
-            curl https://raw.githubusercontent.com/cachix/cachix-action/master/dist/main/list-nix-store.sh --output ./.github/workflows/list-nix-store.sh
-            chmod +x ./.github/workflows/list-nix-store.sh
-            ./.github/workflows/list-nix-store.sh > /tmp/store
-            ./.github/workflows/test.sh ${{ matrix.target.name }}
-          post: |
-            ./.github/workflows/list-nix-store.sh > /tmp/store-new
-            comm -13 <(sort /tmp/store) <(./.github/workflows/list-nix-store.sh) > /tmp/store-new
-            mkdir -p ~/.ssh/ && touch ~/.ssh/known_hosts
-            cp .github/workflows/known_hosts ~/.ssh/known_hosts
-            (cat /tmp/store-new | nix -v copy -s --stdin --to ssh://builder@cache.tcp4.me) || EXIT_CODE=$?
-            echo $EXIT_CODE
