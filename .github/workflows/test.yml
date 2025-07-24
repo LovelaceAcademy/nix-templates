@@ -59,6 +59,8 @@ jobs:
         with:
           flake-lock-path: ./${{ matrix.target.name }}/flake.lock
           fail-mode: true
+          # TODO enable check-outdated check on flake-checker-action 
+          check-outdated: false
       - if: ${{ steps.changes.outputs.template == 'true' && matrix.target.os == 'macos-latest' }}
         run: |
           brew install gnu-sed
