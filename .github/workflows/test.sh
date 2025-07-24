@@ -11,12 +11,12 @@ rm -Rf $DIR
 set -ex
 
 develop () {
-	nix develop -c "echo" --show-trace --print-build-logs --verbose
+	nix develop -c "echo" --show-trace --print-build-logs --verbose --accept-flake-config
 }
 
 check () {
 	# TODO remove the need of impure
-	nix flake check --show-trace --print-build-logs --verbose --impure
+	nix flake check --show-trace --print-build-logs --verbose --impure --accept-flake-config
 }
 
 git_init() {
