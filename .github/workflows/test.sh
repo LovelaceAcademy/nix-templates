@@ -16,7 +16,7 @@ develop () {
 
 check () {
 	# TODO remove the need of impure
-	nix flake check --show-trace --print-build-logs --verbose --impure --accept-flake-config
+	nix flake check --show-trace --print-build-logs --verbose --accept-flake-config
 }
 
 git_init() {
@@ -33,8 +33,8 @@ else
 	# any changes before the test must happen now
 	(
 		cd ${SOURCE_DIR}/${TMPL}
-		sed -i 's|\(.*\)github:klarkc/nix-templates?dir=\(.*\)|\1path:../\2|g' flake.nix
-		nix flake lock --accept-flake-config
+		sed -i 's|\(.*\)github:klarkc/nix-templates?dir=\(.*\)|\1git+file:../?dir=\2|g' flake.nix
+		nix flake lock --accept-flake-config --allow-dirty --allow-dirty-locks
 	)
 	# prepare the target
 	(
