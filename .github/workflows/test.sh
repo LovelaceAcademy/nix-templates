@@ -34,7 +34,7 @@ else
 	(
 		cd ${SOURCE_DIR}/${TMPL}
 		sed -i 's|\(.*\)github:klarkc/nix-templates?dir=\(.*\)|\1path:../\2|g' flake.nix
-		nix flake lock
+		nix flake lock --accept-flake-config
 	)
 	# prepare the target
 	(
