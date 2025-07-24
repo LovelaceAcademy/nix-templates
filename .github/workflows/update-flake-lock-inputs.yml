@@ -25,14 +25,9 @@ jobs:
           private_key: ${{ secrets.BOT_PRIVATE_KEY }}
       - name: Checkout repository
         uses: actions/checkout@v4
-      - name: Install Nix
-        uses: cachix/install-nix-action@V27
-        with:
-          extra_nix_config: |
-            accept-flake-config = true
-            access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
+      - uses: DeterminateSystems/determinate-nix-action@3.8.2
       - name: Update ${{ matrix.template }} flake.lock ${{ matrix.input }}
-        uses: DeterminateSystems/update-flake-lock@v23
+        uses: DeterminateSystems/update-flake-lock@v27
         with:
           path-to-flake-dir: ${{ matrix.template }}
           commit-msg: "build(${{ matrix.template }}): Bump flake.lock ${{ matrix.input }}"

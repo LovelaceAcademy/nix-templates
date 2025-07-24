@@ -21,12 +21,7 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      - name: Install Nix
-        uses: cachix/install-nix-action@V27
-        with:
-          extra_nix_config: |
-            accept-flake-config = true
-            access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
+      - uses: DeterminateSystems/determinate-nix-action@3.8.2
       - name: Read inputs from flake.nix
         id: read_inputs
         run: |
