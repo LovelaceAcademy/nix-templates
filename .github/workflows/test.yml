@@ -52,6 +52,8 @@ jobs:
               - .github/workflows/test.*
       - if: steps.changes.outputs.template == 'true' 
         uses: DeterminateSystems/determinate-nix-action@v3.8.2
+        with:
+          extra-config: accept-flake-config = true
       - if: steps.changes.outputs.template == 'true' 
         uses: DeterminateSystems/magic-nix-cache-action@v13
       - if: steps.changes.outputs.template == 'true' 
