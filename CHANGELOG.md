@@ -1,5 +1,12 @@
 # Changelog
 
+## [9.1.0](https://github.com/klarkc/nix-templates/compare/v9.0.2...v9.1.0) (2025-07-28)
+
+
+### Features
+
+* move to klarkc ([c9b2165](https://github.com/klarkc/nix-templates/commit/c9b21652572cd9bae8ba67adfeb1b494e7e7e1bf))
+
 ## [9.0.2](https://github.com/klarkc/nix-templates/compare/v9.0.1...v9.0.2) (2025-07-11)
 
 
