@@ -3495,11 +3495,11 @@
         "utils": "utils_27"
       },
       "locked": {
-        "lastModified": 1710168018,
-        "narHash": "sha256-pvQPOrlM9X+u5PDqvu4StBup3dVDh3k/Dc1JTualyDY=",
+        "lastModified": 1716214130,
+        "narHash": "sha256-qj1EazsgbfZDmmuC8lczsRZK4him43OhBlv1gPJRpIw=",
         "owner": "LovelaceAcademy",
         "repo": "ctl-nix",
-        "rev": "c7903b1e1ba8b2733344bc3ed8aa6d76cf8f9878",
+        "rev": "532840997936d41dd14f3d320c15311db1322aac",
         "type": "github"
       },
       "original": {
@@ -3540,15 +3540,18 @@
     },
     "customConfig_3": {
       "locked": {
-        "lastModified": 1,
-        "narHash": "sha256-Zd5w1I1Dwt783Q4WuBuCpedcwG1DrIgQGqabyF87prM=",
         "path": "./custom-config",
         "type": "path"
       },
       "original": {
         "path": "./custom-config",
         "type": "path"
-      }
+      },
+      "parent": [
+        "ctl-nix",
+        "ctl",
+        "db-sync"
+      ]
     },
     "data-merge": {
       "inputs": {
