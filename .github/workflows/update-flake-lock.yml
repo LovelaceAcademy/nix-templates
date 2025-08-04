@@ -21,7 +21,7 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      - uses: DeterminateSystems/determinate-nix-action@v3.8.2
+      - uses: DeterminateSystems/determinate-nix-action@v3.8.4
         with:
           extra-config: accept-flake-config = true
       - name: Read inputs from flake.nix
