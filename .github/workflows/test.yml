@@ -51,7 +51,7 @@ jobs:
               - CHANGELOG.md
               - .github/workflows/test.*
       - if: steps.changes.outputs.template == 'true' 
-        uses: DeterminateSystems/determinate-nix-action@v3.8.2
+        uses: DeterminateSystems/determinate-nix-action@v3.8.5
         with:
           extra-config: accept-flake-config = true
       - if: steps.changes.outputs.template == 'true' 
